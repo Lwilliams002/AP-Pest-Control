@@ -1,7 +1,16 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import miamiHero from "@/assets/miami-hero.jpg";
 import valleyHero from "@/assets/valley-hero.jpg";
 import logo from "@/assets/ap-pest-logo.png";
+import imgMosquito from "@/assets/pests/mosquito.png";
+import imgCockroach from "@/assets/pests/cockroach.png";
+import imgRodent from "@/assets/pests/rodent.png";
+import imgAnt from "@/assets/pests/ant.png";
+import imgTermite from "@/assets/pests/termite.png";
+import imgScorpion from "@/assets/pests/scorpion.png";
+import imgSpider from "@/assets/pests/spider.png";
+import imgCommercial from "@/assets/pests/commercial.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -17,22 +26,24 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const miamiPests = [
-  { t: "Mosquito Control", d: "Yard fogging and breeding-site treatment built for Florida humidity." },
-  { t: "Cockroach Control", d: "American & German roach programs for homes, restaurants, condos." },
-  { t: "Rodent Control", d: "Roof rats and Norway rats — exclusion, trapping, sanitation." },
-  { t: "Ant Control", d: "Targeted baiting that wipes out the colony, not just the trail." },
-  { t: "Termite Defense", d: "Subterranean & drywood programs tuned to South Florida wood." },
-  { t: "Commercial", d: "Hotels, restaurants, marinas, multifamily — discreet schedules." },
+type Pest = { t: string; d: string; img: string };
+
+const miamiPests: Pest[] = [
+  { t: "Mosquito Control", d: "Yard fogging and breeding-site treatment built for Florida humidity.", img: imgMosquito },
+  { t: "Cockroach Control", d: "American & German roach programs for homes, restaurants, condos.", img: imgCockroach },
+  { t: "Rodent Control", d: "Roof rats and Norway rats — exclusion, trapping, sanitation.", img: imgRodent },
+  { t: "Ant Control", d: "Targeted baiting that wipes out the colony, not just the trail.", img: imgAnt },
+  { t: "Termite Defense", d: "Subterranean & drywood programs tuned to South Florida wood.", img: imgTermite },
+  { t: "Commercial", d: "Hotels, restaurants, marinas, multifamily — discreet schedules.", img: imgCommercial },
 ];
 
-const arizonaPests = [
-  { t: "Scorpion Control", d: "UV night sweeps and long-lasting perimeter treatments." },
-  { t: "Cockroach Control", d: "Targeted baits and dusts in cracks, crevices, and entry points." },
-  { t: "Rodent Control", d: "Inspection, sealing, trapping, and clean-up of affected areas." },
-  { t: "Ant Control", d: "Non-repellent sprays and gel baits that kill the whole colony." },
-  { t: "Spider & Wasp", d: "Web removal, nest treatment, and prevention around eaves and yards." },
-  { t: "Mosquito Control", d: "Misting treatments for shady hide-outs and standing water." },
+const arizonaPests: Pest[] = [
+  { t: "Scorpion Control", d: "UV night sweeps and long-lasting perimeter treatments.", img: imgScorpion },
+  { t: "Cockroach Control", d: "Targeted baits and dusts in cracks, crevices, and entry points.", img: imgCockroach },
+  { t: "Rodent Control", d: "Inspection, sealing, trapping, and clean-up of affected areas.", img: imgRodent },
+  { t: "Ant Control", d: "Non-repellent sprays and gel baits that kill the whole colony.", img: imgAnt },
+  { t: "Spider & Wasp", d: "Web removal, nest treatment, and prevention around eaves and yards.", img: imgSpider },
+  { t: "Mosquito Control", d: "Misting treatments for shady hide-outs and standing water.", img: imgMosquito },
 ];
 
 const miamiCities = ["Miami", "Miami Beach", "Brickell", "Coral Gables", "Coconut Grove", "Wynwood", "Aventura", "Doral"];
