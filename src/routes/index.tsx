@@ -91,18 +91,18 @@ function Hero() {
       <div className="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-neon-pink/60 to-transparent" />
       <div className="absolute inset-0 grid-bg opacity-30" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-24 w-full text-center">
-        <p className="text-xs uppercase tracking-[0.4em] text-neon-cyan mb-6 animate-flicker">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-24 w-full text-center">
+        <p className="text-[10px] sm:text-xs uppercase tracking-[0.4em] text-neon-cyan mb-6 animate-flicker">
           ◢ Two coasts · One standard
         </p>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9]">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9]">
           Pest control for
           <br />
           <span className="text-gradient-miami glow-text italic">Miami</span>
           <span className="text-muted-foreground"> & </span>
           <span className="text-gradient-miami glow-text italic">Arizona.</span>
         </h1>
-        <p className="mt-8 max-w-2xl mx-auto text-lg text-muted-foreground">
+        <p className="mt-6 sm:mt-8 max-w-2xl mx-auto text-base sm:text-lg text-muted-foreground px-2">
           Independent, family-owned, and obsessed with sustainable pest control.
           Pick your region — we'll show up fast and do it right.
         </p>
