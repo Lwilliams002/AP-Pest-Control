@@ -48,9 +48,11 @@ function Nav() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
-        <Link to="/" className="flex items-center gap-2 font-display font-bold text-lg tracking-widest">
-          <span className="inline-block w-2 h-2 rounded-full bg-neon-pink shadow-glow-pink animate-flicker" />
-          AP <span className="text-gradient-miami">PEST</span>
+        <Link to="/" className="flex items-center gap-3">
+          <img src={logo} alt="AP Pest" className="h-9 w-auto" />
+          <span className="hidden sm:inline font-display font-bold text-lg tracking-[0.25em] text-foreground">
+            AP <span className="text-gradient-miami">PEST</span>
+          </span>
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest text-muted-foreground">
           <a href="#miami" className="hover:text-neon-pink transition">Miami, FL</a>
