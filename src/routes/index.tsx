@@ -1,7 +1,16 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import miamiHero from "@/assets/miami-hero.jpg";
 import valleyHero from "@/assets/valley-hero.jpg";
 import logo from "@/assets/ap-pest-logo.png";
+import imgMosquito from "@/assets/pests/mosquito.png";
+import imgCockroach from "@/assets/pests/cockroach.png";
+import imgRodent from "@/assets/pests/rodent.png";
+import imgAnt from "@/assets/pests/ant.png";
+import imgTermite from "@/assets/pests/termite.png";
+import imgScorpion from "@/assets/pests/scorpion.png";
+import imgSpider from "@/assets/pests/spider.png";
+import imgCommercial from "@/assets/pests/commercial.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -17,22 +26,24 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const miamiPests = [
-  { t: "Mosquito Control", d: "Yard fogging and breeding-site treatment built for Florida humidity." },
-  { t: "Cockroach Control", d: "American & German roach programs for homes, restaurants, condos." },
-  { t: "Rodent Control", d: "Roof rats and Norway rats — exclusion, trapping, sanitation." },
-  { t: "Ant Control", d: "Targeted baiting that wipes out the colony, not just the trail." },
-  { t: "Termite Defense", d: "Subterranean & drywood programs tuned to South Florida wood." },
-  { t: "Commercial", d: "Hotels, restaurants, marinas, multifamily — discreet schedules." },
+type Pest = { t: string; d: string; img: string };
+
+const miamiPests: Pest[] = [
+  { t: "Mosquito Control", d: "Yard fogging and breeding-site treatment built for Florida humidity.", img: imgMosquito },
+  { t: "Cockroach Control", d: "American & German roach programs for homes, restaurants, condos.", img: imgCockroach },
+  { t: "Rodent Control", d: "Roof rats and Norway rats — exclusion, trapping, sanitation.", img: imgRodent },
+  { t: "Ant Control", d: "Targeted baiting that wipes out the colony, not just the trail.", img: imgAnt },
+  { t: "Termite Defense", d: "Subterranean & drywood programs tuned to South Florida wood.", img: imgTermite },
+  { t: "Commercial", d: "Hotels, restaurants, marinas, multifamily — discreet schedules.", img: imgCommercial },
 ];
 
-const arizonaPests = [
-  { t: "Scorpion Control", d: "UV night sweeps and long-lasting perimeter treatments." },
-  { t: "Cockroach Control", d: "Targeted baits and dusts in cracks, crevices, and entry points." },
-  { t: "Rodent Control", d: "Inspection, sealing, trapping, and clean-up of affected areas." },
-  { t: "Ant Control", d: "Non-repellent sprays and gel baits that kill the whole colony." },
-  { t: "Spider & Wasp", d: "Web removal, nest treatment, and prevention around eaves and yards." },
-  { t: "Mosquito Control", d: "Misting treatments for shady hide-outs and standing water." },
+const arizonaPests: Pest[] = [
+  { t: "Scorpion Control", d: "UV night sweeps and long-lasting perimeter treatments.", img: imgScorpion },
+  { t: "Cockroach Control", d: "Targeted baits and dusts in cracks, crevices, and entry points.", img: imgCockroach },
+  { t: "Rodent Control", d: "Inspection, sealing, trapping, and clean-up of affected areas.", img: imgRodent },
+  { t: "Ant Control", d: "Non-repellent sprays and gel baits that kill the whole colony.", img: imgAnt },
+  { t: "Spider & Wasp", d: "Web removal, nest treatment, and prevention around eaves and yards.", img: imgSpider },
+  { t: "Mosquito Control", d: "Misting treatments for shady hide-outs and standing water.", img: imgMosquito },
 ];
 
 const miamiCities = ["Miami", "Miami Beach", "Brickell", "Coral Gables", "Coconut Grove", "Wynwood", "Aventura", "Doral"];
@@ -80,18 +91,18 @@ function Hero() {
       <div className="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-neon-pink/60 to-transparent" />
       <div className="absolute inset-0 grid-bg opacity-30" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-24 w-full text-center">
-        <p className="text-xs uppercase tracking-[0.4em] text-neon-cyan mb-6 animate-flicker">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-24 w-full text-center">
+        <p className="text-[10px] sm:text-xs uppercase tracking-[0.4em] text-neon-cyan mb-6 animate-flicker">
           ◢ Two coasts · One standard
         </p>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9]">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9]">
           Pest control for
           <br />
           <span className="text-gradient-miami glow-text italic">Miami</span>
           <span className="text-muted-foreground"> & </span>
           <span className="text-gradient-miami glow-text italic">Arizona.</span>
         </h1>
-        <p className="mt-8 max-w-2xl mx-auto text-lg text-muted-foreground">
+        <p className="mt-6 sm:mt-8 max-w-2xl mx-auto text-base sm:text-lg text-muted-foreground px-2">
           Independent, family-owned, and obsessed with sustainable pest control.
           Pick your region — we'll show up fast and do it right.
         </p>
@@ -116,66 +127,105 @@ function RegionSection({
   id, eyebrow, title, italic, copy, cities, pests, image, accent, reverse,
 }: {
   id: string; eyebrow: string; title: string; italic: string; copy: string;
-  cities: string[]; pests: { t: string; d: string }[]; image: string;
+  cities: string[]; pests: Pest[]; image: string;
   accent: "pink" | "cyan"; reverse?: boolean;
 }) {
+  const [active, setActive] = useState(0);
   const accentText = accent === "pink" ? "text-neon-pink" : "text-neon-cyan";
   const accentBorder = accent === "pink" ? "border-neon-pink/40" : "border-neon-cyan/40";
-  const accentDot = accent === "pink" ? "bg-neon-pink" : "bg-neon-cyan";
+  const accentBorderStrong = accent === "pink" ? "border-neon-pink" : "border-neon-cyan";
+  const accentBg = accent === "pink" ? "bg-neon-pink/5" : "bg-neon-cyan/5";
+  const selected = pests[active];
+
   return (
-    <section id={id} className="relative py-28 border-t border-border overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className={`grid lg:grid-cols-12 gap-12 items-start ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
-          {/* Image */}
+    <section id={id} className="relative py-20 md:py-28 border-t border-border overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Header */}
+        <div className={`grid lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12 md:mb-16 ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
           <div className="lg:col-span-5">
-            <div className={`relative aspect-[4/5] border ${accentBorder} p-1`}>
+            <div className={`relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5] border ${accentBorder} p-1`}>
               <div className={`absolute -inset-4 ${accent === "pink" ? "bg-gradient-miami" : "bg-gradient-sunset"} blur-3xl opacity-20 -z-10`} />
               <img src={image} alt={title} loading="lazy" className="w-full h-full object-cover" />
-              <div className="absolute bottom-4 left-4 right-4 backdrop-blur-md bg-background/70 border border-border p-4">
-                <p className={`text-xs uppercase tracking-[0.3em] ${accentText}`}>Service area</p>
-                <p className="text-xl font-display font-bold mt-1">{title}</p>
+              <div className="absolute bottom-3 left-3 right-3 backdrop-blur-md bg-background/70 border border-border p-3 sm:p-4">
+                <p className={`text-[10px] sm:text-xs uppercase tracking-[0.3em] ${accentText}`}>Service area</p>
+                <p className="text-lg sm:text-xl font-display font-bold mt-1">{title}</p>
               </div>
             </div>
           </div>
-
-          {/* Content */}
           <div className="lg:col-span-7">
-            <p className={`text-xs uppercase tracking-[0.4em] ${accentText} mb-4`}>◢ {eyebrow}</p>
-            <h2 className="text-4xl md:text-6xl font-black mb-6">
+            <p className={`text-[10px] sm:text-xs uppercase tracking-[0.4em] ${accentText} mb-4`}>◢ {eyebrow}</p>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-[0.9]">
               {title.split(" ")[0]} <span className="italic text-gradient-miami">{italic}</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-xl">{copy}</p>
-
-            <div className="mb-8">
-              <p className={`text-xs uppercase tracking-[0.3em] ${accentText} mb-3`}>Cities served</p>
+            <p className="text-base sm:text-lg text-muted-foreground mb-6 max-w-xl">{copy}</p>
+            <div>
+              <p className={`text-[10px] sm:text-xs uppercase tracking-[0.3em] ${accentText} mb-3`}>Cities served</p>
               <div className="flex flex-wrap gap-2">
                 {cities.map((c) => (
-                  <span key={c} className="text-xs px-3 py-1.5 border border-border bg-card/50 uppercase tracking-wider">{c}</span>
+                  <span key={c} className="text-[10px] sm:text-xs px-3 py-1.5 border border-border bg-card/50 uppercase tracking-wider">{c}</span>
                 ))}
               </div>
             </div>
-
-            <div>
-              <p className={`text-xs uppercase tracking-[0.3em] ${accentText} mb-4`}>Pest programs</p>
-              <div className="grid sm:grid-cols-2 gap-px bg-border">
-                {pests.map((p) => (
-                  <div key={p.t} className="bg-background p-5 hover:bg-card transition">
-                    <div className="flex items-start gap-3">
-                      <span className={`mt-2 w-1.5 h-1.5 rounded-full ${accentDot} shadow-[0_0_10px_currentColor] shrink-0`} />
-                      <div>
-                        <h3 className="font-bold text-base">{p.t}</h3>
-                        <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{p.d}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <a href="#contact" className="inline-block mt-10 px-8 py-4 bg-gradient-miami text-primary-foreground font-bold uppercase tracking-widest text-sm shadow-neon">
-              Book {title.split(",")[0]} Service
-            </a>
           </div>
+        </div>
+
+        {/* Interactive pests */}
+        <div>
+          <div className="flex items-end justify-between flex-wrap gap-3 mb-6">
+            <p className={`text-[10px] sm:text-xs uppercase tracking-[0.3em] ${accentText}`}>◢ Tap a pest</p>
+            <p className="text-xs text-muted-foreground">{pests.length} programs</p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
+            {/* Pest grid */}
+            <div className="lg:col-span-7">
+              <div className="grid grid-cols-3 sm:grid-cols-3 gap-2 sm:gap-3">
+                {pests.map((p, i) => {
+                  const isActive = i === active;
+                  return (
+                    <button
+                      key={p.t}
+                      onClick={() => setActive(i)}
+                      className={`group relative aspect-square border ${isActive ? `${accentBorderStrong} ${accentBg} shadow-neon` : "border-border bg-card/30"} p-2 sm:p-3 transition-all hover:${accentBorderStrong.replace("border-", "border-")} flex flex-col items-center justify-center text-center`}
+                      aria-label={p.t}
+                    >
+                      <img
+                        src={p.img}
+                        alt={p.t}
+                        loading="lazy"
+                        className={`w-full h-full max-h-[60%] object-contain transition-transform ${isActive ? "scale-110" : "group-hover:scale-105 opacity-80"}`}
+                      />
+                      <span className={`mt-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-bold ${isActive ? accentText : "text-muted-foreground"}`}>
+                        {p.t.replace(" Control", "").replace(" Defense", "")}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Detail panel */}
+            <div className="lg:col-span-5">
+              <div className={`relative border ${accentBorderStrong} ${accentBg} p-6 sm:p-8 h-full min-h-[280px] flex flex-col`}>
+                <div className="flex-1 flex items-center justify-center mb-4">
+                  <img
+                    src={selected.img}
+                    alt={selected.t}
+                    className="w-32 h-32 sm:w-40 sm:h-40 object-contain animate-float"
+                  />
+                </div>
+                <div>
+                  <p className={`text-[10px] uppercase tracking-[0.3em] ${accentText} mb-2`}>Program</p>
+                  <h3 className="text-2xl sm:text-3xl font-black font-display">{selected.t}</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground mt-3 leading-relaxed">{selected.d}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" className="inline-block mt-10 px-8 py-4 bg-gradient-miami text-primary-foreground font-bold uppercase tracking-widest text-sm shadow-neon">
+            Book {title.split(",")[0]} Service
+          </a>
         </div>
       </div>
     </section>
