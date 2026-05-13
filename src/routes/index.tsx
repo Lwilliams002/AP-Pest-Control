@@ -271,9 +271,11 @@ function Footer() {
     <footer className="border-t border-border py-12">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-sm text-muted-foreground">
         <div>
-          <div className="flex items-center gap-2 font-display font-bold tracking-widest text-foreground">
-            <span className="inline-block w-2 h-2 rounded-full bg-neon-pink shadow-glow-pink" />
-            AP <span className="text-gradient-miami">PEST</span>
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="AP Pest" className="h-10 w-auto" />
+            <span className="font-display font-bold tracking-[0.25em] text-foreground">
+              AP <span className="text-gradient-miami">PEST</span>
+            </span>
           </div>
           <p className="mt-4">Independent & family owned. Sustainable pest control across Miami and the Arizona Valley.</p>
         </div>
