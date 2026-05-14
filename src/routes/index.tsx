@@ -11,6 +11,12 @@ import imgTermite from "@/assets/pests/termite.png";
 import imgScorpion from "@/assets/pests/scorpion.png";
 import imgSpider from "@/assets/pests/spider.png";
 import imgCommercial from "@/assets/pests/commercial.png";
+import imgEarwig from "@/assets/pests/earwig.png";
+import imgFlea from "@/assets/pests/flea.png";
+import imgGeneral from "@/assets/pests/general.png";
+import imgHornet from "@/assets/pests/hornet.png";
+import imgSilverfish from "@/assets/pests/silverfish.png";
+import imgWasp from "@/assets/pests/wasp.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -35,106 +41,149 @@ type Pest = {
   risk: string;
 };
 
+const PEST_ANT: Pest = {
+  t: "Ant Pest Control",
+  d: "Targeted baiting that wipes out the colony, not just the trail.",
+  img: imgAnt,
+  about: "Multiple species form trails between food sources and hidden nests. Spraying the trail just splits the colony — baiting takes the whole thing out.",
+  signs: ["Trails along countertops & baseboards", "Tiny piles of soil near cracks", "Ants swarming sweet or greasy spills"],
+  risk: "Contaminate food and can short out electronics they nest in.",
+};
+const PEST_COCKROACH: Pest = {
+  t: "Cockroach Pest Control",
+  d: "American & German roach programs for homes, restaurants, condos.",
+  img: imgCockroach,
+  about: "American roaches (large, reddish-brown) and German roaches (small, tan) are the two big offenders. Nocturnal, fast-breeding, drawn to moisture and food residue.",
+  signs: ["Pepper-like droppings in drawers", "Musty odor in kitchens", "Egg cases (oothecae) behind appliances"],
+  risk: "Trigger asthma & allergies; spread salmonella and E. coli.",
+};
+const PEST_COMMERCIAL: Pest = {
+  t: "Commercial Pest Control",
+  d: "Hotels, restaurants, marinas, multifamily — discreet schedules.",
+  img: imgCommercial,
+  about: "Custom IPM programs for businesses with health-code obligations. Discreet uniforms, after-hours service, and full digital documentation for inspectors.",
+  signs: ["Failed health inspection prep", "Guest or tenant complaints", "Recurring issues across units"],
+  risk: "One sighting can cost a 5-star review, a license, or a lease.",
+};
+const PEST_EARWIG: Pest = {
+  t: "Earwig Control",
+  d: "Perimeter dust and granular treatments around foundations and mulch.",
+  img: imgEarwig,
+  about: "Dark, pincer-tailed insects that hide in damp mulch, leaf litter, and under pots. They wander indoors after heavy rain or irrigation.",
+  signs: ["Pincer bugs in bathtubs and sinks", "Notched leaves on plants", "Activity under flowerpots and stones"],
+  risk: "Mostly a nuisance, but populations explode fast in irrigated landscaping.",
+};
+const PEST_FLEA: Pest = {
+  t: "Flea Treatment",
+  d: "Indoor + yard knockdown with growth regulators that break the cycle.",
+  img: imgFlea,
+  about: "Tiny jumping parasites that ride in on pets and wildlife. Eggs and larvae live in carpet, bedding, and shaded yard areas — adults are only 5% of the population.",
+  signs: ["Itchy red bites around ankles", "Pets scratching constantly", "Black 'pepper' specks in pet bedding"],
+  risk: "Transmit tapeworms and, historically, plague-related bacteria.",
+};
+const PEST_GENERAL: Pest = {
+  t: "General Pest Control",
+  d: "Quarterly home defense covering the most common indoor and outdoor pests.",
+  img: imgGeneral,
+  about: "An all-in-one perimeter program for the everyday stuff — ants, spiders, crickets, silverfish, earwigs, occasional invaders. Family- and pet-conscious products.",
+  signs: ["Spotting bugs more than once a month", "Webs around eaves and corners", "Activity along baseboards"],
+  risk: "Small problems compound fast in our climate without ongoing protection.",
+};
+const PEST_HORNET: Pest = {
+  t: "Hornet Control",
+  d: "Safe nest removal and residual treatment around eaves and trees.",
+  img: imgHornet,
+  about: "Large, aggressive social wasps that build paper nests in trees, sheds, and attics. Defend the nest with repeated stings.",
+  signs: ["Football-shaped paper nests", "Hornets patrolling a single area", "Buzzing inside walls or attics"],
+  risk: "Multiple stings can be life-threatening — never DIY a mature nest.",
+};
+const PEST_RODENT: Pest = {
+  t: "Rodent Control",
+  d: "Inspection, exclusion, trapping, and clean-up of affected areas.",
+  img: imgRodent,
+  about: "Roof rats, Norway rats, and house mice chew through wire, insulation, and food packaging — and reproduce shockingly fast.",
+  signs: ["Scratching in walls or ceilings at night", "Dark, rice-shaped droppings", "Gnaw marks on wood or wiring"],
+  risk: "Carry hantavirus and leptospirosis; chewed wiring is a top fire cause.",
+};
+const PEST_SCORPION: Pest = {
+  t: "Scorpion Pest Control",
+  d: "UV night sweeps and long-lasting perimeter treatments.",
+  img: imgScorpion,
+  about: "Bark scorpions (Centruroides sculpturatus) are Arizona's most venomous — pale tan, 2–3\", the only species that climbs walls and ceilings. Glow green under UV.",
+  signs: ["Glowing under blacklight at night", "Sightings in showers, shoes, or laundry", "Found in block walls or wood piles"],
+  risk: "Stings cause severe pain; medically significant for kids, elderly, and pets.",
+};
+const PEST_SILVERFISH: Pest = {
+  t: "Silverfish Pest Control",
+  d: "Crack-and-crevice treatment in attics, bathrooms, and storage areas.",
+  img: imgSilverfish,
+  about: "Teardrop-shaped, silvery, fast-moving insects that thrive in humid, dark spaces. They feed on paper, glue, starches, and fabric.",
+  signs: ["Yellow stains on paper or books", "Tiny holes in stored clothing", "Pepper-like droppings in cabinets"],
+  risk: "Damage books, photos, wallpaper, and stored linens over time.",
+};
+const PEST_SPIDER: Pest = {
+  t: "Spider Pest Control",
+  d: "Web removal, dusting, and prevention around eaves, garages, and yards.",
+  img: imgSpider,
+  about: "Black widows and brown spiders hide in block walls, garages, and patio furniture. Most other spiders are harmless — but webs and egg sacs multiply fast.",
+  signs: ["Tangled webs under patio furniture", "Egg sacs in garage corners", "Spiders in shoes or stored boxes"],
+  risk: "Widow bites are medically significant; brown recluse bites can scar.",
+};
+const PEST_WASP: Pest = {
+  t: "Wasp Pest Control",
+  d: "Nest knockdown and residual treatment under eaves, in BBQs, and sheds.",
+  img: imgWasp,
+  about: "Paper wasps and yellowjackets build umbrella-shaped nests under overhangs. Aggressive when disturbed — yellowjackets can sting repeatedly.",
+  signs: ["Wasps entering a small hole in siding", "Open-comb nests under eaves", "Increased activity around trash cans"],
+  risk: "Painful, sometimes anaphylactic stings; nests grow rapidly in summer.",
+};
+const PEST_MOSQUITO: Pest = {
+  t: "Mosquito Control",
+  d: "Yard fogging and breeding-site treatment built for humid climates.",
+  img: imgMosquito,
+  about: "Aedes aegypti and Aedes albopictus are the dominant biters. Active dawn and dusk, breeding in any standing water — bottle caps to bromeliads.",
+  signs: ["Itchy welts after being outside", "Buzzing around ankles", "Swarms near shaded, damp areas"],
+  risk: "Vectors for Zika, dengue, West Nile, and chikungunya.",
+};
+const PEST_TERMITE: Pest = {
+  t: "Termite Defense",
+  d: "Subterranean & drywood programs tuned to local construction.",
+  img: imgTermite,
+  about: "Subterranean termites (incl. invasive Formosan) tunnel up from soil; drywood termites live entirely inside wood. Damage is rarely covered by insurance.",
+  signs: ["Mud tubes on foundation walls", "Discarded wings near windowsills", "Hollow-sounding or blistered wood"],
+  risk: "Cause billions in structural damage every year across the U.S.",
+};
+
 const miamiPests: Pest[] = [
-  {
-    t: "Mosquito Control",
-    d: "Yard fogging and breeding-site treatment built for Florida humidity.",
-    img: imgMosquito,
-    about: "Small biting flies (Aedes aegypti & Aedes albopictus dominate South Florida). Active dawn and dusk, breed in any standing water — bottle caps to bromeliads.",
-    signs: ["Itchy welts after being outside", "Buzzing around ankles", "Swarms near shaded, damp areas"],
-    risk: "Vectors for Zika, dengue, West Nile, and chikungunya.",
-  },
-  {
-    t: "Cockroach Control",
-    d: "American & German roach programs for homes, restaurants, condos.",
-    img: imgCockroach,
-    about: "American roaches (large, reddish-brown, 1.5–2\") and German roaches (small, tan, 0.5\") are the two big offenders. Nocturnal, fast-breeding, drawn to moisture and food residue.",
-    signs: ["Pepper-like droppings in drawers", "Musty odor in kitchens", "Egg cases (oothecae) behind appliances"],
-    risk: "Trigger asthma & allergies; spread salmonella and E. coli.",
-  },
-  {
-    t: "Rodent Control",
-    d: "Roof rats and Norway rats — exclusion, trapping, sanitation.",
-    img: imgRodent,
-    about: "Roof rats climb trees and enter attics; Norway rats burrow at ground level. Both chew through wire, insulation, and food packaging.",
-    signs: ["Scratching in walls or ceilings at night", "Dark, rice-shaped droppings", "Gnaw marks on wood or wiring"],
-    risk: "Carry hantavirus, leptospirosis; chewed wires are a top fire cause.",
-  },
-  {
-    t: "Ant Control",
-    d: "Targeted baiting that wipes out the colony, not just the trail.",
-    img: imgAnt,
-    about: "Ghost ants, white-footed ants, and big-headed ants dominate Miami. Colonies can have multiple queens — spraying the trail just splits them.",
-    signs: ["Trails along countertops & baseboards", "Tiny piles of soil near cracks", "Ants swarming sweet or greasy spills"],
-    risk: "Contaminate food and can short out electronics they nest in.",
-  },
-  {
-    t: "Termite Defense",
-    d: "Subterranean & drywood programs tuned to South Florida wood.",
-    img: imgTermite,
-    about: "Subterranean termites (incl. invasive Formosan) tunnel up from soil; drywood termites live entirely inside wood. Florida is the U.S. termite capital.",
-    signs: ["Mud tubes on foundation walls", "Discarded wings near windowsills", "Hollow-sounding or blistered wood"],
-    risk: "Cause billions in structural damage every year — rarely covered by insurance.",
-  },
-  {
-    t: "Commercial",
-    d: "Hotels, restaurants, marinas, multifamily — discreet schedules.",
-    img: imgCommercial,
-    about: "Custom IPM programs for businesses with health-code obligations. Discreet uniforms, after-hours service, and full digital documentation for inspectors.",
-    signs: ["Failed health inspection prep", "Guest or tenant complaints", "Recurring issues across units"],
-    risk: "One sighting can cost a 5-star review, a license, or a lease.",
-  },
+  PEST_ANT,
+  PEST_COCKROACH,
+  PEST_COMMERCIAL,
+  PEST_EARWIG,
+  PEST_FLEA,
+  PEST_GENERAL,
+  PEST_HORNET,
+  PEST_MOSQUITO,
+  PEST_RODENT,
+  PEST_SILVERFISH,
+  PEST_SPIDER,
+  PEST_TERMITE,
+  PEST_WASP,
 ];
 
 const arizonaPests: Pest[] = [
-  {
-    t: "Scorpion Control",
-    d: "UV night sweeps and long-lasting perimeter treatments.",
-    img: imgScorpion,
-    about: "Bark scorpions (Centruroides sculpturatus) are Arizona's most venomous — pale tan, 2–3\", and the only species that climbs walls and ceilings. Glow bright green under UV light.",
-    signs: ["Glowing under blacklight at night", "Sightings in showers, shoes, or laundry", "Found in block walls or wood piles"],
-    risk: "Stings cause severe pain; medically significant for kids, elderly, and pets.",
-  },
-  {
-    t: "Cockroach Control",
-    d: "Targeted baits and dusts in cracks, crevices, and entry points.",
-    img: imgCockroach,
-    about: "American roaches (a.k.a. \"sewer roaches\") and German roaches dominate the Valley. They migrate up through sewer lines and irrigation boxes during monsoon season.",
-    signs: ["Roaches crawling out of drains", "Activity inside pantries at night", "Egg cases behind fridges and dishwashers"],
-    risk: "Allergens and asthma triggers; contaminate food prep surfaces.",
-  },
-  {
-    t: "Rodent Control",
-    d: "Inspection, sealing, trapping, and clean-up of affected areas.",
-    img: imgRodent,
-    about: "Roof rats are now widespread across Phoenix metro, especially in citrus-heavy neighborhoods. Pack rats build large stick nests near homes and garages.",
-    signs: ["Half-eaten citrus fruit under trees", "Droppings in garage or attic", "Nests of sticks/debris by AC units"],
-    risk: "Chewed wiring, contaminated insulation, hantavirus exposure during cleanup.",
-  },
-  {
-    t: "Ant Control",
-    d: "Non-repellent sprays and gel baits that kill the whole colony.",
-    img: imgAnt,
-    about: "Pavement ants, odorous house ants, and aggressive desert harvester ants. Harvester ants deliver one of the most painful insect stings in North America.",
-    signs: ["Mounds of fine soil in the yard", "Trails into kitchens after rain", "Cleared circles around nest entrances"],
-    risk: "Painful stings (harvester ants) and food contamination indoors.",
-  },
-  {
-    t: "Spider & Wasp",
-    d: "Web removal, nest treatment, and prevention around eaves and yards.",
-    img: imgSpider,
-    about: "Black widows and brown spiders hide in block walls, garages, and patio furniture. Paper wasps and Africanized honey bees nest under eaves and in attics.",
-    signs: ["Tangled webs under patio furniture", "Egg sacs in garage corners", "Wasp nests under eaves or in BBQs"],
-    risk: "Widow bites are medically significant; Africanized bees swarm aggressively.",
-  },
-  {
-    t: "Mosquito Control",
-    d: "Misting treatments for shady hide-outs and standing water.",
-    img: imgMosquito,
-    about: "Yes — even the desert. Aedes aegypti thrives in the Valley using flowerpots, irrigation drip lines, and pool covers as breeding sites. Worst during monsoon.",
-    signs: ["Bites while watering the yard", "Mosquitoes resting in shaded shrubs", "Larvae in any standing water"],
-    risk: "Spread West Nile virus — Maricopa County leads the U.S. in cases most years.",
-  },
+  PEST_ANT,
+  PEST_COCKROACH,
+  PEST_COMMERCIAL,
+  PEST_EARWIG,
+  PEST_FLEA,
+  PEST_GENERAL,
+  PEST_HORNET,
+  PEST_RODENT,
+  PEST_SCORPION,
+  PEST_SILVERFISH,
+  PEST_SPIDER,
+  PEST_TERMITE,
+  PEST_WASP,
 ];
 
 const miamiCities = ["Miami", "Miami Beach", "Brickell", "Coral Gables", "Coconut Grove", "Wynwood", "Aventura", "Doral"];
