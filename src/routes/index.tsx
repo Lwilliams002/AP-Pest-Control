@@ -297,18 +297,44 @@ function RegionSection({
 
             {/* Detail panel */}
             <div className="lg:col-span-5">
-              <div className={`relative border ${accentBorderStrong} ${accentBg} p-6 sm:p-8 h-full min-h-[280px] flex flex-col`}>
-                <div className="flex-1 flex items-center justify-center mb-4">
+              <div className={`relative border ${accentBorderStrong} ${accentBg} p-6 sm:p-8 h-full min-h-[280px] flex flex-col gap-5`}>
+                <div className="flex items-center gap-4">
                   <img
                     src={selected.img}
                     alt={selected.t}
-                    className="w-32 h-32 sm:w-40 sm:h-40 object-contain animate-float"
+                    className="w-20 h-20 sm:w-28 sm:h-28 object-contain animate-float shrink-0"
                   />
+                  <div>
+                    <p className={`text-[10px] uppercase tracking-[0.3em] ${accentText} mb-1`}>Program</p>
+                    <h3 className="text-xl sm:text-2xl font-black font-display leading-tight">{selected.t}</h3>
+                  </div>
                 </div>
+
                 <div>
-                  <p className={`text-[10px] uppercase tracking-[0.3em] ${accentText} mb-2`}>Program</p>
-                  <h3 className="text-2xl sm:text-3xl font-black font-display">{selected.t}</h3>
-                  <p className="text-sm sm:text-base text-muted-foreground mt-3 leading-relaxed">{selected.d}</p>
+                  <p className={`text-[10px] uppercase tracking-[0.3em] ${accentText} mb-2`}>What it is</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{selected.about}</p>
+                </div>
+
+                <div>
+                  <p className={`text-[10px] uppercase tracking-[0.3em] ${accentText} mb-2`}>Signs you have them</p>
+                  <ul className="space-y-1.5">
+                    {selected.signs.map((s) => (
+                      <li key={s} className="text-sm text-foreground/90 flex gap-2 leading-relaxed">
+                        <span className={accentText}>◆</span>
+                        <span>{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-3 border-t border-border">
+                  <p className={`text-[10px] uppercase tracking-[0.3em] ${accentText} mb-2`}>Why it matters</p>
+                  <p className="text-sm text-foreground/80 leading-relaxed">{selected.risk}</p>
+                </div>
+
+                <div>
+                  <p className={`text-[10px] uppercase tracking-[0.3em] ${accentText} mb-2`}>Our approach</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{selected.d}</p>
                 </div>
               </div>
             </div>
