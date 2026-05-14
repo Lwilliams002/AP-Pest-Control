@@ -17,6 +17,17 @@ import imgGeneral from "@/assets/pests/general.png";
 import imgHornet from "@/assets/pests/hornet.png";
 import imgSilverfish from "@/assets/pests/silverfish.png";
 import imgWasp from "@/assets/pests/wasp.png";
+import imgBedbug from "@/assets/pests/bedbug.png";
+import imgBee from "@/assets/pests/bee.png";
+import imgIguana from "@/assets/pests/iguana.png";
+import imgNoseeum from "@/assets/pests/noseeum.png";
+import imgWhitefly from "@/assets/pests/whitefly.png";
+import imgWildlife from "@/assets/pests/wildlife.png";
+import imgPigeon from "@/assets/pests/pigeon.png";
+import imgKissingbug from "@/assets/pests/kissingbug.png";
+import imgRattlesnake from "@/assets/pests/rattlesnake.png";
+import imgPackrat from "@/assets/pests/packrat.png";
+import imgCricket from "@/assets/pests/cricket.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -39,6 +50,12 @@ type Pest = {
   about: string;
   signs: string[];
   risk: string;
+  unique?: "miami" | "arizona";
+};
+
+const REGION_FLAG: Record<"miami" | "arizona", { emoji: string; label: string }> = {
+  miami: { emoji: "🌴", label: "Miami only" },
+  arizona: { emoji: "🌵", label: "Arizona only" },
 };
 
 const PEST_ANT: Pest = {
@@ -154,30 +171,141 @@ const PEST_TERMITE: Pest = {
   risk: "Cause billions in structural damage every year across the U.S.",
 };
 
+const PEST_BEDBUG: Pest = {
+  t: "Bed Bug Treatment",
+  d: "Heat & chemical treatments for homes, hotels, and short-term rentals.",
+  img: imgBedbug,
+  about: "Tiny reddish-brown insects that feed on blood at night and hide in mattress seams, headboards, and baseboards. Hitchhike home from travel and rentals.",
+  signs: ["Itchy bites in lines or clusters", "Tiny blood spots on sheets", "Sweet, musty odor in the bedroom"],
+  risk: "Spread fast across units; hospitality killers — one room can shut a floor.",
+};
+const PEST_BEE: Pest = {
+  t: "Bee Removal",
+  d: "Live removal and hive extraction by trained specialists.",
+  img: imgBee,
+  about: "Honey bees and Africanized hybrids nest in walls, attics, irrigation boxes, and trees. Africanized colonies defend aggressively in massive swarms.",
+  signs: ["Bees entering a single hole in siding", "Buzzing inside a wall", "Honeycomb visible in attic or shed"],
+  risk: "Africanized swarm attacks can be fatal; abandoned hives draw rodents and roaches.",
+};
+const PEST_IGUANA: Pest = {
+  t: "Iguana Removal",
+  d: "Humane trapping and exclusion — South Florida specialty service.",
+  img: imgIguana,
+  about: "Invasive green iguanas grow up to 5 ft, devour landscaping, dig burrows that undermine seawalls, and leave heavy droppings on patios and pool decks.",
+  signs: ["Burrows along seawalls or canals", "Stripped hibiscus and bougainvillea", "Droppings on docks and decks"],
+  risk: "Structural damage to seawalls and foundations; salmonella in droppings.",
+  unique: "miami",
+};
+const PEST_NOSEEUM: Pest = {
+  t: "No-See-Um Control",
+  d: "Yard misting and harborage treatment for biting midges.",
+  img: imgNoseeum,
+  about: "Tiny biting midges nearly invisible to the naked eye — punch through standard window screens. Brutal at dusk near the coast and Intracoastal.",
+  signs: ["Itchy welts with no visible bug", "Worse at dawn and dusk", "Activity near brackish water"],
+  risk: "Bites swell and itch for days; can ruin outdoor dining and rentals.",
+  unique: "miami",
+};
+const PEST_WHITEFLY: Pest = {
+  t: "Whitefly Treatment",
+  d: "Systemic and foliar treatments for ficus, gumbo limbo, and palms.",
+  img: imgWhitefly,
+  about: "Tiny white flying insects that suck sap from ornamentals. Ficus whitefly has devastated South Florida hedges and high-end landscaping.",
+  signs: ["Sticky honeydew on cars and patios", "Black sooty mold on leaves", "Defoliating ficus hedges"],
+  risk: "Kills mature hedges and palms; replacement landscaping runs into thousands.",
+  unique: "miami",
+};
+const PEST_WILDLIFE: Pest = {
+  t: "Nuisance Wildlife",
+  d: "Raccoons, opossums, and squirrels — humane trapping and exclusion.",
+  img: imgWildlife,
+  about: "Attic and soffit intruders that tear insulation, contaminate ducts, and bring in fleas and ticks. Common in older Miami neighborhoods with mature canopy.",
+  signs: ["Heavy thumping in the attic at night", "Torn soffit vents or roof returns", "Droppings in the attic or under decks"],
+  risk: "Rabies risk, parasite spread, fire hazard from chewed wiring.",
+  unique: "miami",
+};
+const PEST_PIGEON: Pest = {
+  t: "Pigeon & Bird Control",
+  d: "Netting, spikes, and solar-panel exclusion across the Valley.",
+  img: imgPigeon,
+  about: "Pigeons roost under solar panels, on parapets, and in signage. Their droppings are corrosive and their nests are flammable mats of dry debris.",
+  signs: ["Droppings on driveways and walkways", "Cooing under solar arrays", "Nesting debris in gutters"],
+  risk: "Histoplasmosis, roof damage, voided solar warranties, fire risk.",
+  unique: "arizona",
+};
+const PEST_KISSINGBUG: Pest = {
+  t: "Kissing Bug Control",
+  d: "Targeted exterior treatment and exclusion for conenose bugs.",
+  img: imgKissingbug,
+  about: "Sonoran Desert conenose bugs feed on blood at night and are drawn to packrat nests, kennels, and outdoor lights. Active during monsoon nights.",
+  signs: ["Painless bite welts on face/arms", "Bugs near porch lights at night", "Activity near pack rat nests"],
+  risk: "Can transmit Trypanosoma cruzi (Chagas disease) — a serious chronic illness.",
+  unique: "arizona",
+};
+const PEST_RATTLESNAKE: Pest = {
+  t: "Rattlesnake Removal",
+  d: "Safe relocation and yard hardening to keep snakes out.",
+  img: imgRattlesnake,
+  about: "Western diamondbacks and Mojaves move through Valley yards, especially in spring and after monsoon storms. Hide under AC units, in garages, and pool equipment.",
+  signs: ["Shed skins along block walls", "Sightings near pool equipment", "Dogs alerting to a corner of the yard"],
+  risk: "Bites are medical emergencies — antivenom runs $50k+; pets often don't survive.",
+  unique: "arizona",
+};
+const PEST_PACKRAT: Pest = {
+  t: "Pack Rat Control",
+  d: "Nest removal and exclusion focused on landscaping and engine bays.",
+  img: imgPackrat,
+  about: "Desert woodrats build huge stick nests in cactus, BBQs, and engine compartments. Notorious for chewing wiring on cars left outdoors.",
+  signs: ["Stick mounds against block walls", "Shiny objects collected in nests", "Chewed engine wiring or hoses"],
+  risk: "Thousands in vehicle damage; nests harbor kissing bugs and scorpions.",
+  unique: "arizona",
+};
+const PEST_CRICKET: Pest = {
+  t: "Cricket Control",
+  d: "Perimeter treatment for monsoon-season invasions.",
+  img: imgCricket,
+  about: "Field crickets swarm Valley homes during monsoon — drawn to outdoor lights, they pile up at doorways and slip into garages and laundry rooms by the dozen.",
+  signs: ["Loud chirping at night", "Crickets piled at exterior lights", "Activity in garages after storms"],
+  risk: "Damage paper, fabric, and plants; constant noise and gross-out factor.",
+  unique: "arizona",
+};
+
 const miamiPests: Pest[] = [
   PEST_ANT,
+  PEST_BEDBUG,
+  PEST_BEE,
   PEST_COCKROACH,
   PEST_COMMERCIAL,
   PEST_EARWIG,
   PEST_FLEA,
   PEST_GENERAL,
   PEST_HORNET,
+  PEST_IGUANA,
   PEST_MOSQUITO,
+  PEST_NOSEEUM,
   PEST_RODENT,
   PEST_SILVERFISH,
   PEST_SPIDER,
   PEST_TERMITE,
   PEST_WASP,
+  PEST_WHITEFLY,
+  PEST_WILDLIFE,
 ];
 
 const arizonaPests: Pest[] = [
   PEST_ANT,
+  PEST_BEDBUG,
+  PEST_BEE,
   PEST_COCKROACH,
   PEST_COMMERCIAL,
+  PEST_CRICKET,
   PEST_EARWIG,
   PEST_FLEA,
   PEST_GENERAL,
   PEST_HORNET,
+  PEST_KISSINGBUG,
+  PEST_PACKRAT,
+  PEST_PIGEON,
+  PEST_RATTLESNAKE,
   PEST_RODENT,
   PEST_SCORPION,
   PEST_SILVERFISH,
@@ -329,6 +457,15 @@ function RegionSection({
                       className={`group relative aspect-square border ${isActive ? `${accentBorderStrong} ${accentBg} shadow-neon` : "border-border bg-card/30"} p-2 sm:p-3 transition-all hover:${accentBorderStrong.replace("border-", "border-")} flex flex-col items-center justify-center text-center`}
                       aria-label={p.t}
                     >
+                      {p.unique && (
+                        <span
+                          className="absolute top-1 right-1 text-sm sm:text-base leading-none"
+                          title={REGION_FLAG[p.unique].label}
+                          aria-label={REGION_FLAG[p.unique].label}
+                        >
+                          {REGION_FLAG[p.unique].emoji}
+                        </span>
+                      )}
                       <img
                         src={p.img}
                         alt={p.t}
@@ -336,7 +473,7 @@ function RegionSection({
                         className={`w-full h-full max-h-[60%] object-contain transition-transform ${isActive ? "scale-110" : "group-hover:scale-105 opacity-80"}`}
                       />
                       <span className={`mt-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-bold ${isActive ? accentText : "text-muted-foreground"}`}>
-                        {p.t.replace(" Control", "").replace(" Defense", "")}
+                        {p.t.replace(" Control", "").replace(" Defense", "").replace(" Treatment", "").replace(" Removal", "")}
                       </span>
                     </button>
                   );
@@ -353,9 +490,15 @@ function RegionSection({
                     alt={selected.t}
                     className="w-20 h-20 sm:w-28 sm:h-28 object-contain animate-float shrink-0"
                   />
-                  <div>
+                  <div className="flex-1">
                     <p className={`text-[10px] uppercase tracking-[0.3em] ${accentText} mb-1`}>Program</p>
                     <h3 className="text-xl sm:text-2xl font-black font-display leading-tight">{selected.t}</h3>
+                    {selected.unique && (
+                      <span className={`inline-flex items-center gap-1.5 mt-2 px-2 py-1 border ${accentBorderStrong} ${accentBg} text-[10px] uppercase tracking-[0.2em] font-bold`}>
+                        <span className="text-base leading-none">{REGION_FLAG[selected.unique].emoji}</span>
+                        {REGION_FLAG[selected.unique].label}
+                      </span>
+                    )}
                   </div>
                 </div>
 
