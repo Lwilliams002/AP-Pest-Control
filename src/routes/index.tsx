@@ -26,24 +26,115 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-type Pest = { t: string; d: string; img: string };
+type Pest = {
+  t: string;
+  d: string;
+  img: string;
+  about: string;
+  signs: string[];
+  risk: string;
+};
 
 const miamiPests: Pest[] = [
-  { t: "Mosquito Control", d: "Yard fogging and breeding-site treatment built for Florida humidity.", img: imgMosquito },
-  { t: "Cockroach Control", d: "American & German roach programs for homes, restaurants, condos.", img: imgCockroach },
-  { t: "Rodent Control", d: "Roof rats and Norway rats — exclusion, trapping, sanitation.", img: imgRodent },
-  { t: "Ant Control", d: "Targeted baiting that wipes out the colony, not just the trail.", img: imgAnt },
-  { t: "Termite Defense", d: "Subterranean & drywood programs tuned to South Florida wood.", img: imgTermite },
-  { t: "Commercial", d: "Hotels, restaurants, marinas, multifamily — discreet schedules.", img: imgCommercial },
+  {
+    t: "Mosquito Control",
+    d: "Yard fogging and breeding-site treatment built for Florida humidity.",
+    img: imgMosquito,
+    about: "Small biting flies (Aedes aegypti & Aedes albopictus dominate South Florida). Active dawn and dusk, breed in any standing water — bottle caps to bromeliads.",
+    signs: ["Itchy welts after being outside", "Buzzing around ankles", "Swarms near shaded, damp areas"],
+    risk: "Vectors for Zika, dengue, West Nile, and chikungunya.",
+  },
+  {
+    t: "Cockroach Control",
+    d: "American & German roach programs for homes, restaurants, condos.",
+    img: imgCockroach,
+    about: "American roaches (large, reddish-brown, 1.5–2\") and German roaches (small, tan, 0.5\") are the two big offenders. Nocturnal, fast-breeding, drawn to moisture and food residue.",
+    signs: ["Pepper-like droppings in drawers", "Musty odor in kitchens", "Egg cases (oothecae) behind appliances"],
+    risk: "Trigger asthma & allergies; spread salmonella and E. coli.",
+  },
+  {
+    t: "Rodent Control",
+    d: "Roof rats and Norway rats — exclusion, trapping, sanitation.",
+    img: imgRodent,
+    about: "Roof rats climb trees and enter attics; Norway rats burrow at ground level. Both chew through wire, insulation, and food packaging.",
+    signs: ["Scratching in walls or ceilings at night", "Dark, rice-shaped droppings", "Gnaw marks on wood or wiring"],
+    risk: "Carry hantavirus, leptospirosis; chewed wires are a top fire cause.",
+  },
+  {
+    t: "Ant Control",
+    d: "Targeted baiting that wipes out the colony, not just the trail.",
+    img: imgAnt,
+    about: "Ghost ants, white-footed ants, and big-headed ants dominate Miami. Colonies can have multiple queens — spraying the trail just splits them.",
+    signs: ["Trails along countertops & baseboards", "Tiny piles of soil near cracks", "Ants swarming sweet or greasy spills"],
+    risk: "Contaminate food and can short out electronics they nest in.",
+  },
+  {
+    t: "Termite Defense",
+    d: "Subterranean & drywood programs tuned to South Florida wood.",
+    img: imgTermite,
+    about: "Subterranean termites (incl. invasive Formosan) tunnel up from soil; drywood termites live entirely inside wood. Florida is the U.S. termite capital.",
+    signs: ["Mud tubes on foundation walls", "Discarded wings near windowsills", "Hollow-sounding or blistered wood"],
+    risk: "Cause billions in structural damage every year — rarely covered by insurance.",
+  },
+  {
+    t: "Commercial",
+    d: "Hotels, restaurants, marinas, multifamily — discreet schedules.",
+    img: imgCommercial,
+    about: "Custom IPM programs for businesses with health-code obligations. Discreet uniforms, after-hours service, and full digital documentation for inspectors.",
+    signs: ["Failed health inspection prep", "Guest or tenant complaints", "Recurring issues across units"],
+    risk: "One sighting can cost a 5-star review, a license, or a lease.",
+  },
 ];
 
 const arizonaPests: Pest[] = [
-  { t: "Scorpion Control", d: "UV night sweeps and long-lasting perimeter treatments.", img: imgScorpion },
-  { t: "Cockroach Control", d: "Targeted baits and dusts in cracks, crevices, and entry points.", img: imgCockroach },
-  { t: "Rodent Control", d: "Inspection, sealing, trapping, and clean-up of affected areas.", img: imgRodent },
-  { t: "Ant Control", d: "Non-repellent sprays and gel baits that kill the whole colony.", img: imgAnt },
-  { t: "Spider & Wasp", d: "Web removal, nest treatment, and prevention around eaves and yards.", img: imgSpider },
-  { t: "Mosquito Control", d: "Misting treatments for shady hide-outs and standing water.", img: imgMosquito },
+  {
+    t: "Scorpion Control",
+    d: "UV night sweeps and long-lasting perimeter treatments.",
+    img: imgScorpion,
+    about: "Bark scorpions (Centruroides sculpturatus) are Arizona's most venomous — pale tan, 2–3\", and the only species that climbs walls and ceilings. Glow bright green under UV light.",
+    signs: ["Glowing under blacklight at night", "Sightings in showers, shoes, or laundry", "Found in block walls or wood piles"],
+    risk: "Stings cause severe pain; medically significant for kids, elderly, and pets.",
+  },
+  {
+    t: "Cockroach Control",
+    d: "Targeted baits and dusts in cracks, crevices, and entry points.",
+    img: imgCockroach,
+    about: "American roaches (a.k.a. \"sewer roaches\") and German roaches dominate the Valley. They migrate up through sewer lines and irrigation boxes during monsoon season.",
+    signs: ["Roaches crawling out of drains", "Activity inside pantries at night", "Egg cases behind fridges and dishwashers"],
+    risk: "Allergens and asthma triggers; contaminate food prep surfaces.",
+  },
+  {
+    t: "Rodent Control",
+    d: "Inspection, sealing, trapping, and clean-up of affected areas.",
+    img: imgRodent,
+    about: "Roof rats are now widespread across Phoenix metro, especially in citrus-heavy neighborhoods. Pack rats build large stick nests near homes and garages.",
+    signs: ["Half-eaten citrus fruit under trees", "Droppings in garage or attic", "Nests of sticks/debris by AC units"],
+    risk: "Chewed wiring, contaminated insulation, hantavirus exposure during cleanup.",
+  },
+  {
+    t: "Ant Control",
+    d: "Non-repellent sprays and gel baits that kill the whole colony.",
+    img: imgAnt,
+    about: "Pavement ants, odorous house ants, and aggressive desert harvester ants. Harvester ants deliver one of the most painful insect stings in North America.",
+    signs: ["Mounds of fine soil in the yard", "Trails into kitchens after rain", "Cleared circles around nest entrances"],
+    risk: "Painful stings (harvester ants) and food contamination indoors.",
+  },
+  {
+    t: "Spider & Wasp",
+    d: "Web removal, nest treatment, and prevention around eaves and yards.",
+    img: imgSpider,
+    about: "Black widows and brown spiders hide in block walls, garages, and patio furniture. Paper wasps and Africanized honey bees nest under eaves and in attics.",
+    signs: ["Tangled webs under patio furniture", "Egg sacs in garage corners", "Wasp nests under eaves or in BBQs"],
+    risk: "Widow bites are medically significant; Africanized bees swarm aggressively.",
+  },
+  {
+    t: "Mosquito Control",
+    d: "Misting treatments for shady hide-outs and standing water.",
+    img: imgMosquito,
+    about: "Yes — even the desert. Aedes aegypti thrives in the Valley using flowerpots, irrigation drip lines, and pool covers as breeding sites. Worst during monsoon.",
+    signs: ["Bites while watering the yard", "Mosquitoes resting in shaded shrubs", "Larvae in any standing water"],
+    risk: "Spread West Nile virus — Maricopa County leads the U.S. in cases most years.",
+  },
 ];
 
 const miamiCities = ["Miami", "Miami Beach", "Brickell", "Coral Gables", "Coconut Grove", "Wynwood", "Aventura", "Doral"];
