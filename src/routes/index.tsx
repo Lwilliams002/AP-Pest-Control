@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { z } from "zod";
+import { toast } from "sonner";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import miamiHero from "@/assets/miami-hero.jpg";
 import valleyHero from "@/assets/valley-hero.jpg";
 import logo from "@/assets/ap-pest-logo.png";
@@ -599,27 +603,102 @@ function Reviews() {
 }
 
 function CTA() {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", region: "miami", pest: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const schema = z.object({
+      name: z.string().trim().min(1, "Name required").max(100),
+      email: z.string().trim().email("Valid email required").max(255),
+      phone: z.string().trim().max(30).optional().or(z.literal("")),
+      region: z.string(),
+      pest: z.string().trim().max(100).optional().or(z.literal("")),
+      message: z.string().trim().min(1, "Tell us a bit about the issue").max(1000),
+    });
+    const result = schema.safeParse(form);
+    if (!result.success) {
+      toast.error(result.error.issues[0]?.message ?? "Please check the form");
+      return;
+    }
+    const subject = encodeURIComponent(`New estimate request — ${form.region === "miami" ? "Miami" : "Arizona"}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nRegion: ${form.region}\nPest: ${form.pest}\n\n${form.message}`
+    );
+    window.location.href = `mailto:hello@ap-pest-control.com?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+    toast.success("Opening your email — we'll reply fast.");
+  };
+
   return (
-    <section id="contact" className="relative py-28 border-t border-border overflow-hidden">
+    <section id="contact" className="relative py-20 md:py-28 border-t border-border overflow-hidden">
       <div className="absolute inset-0 bg-gradient-sunset opacity-15" />
       <div className="absolute inset-0 grid-bg opacity-40" />
-      <div className="relative max-w-4xl mx-auto px-6 text-center">
-        <p className="text-xs uppercase tracking-[0.4em] text-neon-cyan mb-6">◢ Free estimate</p>
-        <h2 className="text-4xl md:text-7xl font-black mb-8">
-          Remove pesky pests <span className="italic text-gradient-miami glow-text">today.</span>
-        </h2>
-        <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10">
-          Tell us where the trouble is — Miami or the Valley — we'll show up
-          fast with a plan that actually works.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="tel:+16028824013" className="px-10 py-5 bg-gradient-miami text-primary-foreground font-bold uppercase tracking-widest text-sm shadow-neon hover:scale-[1.02] transition">
-            Call (602) 882-4013
-          </a>
-          <a href="mailto:hello@ap-pest-control.com" className="px-10 py-5 border border-neon-cyan/60 text-neon-cyan uppercase tracking-widest text-sm hover:bg-neon-cyan/10 transition">
-            hello@ap-pest-control.com
-          </a>
+      <div className="relative max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p className="text-xs uppercase tracking-[0.4em] text-neon-cyan mb-6">◢ Free estimate</p>
+          <h2 className="text-4xl md:text-6xl font-black mb-6">
+            Remove pesky pests <span className="italic text-gradient-miami glow-text">today.</span>
+          </h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mb-8">
+            Tell us where the trouble is — Miami or the Valley — we'll show up
+            fast with a plan that actually works.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a href="tel:+16028824013" className="px-6 py-4 bg-gradient-miami text-primary-foreground font-bold uppercase tracking-widest text-xs shadow-neon hover:scale-[1.02] transition text-center">
+              Call (602) 882-4013
+            </a>
+            <a href="mailto:hello@ap-pest-control.com" className="px-6 py-4 border border-neon-cyan/60 text-neon-cyan uppercase tracking-widest text-xs hover:bg-neon-cyan/10 transition text-center">
+              Email us
+            </a>
+          </div>
         </div>
+
+        <form
+          onSubmit={handleSubmit}
+          className="bg-card/60 backdrop-blur border border-border p-6 md:p-8 space-y-4 shadow-neon"
+        >
+          <p className="text-xs uppercase tracking-[0.3em] text-neon-pink">Request a quote</p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label className="text-xs uppercase tracking-widest text-muted-foreground mb-1 block">Name</label>
+              <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} maxLength={100} required />
+            </div>
+            <div>
+              <label className="text-xs uppercase tracking-widest text-muted-foreground mb-1 block">Email</label>
+              <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} maxLength={255} required />
+            </div>
+            <div>
+              <label className="text-xs uppercase tracking-widest text-muted-foreground mb-1 block">Phone</label>
+              <Input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} maxLength={30} />
+            </div>
+            <div>
+              <label className="text-xs uppercase tracking-widest text-muted-foreground mb-1 block">Region</label>
+              <select
+                value={form.region}
+                onChange={(e) => setForm({ ...form, region: e.target.value })}
+                className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring md:text-sm"
+              >
+                <option value="miami">Miami, FL</option>
+                <option value="arizona">Arizona Valley</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label className="text-xs uppercase tracking-widest text-muted-foreground mb-1 block">Pest (optional)</label>
+            <Input value={form.pest} onChange={(e) => setForm({ ...form, pest: e.target.value })} placeholder="Roaches, scorpions, termites…" maxLength={100} />
+          </div>
+          <div>
+            <label className="text-xs uppercase tracking-widest text-muted-foreground mb-1 block">What's going on?</label>
+            <Textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} maxLength={1000} rows={4} required />
+          </div>
+          <button
+            type="submit"
+            className="w-full px-8 py-4 bg-gradient-miami text-primary-foreground font-bold uppercase tracking-widest text-sm shadow-neon hover:scale-[1.01] transition"
+          >
+            {submitted ? "Sent — we'll be in touch" : "Send request"}
+          </button>
+        </form>
       </div>
     </section>
   );
