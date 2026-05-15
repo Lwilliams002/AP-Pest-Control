@@ -1,32 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Cormorant+Garamond:wght@500;600;700&family=Poiret+One&family=Bebas+Neue&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=Work+Sans:wght@300;400;500;600&display=swap");
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -47,105 +30,137 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-soft: var(--brand-soft);
+  --color-ink: var(--ink);
+  --font-display: var(--font-display-family);
+  --font-body: var(--font-body-family);
 }
 
+/* ============================================================
+   HERITAGE THEME (default — cream, burgundy, brass, charcoal)
+   Used on homepage, shared chrome, /contact, etc.
+   ============================================================ */
 :root {
+  --radius: 0.25rem;
+
+  --background: oklch(0.96 0.014 80);          /* cream f5f0e8 */
+  --foreground: oklch(0.22 0.01 60);           /* charcoal 2d2d2d */
+  --ink: oklch(0.18 0.01 60);
+
+  --brand: oklch(0.36 0.13 25);                /* burgundy 5c2018 */
+  --brand-foreground: oklch(0.97 0.012 80);
+  --brand-soft: oklch(0.74 0.13 75);           /* brass c9a84c */
+
+  --card: oklch(0.99 0.008 80);
+  --card-foreground: oklch(0.22 0.01 60);
+  --popover: oklch(0.99 0.008 80);
+  --popover-foreground: oklch(0.22 0.01 60);
+
+  --primary: oklch(0.36 0.13 25);              /* burgundy */
+  --primary-foreground: oklch(0.97 0.012 80);
+  --secondary: oklch(0.91 0.018 80);
+  --secondary-foreground: oklch(0.22 0.01 60);
+  --muted: oklch(0.91 0.018 80);
+  --muted-foreground: oklch(0.42 0.015 60);
+  --accent: oklch(0.74 0.13 75);               /* brass */
+  --accent-foreground: oklch(0.18 0.01 60);
+  --destructive: oklch(0.55 0.22 28);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.22 0.01 60 / 0.18);
+  --input: oklch(0.22 0.01 60 / 0.20);
+  --ring: oklch(0.36 0.13 25);
+
+  --font-display-family: "Playfair Display", Georgia, serif;
+  --font-body-family: "Work Sans", "Inter", system-ui, sans-serif;
+
+  --gradient-heritage: linear-gradient(135deg, oklch(0.36 0.13 25), oklch(0.42 0.14 30));
+  --shadow-heritage: 0 12px 40px -16px oklch(0.36 0.13 25 / 0.35);
+}
+
+/* ============================================================
+   MIAMI THEME — Art Deco South Beach
+   Pastels: pink, teal, mint, deep navy
+   ============================================================ */
+.theme-miami {
+  --radius: 0.5rem;
+
+  --background: oklch(0.98 0.015 350);         /* off-white pink */
+  --foreground: oklch(0.20 0.06 250);          /* deep navy 0c2340 */
+  --ink: oklch(0.18 0.06 250);
+
+  --brand: oklch(0.20 0.06 250);               /* deep navy */
+  --brand-foreground: oklch(0.98 0.015 350);
+  --brand-soft: oklch(0.85 0.10 350);          /* blush f8c8d8 */
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.20 0.06 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.20 0.06 250);
+
+  --primary: oklch(0.20 0.06 250);             /* deep navy */
+  --primary-foreground: oklch(0.98 0.015 350);
+  --secondary: oklch(0.85 0.10 350);           /* blush */
+  --secondary-foreground: oklch(0.20 0.06 250);
+  --muted: oklch(0.94 0.02 200);
+  --muted-foreground: oklch(0.40 0.04 230);
+  --accent: oklch(0.82 0.12 220);              /* teal 7dd3fc */
+  --accent-foreground: oklch(0.20 0.06 250);
+  --destructive: oklch(0.65 0.20 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.20 0.06 250 / 0.18);
+  --input: oklch(0.20 0.06 250 / 0.18);
+  --ring: oklch(0.82 0.12 220);
+
+  --font-display-family: "Poiret One", "Playfair Display", serif;
+  --font-body-family: "Work Sans", "Inter", system-ui, sans-serif;
+
+  --gradient-miami: linear-gradient(135deg, oklch(0.85 0.10 350), oklch(0.82 0.12 220) 50%, oklch(0.78 0.10 160));
+  --gradient-miami-sunset: linear-gradient(180deg, oklch(0.88 0.10 30), oklch(0.85 0.10 350) 60%, oklch(0.82 0.12 220));
+  --shadow-miami: 0 20px 60px -20px oklch(0.20 0.06 250 / 0.25);
+}
+
+/* ============================================================
+   ARIZONA THEME — Sonoran Desert
+   Terracotta, sage, sandstone, forest
+   ============================================================ */
+.theme-arizona {
   --radius: 0.125rem;
-  --background: oklch(0.08 0.02 280);
-  --foreground: oklch(0.98 0.01 320);
-  --neon-pink: oklch(0.72 0.32 350);
-  --neon-cyan: oklch(0.85 0.18 200);
-  --neon-purple: oklch(0.55 0.28 300);
-  --gradient-miami: linear-gradient(135deg, oklch(0.72 0.32 350), oklch(0.85 0.18 200));
-  --gradient-sunset: linear-gradient(180deg, oklch(0.72 0.32 350) 0%, oklch(0.55 0.28 300) 50%, oklch(0.85 0.18 200) 100%);
-  --shadow-neon: 0 0 40px oklch(0.72 0.32 350 / 0.5), 0 0 80px oklch(0.85 0.18 200 / 0.3);
-  --shadow-glow-pink: 0 0 60px oklch(0.72 0.32 350 / 0.6);
-  --card: oklch(0.12 0.03 290);
-  --card-foreground: oklch(0.98 0.01 320);
-  --popover: oklch(0.10 0.03 290);
-  --popover-foreground: oklch(0.98 0.01 320);
-  --primary: oklch(0.72 0.32 350);
-  --primary-foreground: oklch(0.08 0.02 280);
-  --secondary: oklch(0.18 0.04 290);
-  --secondary-foreground: oklch(0.98 0.01 320);
-  --muted: oklch(0.16 0.03 290);
-  --muted-foreground: oklch(0.70 0.04 320);
-  --accent: oklch(0.85 0.18 200);
-  --accent-foreground: oklch(0.08 0.02 280);
-  --destructive: oklch(0.65 0.27 25);
-  --destructive-foreground: oklch(0.98 0.01 320);
-  --border: oklch(0.25 0.05 300 / 0.4);
-  --input: oklch(0.20 0.04 290);
-  --ring: oklch(0.72 0.32 350);
-  --chart-1: oklch(0.72 0.32 350);
-  --chart-2: oklch(0.85 0.18 200);
-  --chart-3: oklch(0.55 0.28 300);
-  --chart-4: oklch(0.80 0.22 60);
-  --chart-5: oklch(0.65 0.25 30);
-  --sidebar: oklch(0.10 0.03 290);
-  --sidebar-foreground: oklch(0.98 0.01 320);
-  --sidebar-primary: oklch(0.72 0.32 350);
-  --sidebar-primary-foreground: oklch(0.08 0.02 280);
-  --sidebar-accent: oklch(0.18 0.04 290);
-  --sidebar-accent-foreground: oklch(0.98 0.01 320);
-  --sidebar-border: oklch(0.25 0.05 300 / 0.4);
-  --sidebar-ring: oklch(0.72 0.32 350);
-}
 
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
-}
+  --background: oklch(0.94 0.025 70);          /* sandstone */
+  --foreground: oklch(0.25 0.04 40);           /* dark earth */
+  --ink: oklch(0.22 0.04 40);
 
-@theme inline {
-  --color-neon-pink: var(--neon-pink);
-  --color-neon-cyan: var(--neon-cyan);
-  --color-neon-purple: var(--neon-purple);
-  --font-display: "Syne", "Inter", sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --brand: oklch(0.55 0.16 35);                /* terracotta c4654a */
+  --brand-foreground: oklch(0.97 0.018 80);
+  --brand-soft: oklch(0.83 0.10 75);           /* sand e8c07a */
+
+  --card: oklch(0.97 0.018 75);
+  --card-foreground: oklch(0.25 0.04 40);
+  --popover: oklch(0.97 0.018 75);
+  --popover-foreground: oklch(0.25 0.04 40);
+
+  --primary: oklch(0.55 0.16 35);              /* terracotta */
+  --primary-foreground: oklch(0.97 0.018 80);
+  --secondary: oklch(0.68 0.06 140);           /* sage 87a878 */
+  --secondary-foreground: oklch(0.18 0.04 40);
+  --muted: oklch(0.89 0.025 70);
+  --muted-foreground: oklch(0.42 0.04 50);
+  --accent: oklch(0.43 0.06 145);              /* forest 4a6741 */
+  --accent-foreground: oklch(0.97 0.018 80);
+  --destructive: oklch(0.50 0.20 28);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.55 0.10 50 / 0.28);
+  --input: oklch(0.55 0.10 50 / 0.30);
+  --ring: oklch(0.55 0.16 35);
+
+  --font-display-family: "DM Serif Display", "Playfair Display", Georgia, serif;
+  --font-body-family: "Work Sans", "Inter", system-ui, sans-serif;
+
+  --gradient-arizona: linear-gradient(135deg, oklch(0.55 0.16 35), oklch(0.43 0.06 145));
+  --gradient-arizona-sunset: linear-gradient(180deg, oklch(0.78 0.16 50), oklch(0.55 0.16 35) 60%, oklch(0.35 0.08 30));
+  --shadow-arizona: 0 18px 50px -20px oklch(0.55 0.16 35 / 0.4);
 }
 
 @layer base {
@@ -162,38 +177,83 @@
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
+  }
+
+  .theme-miami h1, .theme-miami h2, .theme-miami h3, .theme-miami h4 {
+    letter-spacing: 0.02em;
   }
 }
 
 @layer utilities {
+  .bg-brand { background-color: var(--brand); color: var(--brand-foreground); }
+  .text-brand { color: var(--brand); }
+  .border-brand { border-color: var(--brand); }
+  .bg-brand-soft { background-color: var(--brand-soft); }
+  .text-brand-soft { color: var(--brand-soft); }
+  .border-brand-soft { border-color: var(--brand-soft); }
+
+  /* Heritage utilities */
+  .bg-gradient-heritage { background: var(--gradient-heritage); }
+  .shadow-heritage { box-shadow: var(--shadow-heritage); }
+  .heritage-rule {
+    background: linear-gradient(90deg, transparent, var(--brand-soft) 20%, var(--brand-soft) 80%, transparent);
+  }
+
+  /* Miami utilities */
+  .bg-gradient-miami { background: var(--gradient-miami); }
+  .bg-gradient-miami-sunset { background: var(--gradient-miami-sunset); }
+  .shadow-miami { box-shadow: var(--shadow-miami); }
   .text-gradient-miami {
     background: var(--gradient-miami);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  .bg-gradient-miami { background: var(--gradient-miami); }
-  .bg-gradient-sunset { background: var(--gradient-sunset); }
-  .shadow-neon { box-shadow: var(--shadow-neon); }
-  .shadow-glow-pink { box-shadow: var(--shadow-glow-pink); }
-  .glow-text { text-shadow: 0 0 20px oklch(0.72 0.32 350 / 0.6), 0 0 40px oklch(0.85 0.18 200 / 0.3); }
-  .grid-bg {
+  .deco-frame {
+    background:
+      linear-gradient(var(--card), var(--card)) padding-box,
+      var(--gradient-miami) border-box;
+    border: 2px solid transparent;
+  }
+  .palm-bg {
     background-image:
-      linear-gradient(oklch(0.72 0.32 350 / 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.85 0.18 200 / 0.08) 1px, transparent 1px);
-    background-size: 60px 60px;
+      radial-gradient(circle at 20% 100%, oklch(0.82 0.12 220 / 0.18) 0, transparent 40%),
+      radial-gradient(circle at 80% 0%, oklch(0.85 0.10 350 / 0.18) 0, transparent 40%);
+  }
+
+  /* Arizona utilities */
+  .bg-gradient-arizona { background: var(--gradient-arizona); }
+  .bg-gradient-arizona-sunset { background: var(--gradient-arizona-sunset); }
+  .shadow-arizona { box-shadow: var(--shadow-arizona); }
+  .text-gradient-arizona {
+    background: var(--gradient-arizona);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .desert-bg {
+    background-image:
+      radial-gradient(ellipse at 50% 100%, oklch(0.78 0.16 50 / 0.15) 0, transparent 60%),
+      repeating-linear-gradient(90deg, transparent 0 80px, oklch(0.55 0.16 35 / 0.04) 80px 81px);
   }
 }
 
-@keyframes flicker {
-  0%, 100%, 22%, 60% { opacity: 1; }
-  20%, 24%, 55% { opacity: 0.7; }
-}
-.animate-flicker { animation: flicker 4s ease-in-out infinite; }
-
 @keyframes float-slow {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-10px); }
 }
 .animate-float { animation: float-slow 6s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-text {
+  background: linear-gradient(90deg, var(--brand-soft) 0%, oklch(0.92 0.05 75) 50%, var(--brand-soft) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4s linear infinite;
+}
