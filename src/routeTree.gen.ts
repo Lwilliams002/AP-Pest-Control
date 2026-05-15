@@ -9,8 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as MiamiRouteImport } from './routes/miami'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ArizonaRouteImport } from './routes/arizona'
 import { Route as IndexRouteImport } from './routes/index'
 
+const MiamiRoute = MiamiRouteImport.update({
+  id: '/miami',
+  path: '/miami',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArizonaRoute = ArizonaRouteImport.update({
+  id: '/arizona',
+  path: '/arizona',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +37,61 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/arizona': typeof ArizonaRoute
+  '/contact': typeof ContactRoute
+  '/miami': typeof MiamiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/arizona': typeof ArizonaRoute
+  '/contact': typeof ContactRoute
+  '/miami': typeof MiamiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/arizona': typeof ArizonaRoute
+  '/contact': typeof ContactRoute
+  '/miami': typeof MiamiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/arizona' | '/contact' | '/miami'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/arizona' | '/contact' | '/miami'
+  id: '__root__' | '/' | '/arizona' | '/contact' | '/miami'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArizonaRoute: typeof ArizonaRoute
+  ContactRoute: typeof ContactRoute
+  MiamiRoute: typeof MiamiRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/miami': {
+      id: '/miami'
+      path: '/miami'
+      fullPath: '/miami'
+      preLoaderRoute: typeof MiamiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/arizona': {
+      id: '/arizona'
+      path: '/arizona'
+      fullPath: '/arizona'
+      preLoaderRoute: typeof ArizonaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,7 +104,20 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArizonaRoute: ArizonaRoute,
+  ContactRoute: ContactRoute,
+  MiamiRoute: MiamiRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
