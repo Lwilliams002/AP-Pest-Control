@@ -612,6 +612,17 @@ function CTA() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", region: "miami", pest: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent<string>).detail;
+      if (detail === "miami" || detail === "arizona") {
+        setForm((f) => ({ ...f, region: detail }));
+      }
+    };
+    window.addEventListener("set-contact-region", handler);
+    return () => window.removeEventListener("set-contact-region", handler);
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const schema = z.object({
