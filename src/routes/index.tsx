@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { z } from "zod";
 import { toast } from "sonner";
@@ -536,7 +536,13 @@ function RegionSection({
             </div>
           </div>
 
-          <a href="#contact" className="inline-block mt-10 px-8 py-4 bg-gradient-miami text-primary-foreground font-bold uppercase tracking-widest text-sm shadow-neon">
+          <a
+            href="#contact"
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent("set-contact-region", { detail: id }));
+            }}
+            className="inline-block mt-10 px-8 py-4 bg-gradient-miami text-primary-foreground font-bold uppercase tracking-widest text-sm shadow-neon"
+          >
             Book {title.split(",")[0]} Service
           </a>
         </div>
@@ -605,6 +611,17 @@ function Reviews() {
 function CTA() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", region: "miami", pest: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent<string>).detail;
+      if (detail === "miami" || detail === "arizona") {
+        setForm((f) => ({ ...f, region: detail }));
+      }
+    };
+    window.addEventListener("set-contact-region", handler);
+    return () => window.removeEventListener("set-contact-region", handler);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
