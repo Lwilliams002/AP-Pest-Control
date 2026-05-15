@@ -536,7 +536,13 @@ function RegionSection({
             </div>
           </div>
 
-          <a href="#contact" className="inline-block mt-10 px-8 py-4 bg-gradient-miami text-primary-foreground font-bold uppercase tracking-widest text-sm shadow-neon">
+          <a
+            href="#contact"
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent("set-contact-region", { detail: id }));
+            }}
+            className="inline-block mt-10 px-8 py-4 bg-gradient-miami text-primary-foreground font-bold uppercase tracking-widest text-sm shadow-neon"
+          >
             Book {title.split(",")[0]} Service
           </a>
         </div>
