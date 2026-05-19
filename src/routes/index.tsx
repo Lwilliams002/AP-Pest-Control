@@ -5,6 +5,13 @@ import { testimonials } from "@/lib/pests";
 import heritage from "@/assets/heritage-home.jpg";
 import miamiImg from "@/assets/miami-deco.jpg";
 import azImg from "@/assets/arizona-desert.jpg";
+import antImg from "@/assets/pests/ant.png";
+import roachImg from "@/assets/pests/cockroach.png";
+import spiderImg from "@/assets/pests/spider.png";
+import mosquitoImg from "@/assets/pests/mosquito.png";
+import scorpionImg from "@/assets/pests/scorpion.png";
+import termiteImg from "@/assets/pests/termite.png";
+import palmettoImg from "@/assets/pests/iguana.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -88,6 +95,82 @@ function Home() {
             <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
               <RegionCard to="/southflorida" title="South Florida" subtitle="Miami to West Palm · neon coast, real humidity" img={miamiImg} />
               <RegionCard to="/arizona" title="The Arizona Valley" subtitle="Sonoran sunsets & desert wildlife" img={azImg} />
+            </div>
+          </div>
+        </section>
+
+        {/* Pest crawl divider */}
+        <div className="pest-crawler-wrap border-t border-border bg-background" aria-hidden>
+          <img src={antImg} alt="" className="pest-crawler" style={{ animationDelay: "0s" }} />
+          <img src={roachImg} alt="" className="pest-crawler slow" style={{ animationDelay: "-8s" }} />
+          <img src={spiderImg} alt="" className="pest-crawler reverse" style={{ animationDelay: "-14s" }} />
+        </div>
+
+        {/* Split-screen: Florida vs Arizona */}
+        <section className="border-t border-border">
+          <div className="grid md:grid-cols-2">
+            <div className="relative overflow-hidden bg-gradient-to-br from-[oklch(0.38_0.09_215)] to-[oklch(0.58_0.10_200)] text-white p-10 md:p-16 min-h-[420px]">
+              <p className="text-xs uppercase tracking-[0.4em] text-white/70 mb-3 font-semibold">South Florida</p>
+              <h3 className="font-display text-4xl md:text-5xl font-bold leading-tight">Humid coast. <span className="italic">Hungry pests.</span></h3>
+              <p className="mt-4 text-white/85 max-w-md">Year-round mosquitoes, palmetto bugs the size of your thumb, and iguanas in the hedges. We treat the climate, not just the bug.</p>
+              <ul className="mt-6 space-y-2 text-sm text-white/90">
+                <li>· Mosquito misting & yard fogging</li>
+                <li>· German roach & palmetto bug control</li>
+                <li>· Iguana & wildlife removal</li>
+              </ul>
+              <Link to="/southflorida" className="mt-8 inline-block px-6 py-3 bg-white text-[oklch(0.22_0.04_230)] font-semibold uppercase tracking-widest text-xs rounded-sm hover:opacity-90 transition">
+                Explore South Florida →
+              </Link>
+              <img src={mosquitoImg} alt="" aria-hidden className="absolute bottom-6 right-6 w-28 opacity-30 animate-float" style={{ filter: "brightness(0) invert(1)" }} />
+              <img src={palmettoImg} alt="" aria-hidden className="absolute top-8 right-10 w-20 opacity-25" style={{ filter: "brightness(0) invert(1)" }} />
+            </div>
+            <div className="relative overflow-hidden bg-gradient-to-br from-[oklch(0.66_0.18_50)] to-[oklch(0.55_0.20_32)] text-white p-10 md:p-16 min-h-[420px]">
+              <p className="text-xs uppercase tracking-[0.4em] text-white/70 mb-3 font-semibold">Arizona Valley</p>
+              <h3 className="font-display text-4xl md:text-5xl font-bold leading-tight">Sonoran heat. <span className="italic">Desert invaders.</span></h3>
+              <p className="mt-4 text-white/90 max-w-md">Scorpions under every rock, subterranean termites silently chewing studs, and pack rats in the engine bay. Built for the desert.</p>
+              <ul className="mt-6 space-y-2 text-sm text-white/95">
+                <li>· Scorpion barrier treatments</li>
+                <li>· Subterranean termite control</li>
+                <li>· Pack rat & rodent exclusion</li>
+              </ul>
+              <Link to="/arizona" className="mt-8 inline-block px-6 py-3 bg-white text-[oklch(0.22_0.04_45)] font-semibold uppercase tracking-widest text-xs rounded-sm hover:opacity-90 transition">
+                Explore Arizona →
+              </Link>
+              <img src={scorpionImg} alt="" aria-hidden className="absolute bottom-6 right-6 w-28 opacity-30 animate-float" style={{ filter: "brightness(0) invert(1)", animationDelay: "-2s" }} />
+              <img src={termiteImg} alt="" aria-hidden className="absolute top-8 right-10 w-20 opacity-25" style={{ filter: "brightness(0) invert(1)" }} />
+            </div>
+          </div>
+        </section>
+
+        {/* Pest crawl divider */}
+        <div className="pest-crawler-wrap border-t border-border bg-card/30" aria-hidden>
+          <img src={scorpionImg} alt="" className="pest-crawler" style={{ animationDelay: "-4s" }} />
+          <img src={termiteImg} alt="" className="pest-crawler slow reverse" style={{ animationDelay: "-12s" }} />
+        </div>
+
+        {/* A Day with AP Pest — timeline */}
+        <section className="py-16 md:py-24 border-t border-border bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-14">
+              <p className="text-xs uppercase tracking-[0.4em] text-brand-soft mb-3 font-semibold">A day with AP Pest</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold">Four steps. <span className="italic text-brand">Real results.</span></h2>
+              <div className="mt-4 mx-auto h-px w-32 heritage-rule" />
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 relative">
+              {[
+                { n: "01", t: "Inspect", d: "We walk your property, identify the pest, and locate entry points before treatment." },
+                { n: "02", t: "Treat", d: "Targeted, family-safe application. No cookie-cutter sprays — only what your situation needs." },
+                { n: "03", t: "Monitor", d: "Scheduled re-visits track activity so we catch returns before they become infestations." },
+                { n: "04", t: "Guarantee", d: "If pests come back between visits, so do we — at no extra cost. Satisfaction guaranteed." },
+              ].map((s) => (
+                <div key={s.n} className="timeline-dot text-center md:text-left">
+                  <div className="mx-auto md:mx-0 w-14 h-14 rounded-full bg-brand text-brand-foreground flex items-center justify-center font-display text-lg font-bold shadow-heritage">
+                    {s.n}
+                  </div>
+                  <h3 className="mt-5 font-display text-2xl font-bold text-brand">{s.t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
