@@ -3,11 +3,13 @@ import { Menu, X, Phone } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/ap-pest-logo.png";
 import miamiLogo from "@/assets/ap-pest-miami-logo.png";
+import arizonaLogo from "@/assets/ap-pest-arizona-logo.svg";
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isMiami = pathname.startsWith("/miami");
+  const isArizona = pathname.startsWith("/arizona");
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/85 border-b border-border">
       <a
@@ -27,6 +29,8 @@ export function SiteNav() {
         <Link to="/" className="flex items-center gap-3">
           {isMiami ? (
             <img src={miamiLogo} alt="AP Pest" className="h-11 w-auto rounded-sm" />
+          ) : isArizona ? (
+            <img src={arizonaLogo} alt="AP Pest" className="h-11 w-auto" />
           ) : (
             <>
               <span className="inline-flex items-center justify-center h-10 w-10 rounded-sm bg-brand">
