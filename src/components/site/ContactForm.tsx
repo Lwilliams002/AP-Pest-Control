@@ -43,7 +43,7 @@ export function ContactForm({ defaultRegion = "miami" as "miami" | "arizona" }) 
             onChange={(e) => setForm({ ...form, region: e.target.value as "miami" | "arizona" })}
             className="flex h-9 w-full rounded-sm border border-input bg-transparent px-3 py-1 text-base focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring md:text-sm"
           >
-            <option value="miami">Miami, FL</option>
+            <option value="miami">South Florida</option>
             <option value="arizona">Arizona Valley</option>
           </select>
         </Field>
