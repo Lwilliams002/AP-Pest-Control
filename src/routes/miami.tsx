@@ -3,7 +3,7 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { RegionPests } from "@/components/site/RegionPests";
 import { ContactForm } from "@/components/site/ContactForm";
-import { miamiPests, miamiCities } from "@/lib/pests";
+import { miamiPests, miamiCities, miamiMosquito } from "@/lib/pests";
 import miamiImg from "@/assets/miami-deco.jpg";
 
 export const Route = createFileRoute("/miami")({
@@ -63,6 +63,32 @@ function MiamiPage() {
 
         <section className="py-16 md:py-20 border-t border-border">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="mb-12 relative overflow-hidden border-2 border-accent/60 rounded-sm bg-gradient-to-br from-accent/15 via-card to-secondary/10 p-6 sm:p-10">
+              <div className="absolute -top-10 -right-10 w-48 h-48 bg-accent/20 blur-3xl rounded-full pointer-events-none" />
+              <div className="relative grid sm:grid-cols-[auto,1fr] gap-6 sm:gap-8 items-center">
+                <img src={miamiMosquito.img} alt="Mosquito" className="w-28 h-28 sm:w-40 sm:h-40 object-contain animate-float shrink-0 mx-auto sm:mx-0" />
+                <div>
+                  <span className="inline-flex items-center gap-1.5 px-2 py-1 border border-accent bg-accent/15 text-[10px] uppercase tracking-[0.25em] font-bold text-accent rounded-sm mb-3">
+                    🔥 Summer hotspot · South Florida
+                  </span>
+                  <h3 className="font-display text-3xl sm:text-5xl font-bold uppercase tracking-wide leading-tight">
+                    <span className="text-gradient-miami">Mosquito</span> season is here.
+                  </h3>
+                  <p className="mt-3 text-sm sm:text-base text-foreground/85 leading-relaxed max-w-xl">
+                    Standing water from afternoon storms turns South Florida yards into a nursery overnight. Our fogging + breeding-site program knocks down adults today and shuts the cycle down for the season — built for humidity, palms, and bromeliads.
+                  </p>
+                  <div className="flex flex-wrap gap-3 mt-5">
+                    <Link to="/contact" className="inline-flex items-center px-5 py-2.5 bg-accent text-accent-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:opacity-90 transition">
+                      Get mosquito treatment
+                    </Link>
+                    <a href="#all-pests" className="inline-flex items-center px-5 py-2.5 border border-border bg-card font-semibold uppercase tracking-widest text-xs rounded-sm hover:border-accent/60 transition">
+                      See all programs
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="all-pests" />
             <div className="flex items-end justify-between flex-wrap gap-3 mb-8">
               <div>
                 <p className="text-xs uppercase tracking-[0.4em] text-accent mb-2 font-semibold">Tap a pest</p>
