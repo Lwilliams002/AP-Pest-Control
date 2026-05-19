@@ -15,6 +15,23 @@ export const Route = createFileRoute("/miami")({
       { property: "og:title", content: "South Florida Pest Control — AP Pest" },
       { property: "og:description", content: "Neon-bright service across South Florida — Miami to Palm Beach. Built for humidity, hurricanes, and everything that bites." },
       { property: "og:image", content: miamiImg },
+      { property: "og:url", content: "https://miami-glow-up.lovable.app/miami" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://miami-glow-up.lovable.app/miami" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Pest Control",
+          provider: { "@type": "LocalBusiness", name: "AP Pest Control", telephone: "+1-305-713-5011" },
+          areaServed: { "@type": "AdministrativeArea", name: "South Florida" },
+          url: "https://miami-glow-up.lovable.app/miami",
+        }),
+      },
     ],
   }),
 });
@@ -31,8 +48,8 @@ function MiamiPage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-12">
               <p className="text-xs uppercase tracking-[0.5em] text-secondary mb-4 font-semibold neon-cyan">South Florida · Coast to Coast</p>
               <h1 className="font-display text-6xl sm:text-8xl md:text-9xl font-bold tracking-wider uppercase">
-                <span className="neon-cyan">Hello,</span><br />
-                <span className="text-gradient-miami">South FL.</span>
+                <span className="neon-cyan">South Florida</span><br />
+                <span className="text-gradient-miami">Pest Control.</span>
               </h1>
             </div>
           </div>
@@ -67,7 +84,7 @@ function MiamiPage() {
               <div className="absolute -top-10 -right-10 w-48 h-48 bg-accent/20 blur-3xl rounded-full pointer-events-none" />
               <div className="absolute -bottom-16 -left-10 w-56 h-56 bg-secondary/20 blur-3xl rounded-full pointer-events-none" />
               <div className="relative grid lg:grid-cols-[auto,1fr] gap-6 lg:gap-10 items-center">
-                <img src={miamiMosquito.img} alt="Mosquito" className="w-28 h-28 sm:w-40 sm:h-40 object-contain animate-float shrink-0 mx-auto lg:mx-0 [filter:brightness(0)]" />
+                <img src={miamiMosquito.img} alt="Mosquito illustration" className="w-28 h-28 sm:w-40 sm:h-40 object-contain animate-float shrink-0 mx-auto lg:mx-0 [filter:brightness(0)]" />
                 <div>
                   <span className="inline-flex items-center gap-1.5 px-2 py-1 border border-accent bg-accent/15 text-[10px] uppercase tracking-[0.25em] font-bold text-accent rounded-sm mb-3">
                     🔥 Summer hotspot · South Florida

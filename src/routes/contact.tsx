@@ -11,6 +11,10 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Request a free pest control estimate in Miami, FL or the Arizona Valley. Family owned, fast response, satisfaction guaranteed." },
       { property: "og:title", content: "Contact AP Pest Control" },
       { property: "og:description", content: "Free estimates across Miami and Arizona." },
+      { property: "og:url", content: "https://miami-glow-up.lovable.app/contact" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://miami-glow-up.lovable.app/contact" },
     ],
   }),
 });
