@@ -101,9 +101,9 @@ function Home() {
 
         {/* Pest crawl divider */}
         <div className="pest-crawler-wrap border-t border-border bg-background" aria-hidden>
-          <img src={antImg} alt="" className="pest-crawler" style={{ animationDelay: "0s" }} />
-          <img src={roachImg} alt="" className="pest-crawler slow" style={{ animationDelay: "-8s" }} />
-          <img src={spiderImg} alt="" className="pest-crawler reverse" style={{ animationDelay: "-14s" }} />
+          <span className="pest-crawler" style={{ animationDelay: "0s, -0.1s" }}><img src={antImg} alt="" /></span>
+          <span className="pest-crawler slow" style={{ animationDelay: "-9s, -0.7s" }}><img src={roachImg} alt="" /></span>
+          <span className="pest-crawler reverse" style={{ animationDelay: "-15s, -1.4s" }}><img src={spiderImg} alt="" /></span>
         </div>
 
         {/* Split-screen: Florida vs Arizona */}
@@ -144,8 +144,8 @@ function Home() {
 
         {/* Pest crawl divider */}
         <div className="pest-crawler-wrap border-t border-border bg-card/30" aria-hidden>
-          <img src={scorpionImg} alt="" className="pest-crawler" style={{ animationDelay: "-4s" }} />
-          <img src={termiteImg} alt="" className="pest-crawler slow reverse" style={{ animationDelay: "-12s" }} />
+          <span className="pest-crawler" style={{ animationDelay: "-4s, -0.3s" }}><img src={scorpionImg} alt="" /></span>
+          <span className="pest-crawler slow reverse" style={{ animationDelay: "-13s, -1.1s" }}><img src={termiteImg} alt="" /></span>
         </div>
 
         {/* A Day with AP Pest — timeline */}
