@@ -104,12 +104,12 @@ function MiamiPage() {
               </div>
 
               <div className="relative flex flex-wrap gap-3 mt-7">
-                <Link to="/contact" className="inline-flex items-center px-5 py-2.5 bg-accent text-accent-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:opacity-90 transition">
+                <a href="#miami-contact" className="inline-flex items-center px-5 py-2.5 bg-accent text-accent-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:opacity-90 transition">
                   Get mosquito treatment
-                </Link>
-                <Link to="/contact" className="inline-flex items-center px-5 py-2.5 border border-accent/60 text-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:bg-accent/10 transition">
+                </a>
+                <a href="#miami-contact" className="inline-flex items-center px-5 py-2.5 border border-accent/60 text-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:bg-accent/10 transition">
                   Free yard inspection
-                </Link>
+                </a>
               </div>
             </div>
             <div className="flex items-end justify-between flex-wrap gap-3 mb-8">
@@ -123,7 +123,7 @@ function MiamiPage() {
           </div>
         </section>
 
-        <section className="py-16 md:py-20 border-t border-border bg-gradient-miami-sunset/10">
+        <section id="miami-contact" className="py-16 md:py-20 border-t border-border bg-gradient-miami-sunset/10 scroll-mt-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-start">
             <div>
               <p className="text-xs uppercase tracking-[0.4em] text-accent mb-3 font-semibold">Free South Florida estimate</p>
