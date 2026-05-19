@@ -45,38 +45,38 @@
 :root {
   --radius: 0.25rem;
 
-  --background: oklch(0.96 0.014 80);          /* cream f5f0e8 */
-  --foreground: oklch(0.22 0.01 60);           /* charcoal 2d2d2d */
-  --ink: oklch(0.18 0.01 60);
+  --background: oklch(1 0 0);                  /* pure white */
+  --foreground: oklch(0.15 0 0);               /* near-black */
+  --ink: oklch(0.1 0 0);
 
-  --brand: oklch(0.36 0.13 25);                /* burgundy 5c2018 */
-  --brand-foreground: oklch(0.97 0.012 80);
-  --brand-soft: oklch(0.74 0.13 75);           /* brass c9a84c */
+  --brand: oklch(0.15 0 0);                    /* black */
+  --brand-foreground: oklch(1 0 0);
+  --brand-soft: oklch(0.55 0 0);               /* mid gray */
 
-  --card: oklch(0.99 0.008 80);
-  --card-foreground: oklch(0.22 0.01 60);
-  --popover: oklch(0.99 0.008 80);
-  --popover-foreground: oklch(0.22 0.01 60);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0 0);
 
-  --primary: oklch(0.36 0.13 25);              /* burgundy */
-  --primary-foreground: oklch(0.97 0.012 80);
-  --secondary: oklch(0.91 0.018 80);
-  --secondary-foreground: oklch(0.22 0.01 60);
-  --muted: oklch(0.91 0.018 80);
-  --muted-foreground: oklch(0.42 0.015 60);
-  --accent: oklch(0.74 0.13 75);               /* brass */
-  --accent-foreground: oklch(0.18 0.01 60);
+  --primary: oklch(0.15 0 0);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: oklch(0.15 0 0);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.15 0 0);
+  --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.55 0.22 28);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.22 0.01 60 / 0.18);
-  --input: oklch(0.22 0.01 60 / 0.20);
-  --ring: oklch(0.36 0.13 25);
+  --border: oklch(0.15 0 0 / 0.14);
+  --input: oklch(0.15 0 0 / 0.18);
+  --ring: oklch(0.15 0 0);
 
   --font-display-family: "Playfair Display", Georgia, serif;
   --font-body-family: "Work Sans", "Inter", system-ui, sans-serif;
 
-  --gradient-heritage: linear-gradient(135deg, oklch(0.36 0.13 25), oklch(0.42 0.14 30));
-  --shadow-heritage: 0 12px 40px -16px oklch(0.36 0.13 25 / 0.35);
+  --gradient-heritage: linear-gradient(135deg, oklch(0.15 0 0), oklch(0.35 0 0));
+  --shadow-heritage: 0 12px 40px -16px oklch(0 0 0 / 0.25);
 }
 
 /* ============================================================
