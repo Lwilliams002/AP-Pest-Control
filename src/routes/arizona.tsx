@@ -67,7 +67,7 @@ function ArizonaPage() {
               <div className="absolute -top-10 -right-10 w-48 h-48 bg-accent/20 blur-3xl rounded-full pointer-events-none" />
               <div className="absolute -bottom-16 -left-10 w-56 h-56 bg-brand/20 blur-3xl rounded-full pointer-events-none" />
               <div className="relative grid lg:grid-cols-[auto,1fr] gap-6 lg:gap-10 items-center">
-                <img src={arizonaTermite.img} alt="Termite" className="w-28 h-28 sm:w-40 sm:h-40 object-contain animate-float shrink-0 mx-auto lg:mx-0 [filter:brightness(0)]" />
+                <img src={arizonaTermite.img} alt="Termite illustration" className="w-28 h-28 sm:w-40 sm:h-40 object-contain animate-float shrink-0 mx-auto lg:mx-0 [filter:brightness(0)]" />
                 <div>
                   <span className="inline-flex items-center gap-1.5 px-2 py-1 border border-accent bg-accent/15 text-[10px] uppercase tracking-[0.25em] font-bold text-accent rounded-sm mb-3">
                     ⚠️ Silent threat · Arizona Valley
