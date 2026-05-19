@@ -66,7 +66,7 @@ function MiamiPage() {
             <div className="flex items-end justify-between flex-wrap gap-3 mb-8">
               <div>
                 <p className="text-xs uppercase tracking-[0.4em] text-accent mb-2 font-semibold">Tap a pest</p>
-                <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-wide">South Florida pest <span className="text-gradient-miami">programs.</span></h2>
+                <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-wide text-foreground">South Florida pest <span className="text-foreground">programs.</span></h2>
               </div>
               <p className="text-xs text-muted-foreground">{miamiPests.length} programs · 🌴 = South Florida exclusive</p>
             </div>
