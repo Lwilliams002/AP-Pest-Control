@@ -26,7 +26,8 @@ export function ContactForm({ defaultRegion = "miami" as "miami" | "arizona" }) 
     }
     const subject = encodeURIComponent(`New estimate request — ${form.region === "miami" ? "Miami" : "Arizona"}`);
     const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nRegion: ${form.region}\nPest: ${form.pest}\n\n${form.message}`);
-    window.location.href = `mailto:hello@ap-pest-control.com?subject=${subject}&body=${body}`;
+    const to = form.region === "miami" ? "Appestmiami2026@gmail.com" : "hello@ap-pest-control.com";
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
     toast.success("Opening your email — we'll reply fast.");
   };
 

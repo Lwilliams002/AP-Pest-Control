@@ -7,6 +7,9 @@ export function SiteFooter() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isMiami = pathname.startsWith("/miami");
   const isArizona = pathname.startsWith("/arizona");
+  const phone = isMiami ? "+13057135011" : "+16028824013";
+  const phoneDisplay = isMiami ? "(305) 713-5011" : "(602) 882-4013";
+  const email = isMiami ? "Appestmiami2026@gmail.com" : "hello@ap-pest-control.com";
   return (
     <footer className="border-t border-border bg-card/40 mt-20">
       <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-4 gap-10 text-sm">
@@ -40,8 +43,8 @@ export function SiteFooter() {
         <div>
           <p className="font-display font-bold text-brand mb-3">Contact</p>
           <ul className="space-y-2 text-muted-foreground">
-            <li><a href="tel:+16028824013" className="hover:text-brand">(602) 882-4013</a></li>
-            <li><a href="mailto:hello@ap-pest-control.com" className="hover:text-brand break-all">hello@ap-pest-control.com</a></li>
+            <li><a href={`tel:${phone}`} className="hover:text-brand">{phoneDisplay}</a></li>
+            <li><a href={`mailto:${email}`} className="hover:text-brand break-all">{email}</a></li>
           </ul>
         </div>
       </div>
