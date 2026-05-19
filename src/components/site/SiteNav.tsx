@@ -10,10 +10,12 @@ export function SiteNav() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isMiami = pathname.startsWith("/miami");
   const isArizona = pathname.startsWith("/arizona");
+  const phone = isMiami ? "+13057135011" : "+16028824013";
+  const phoneDisplay = isMiami ? "(305) 713-5011" : "(602) 882-4013";
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/85 border-b border-border">
       <a
-        href="tel:+16028824013"
+        href={`tel:${phone}`}
         className="block bg-brand text-brand-foreground text-center text-xs sm:text-sm font-semibold tracking-wide py-2 px-4 hover:opacity-95 transition"
       >
         <span className="inline-flex items-center justify-center gap-2 flex-wrap">
@@ -22,7 +24,7 @@ export function SiteNav() {
           <span className="opacity-90">·</span>
           <span>50% OFF 1st Service</span>
           <span className="opacity-90">·</span>
-          <span className="font-bold">(602) 882-4013</span>
+          <span className="font-bold">{phoneDisplay}</span>
         </span>
       </a>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-16">
@@ -51,7 +53,7 @@ export function SiteNav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href="tel:+16028824013" className="hidden sm:inline-block px-4 py-2 bg-brand text-brand-foreground text-xs uppercase tracking-widest font-semibold rounded-sm hover:opacity-90 transition">
+          <a href={`tel:${phone}`} className="hidden sm:inline-block px-4 py-2 bg-brand text-brand-foreground text-xs uppercase tracking-widest font-semibold rounded-sm hover:opacity-90 transition">
             Free Quote
           </a>
           <button onClick={() => setOpen(!open)} className="md:hidden p-2 text-foreground" aria-label="Menu">
@@ -67,7 +69,7 @@ export function SiteNav() {
             <Link to="/miami" onClick={() => setOpen(false)} className="py-2">South Florida</Link>
             <Link to="/arizona" onClick={() => setOpen(false)} className="py-2">Arizona</Link>
             <Link to="/contact" onClick={() => setOpen(false)} className="py-2">Contact</Link>
-            <a href="tel:+16028824013" className="mt-2 px-4 py-3 bg-brand text-brand-foreground text-xs uppercase tracking-widest font-semibold rounded-sm text-center">Call (602) 882-4013</a>
+            <a href={`tel:${phone}`} className="mt-2 px-4 py-3 bg-brand text-brand-foreground text-xs uppercase tracking-widest font-semibold rounded-sm text-center">Call {phoneDisplay}</a>
           </nav>
         </div>
       )}
