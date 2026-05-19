@@ -34,7 +34,7 @@ export function RegionPests({
                   src={p.img}
                   alt={p.t}
                   loading="lazy"
-                  className={`w-full h-full max-h-[60%] object-contain transition ${isActive ? "scale-110" : "group-hover:scale-105 opacity-90"}`}
+                  className={`w-full h-full max-h-[60%] object-contain transition [filter:brightness(0)] ${isActive ? "scale-110" : "group-hover:scale-105 opacity-90"}`}
                 />
                 <span className={`mt-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-bold ${isActive ? "text-brand" : "text-muted-foreground"}`}>
                   {p.t.replace(" Pest Control", "").replace(" Control", "").replace(" Defense", "").replace(" Treatment", "").replace(" Removal", "")}
@@ -48,7 +48,7 @@ export function RegionPests({
       <div className="lg:col-span-5">
         <article className="border border-brand/40 bg-card p-6 sm:p-8 h-full flex flex-col gap-5 rounded-sm shadow-md">
           <div className="flex items-center gap-4">
-            <img src={selected.img} alt={selected.t} className="w-20 h-20 sm:w-24 sm:h-24 object-contain animate-float shrink-0" />
+            <img src={selected.img} alt={selected.t} className="w-20 h-20 sm:w-24 sm:h-24 object-contain animate-float shrink-0 [filter:brightness(0)]" />
             <div>
               <p className="text-[10px] uppercase tracking-[0.3em] text-brand mb-1">Pest Program</p>
               <h3 className="text-xl sm:text-2xl font-display font-bold leading-tight text-foreground">{selected.t}</h3>
