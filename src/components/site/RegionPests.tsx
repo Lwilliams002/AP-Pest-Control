@@ -21,30 +21,11 @@ export function RegionPests({
   const iconFilter = (p: Pest) => {
     // Keep the commercial building icon in full color so its windows remain visible.
     if (isCommercial(p)) return "";
-    // Miami: black silhouette. Arizona uses a CSS mask for an orange brand tint (see renderIcon).
-    return region === "miami" ? "[filter:brightness(0)]" : "";
+    // Both regions: black silhouette.
+    return "[filter:brightness(0)]";
   };
 
   const renderIcon = (p: Pest, className: string) => {
-    if (region === "arizona" && !isCommercial(p)) {
-      return (
-        <div
-          role="img"
-          aria-label={p.t}
-          className={`${className} bg-brand`}
-          style={{
-            WebkitMaskImage: `url(${p.img})`,
-            maskImage: `url(${p.img})`,
-            WebkitMaskRepeat: "no-repeat",
-            maskRepeat: "no-repeat",
-            WebkitMaskPosition: "center",
-            maskPosition: "center",
-            WebkitMaskSize: "contain",
-            maskSize: "contain",
-          }}
-        />
-      );
-    }
     return <img src={p.img} alt={p.t} loading="lazy" className={`${className} ${iconFilter(p)}`} />;
   };
 
