@@ -1,6 +1,8 @@
 import { useState } from "react";
 import type { Pest } from "@/lib/pests";
 import { REGION_FLAG } from "@/lib/pests";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export function RegionPests({
   pests,
@@ -10,6 +12,8 @@ export function RegionPests({
   region: "miami" | "arizona";
 }) {
   const [active, setActive] = useState(0);
+  const [open, setOpen] = useState(false);
+  const isMobile = useIsMobile();
   const selected = pests[active];
 
   return (
@@ -21,7 +25,10 @@ export function RegionPests({
             return (
               <button
                 key={p.t}
-                onClick={() => setActive(i)}
+                onClick={() => {
+                  setActive(i);
+                  if (isMobile) setOpen(true);
+                }}
                 className={`group relative aspect-square border ${isActive ? "border-brand bg-brand/5 shadow-md" : "border-border bg-card hover:border-brand/60"} p-2 sm:p-3 transition flex flex-col items-center justify-center text-center rounded-sm`}
                 aria-label={p.t}
               >
@@ -45,7 +52,7 @@ export function RegionPests({
         </div>
       </div>
 
-      <div className="lg:col-span-5">
+      <div className="hidden lg:block lg:col-span-5">
         <article className="border border-brand/40 bg-card p-6 sm:p-8 h-full flex flex-col gap-5 rounded-sm shadow-md">
           <div className="flex items-center gap-4">
             <img src={selected.img} alt={selected.t} className={`w-20 h-20 sm:w-24 sm:h-24 object-contain animate-float shrink-0 ${region === "arizona" ? "[filter:brightness(0)_invert(1)]" : "[filter:brightness(0)]"}`} />
@@ -89,6 +96,50 @@ export function RegionPests({
           </div>
         </article>
       </div>
+
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="lg:hidden max-h-[90vh] overflow-y-auto max-w-[95vw] rounded-sm">
+          <DialogTitle className="sr-only">{selected.t}</DialogTitle>
+          <article className="flex flex-col gap-5">
+            <div className="flex items-center gap-4">
+              <img src={selected.img} alt={selected.t} className={`w-20 h-20 object-contain shrink-0 ${region === "arizona" ? "[filter:brightness(0)_invert(1)]" : "[filter:brightness(0)]"}`} />
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.3em] text-brand mb-1">Pest Program</p>
+                <h3 className="text-xl font-display font-bold leading-tight text-foreground">{selected.t}</h3>
+                {selected.unique && (
+                  <span className="inline-flex items-center gap-1.5 mt-2 px-2 py-1 border border-brand bg-brand/5 text-[10px] uppercase tracking-[0.2em] font-bold text-brand">
+                    <span className="text-base leading-none">{REGION_FLAG[selected.unique].emoji}</span>
+                    {REGION_FLAG[selected.unique].label}
+                  </span>
+                )}
+              </div>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-brand mb-2">What it is</p>
+              <p className="text-sm text-foreground/85 leading-relaxed">{selected.about}</p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-brand mb-2">Signs you have them</p>
+              <ul className="space-y-1.5">
+                {selected.signs.map((s) => (
+                  <li key={s} className="text-sm text-foreground/85 flex gap-2 leading-relaxed">
+                    <span className="text-accent">◆</span>
+                    <span>{s}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="pt-3 border-t border-border">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-brand mb-2">Why it matters</p>
+              <p className="text-sm text-foreground/85 leading-relaxed">{selected.risk}</p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.3em] text-brand mb-2">Our approach</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{selected.d}</p>
+            </div>
+          </article>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
