@@ -91,8 +91,8 @@ function ArizonaPage() {
                   <p className="text-sm text-foreground/85 leading-relaxed">Trenched liquid barrier (Termidor) around the foundation creates a continuous treated zone the colony can't tunnel through.</p>
                 </div>
                 <div className="border border-border/60 bg-card/80 backdrop-blur p-4 rounded-sm">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-bold mb-2">Step 3 · Warranty</p>
-                  <p className="text-sm text-foreground/85 leading-relaxed">Renewable warranty with annual re-inspections — we come back if termites do, no extra charge for the treatment.</p>
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-bold mb-2">Step 3 · Monitor</p>
+                  <p className="text-sm text-foreground/85 leading-relaxed">Annual re-inspections catch new activity early — we check mud tubes, slab joints, and known hotspots before damage spreads.</p>
                 </div>
               </div>
 
@@ -100,7 +100,7 @@ function ArizonaPage() {
                 <span className="flex items-center gap-1.5"><span className="text-accent">◆</span> Pre-construction & escrow</span>
                 <span className="flex items-center gap-1.5"><span className="text-accent">◆</span> WDIIR reports for sale</span>
                 <span className="flex items-center gap-1.5"><span className="text-accent">◆</span> Drywood spot treatment</span>
-                <span className="flex items-center gap-1.5"><span className="text-accent">◆</span> Renewable warranty</span>
+                <span className="flex items-center gap-1.5"><span className="text-accent">◆</span> Annual re-inspections</span>
               </div>
 
               <div className="relative flex flex-wrap gap-3 mt-7">
