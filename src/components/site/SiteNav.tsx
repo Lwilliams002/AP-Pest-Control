@@ -1,10 +1,13 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X, Phone } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/ap-pest-logo.png";
+import miamiLogo from "@/assets/ap-pest-miami-logo.png";
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isMiami = pathname.startsWith("/miami");
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/85 border-b border-border">
       <a
@@ -22,17 +25,23 @@ export function SiteNav() {
       </a>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-16">
         <Link to="/" className="flex items-center gap-3">
-          <span className="inline-flex items-center justify-center h-10 w-10 rounded-sm bg-brand">
-            <img src={logo} alt="AP Pest" className="h-7 w-auto" />
-          </span>
-          <span className="font-display font-bold text-lg sm:text-xl text-brand">
-            AP Pest
-          </span>
+          {isMiami ? (
+            <img src={miamiLogo} alt="AP Pest" className="h-11 w-auto rounded-sm" />
+          ) : (
+            <>
+              <span className="inline-flex items-center justify-center h-10 w-10 rounded-sm bg-brand">
+                <img src={logo} alt="AP Pest" className="h-7 w-auto" />
+              </span>
+              <span className="font-display font-bold text-lg sm:text-xl text-brand">
+                AP Pest
+              </span>
+            </>
+          )}
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">Home</Link>
-          <Link to="/miami" activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">Miami, FL</Link>
+          <Link to="/miami" activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">South Florida</Link>
           <Link to="/arizona" activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">Arizona</Link>
           <Link to="/contact" activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">Contact</Link>
         </nav>
@@ -51,7 +60,7 @@ export function SiteNav() {
         <div className="md:hidden border-t border-border bg-background">
           <nav className="flex flex-col px-6 py-4 gap-3 text-sm font-medium">
             <Link to="/" onClick={() => setOpen(false)} className="py-2">Home</Link>
-            <Link to="/miami" onClick={() => setOpen(false)} className="py-2">Miami, FL</Link>
+            <Link to="/miami" onClick={() => setOpen(false)} className="py-2">South Florida</Link>
             <Link to="/arizona" onClick={() => setOpen(false)} className="py-2">Arizona</Link>
             <Link to="/contact" onClick={() => setOpen(false)} className="py-2">Contact</Link>
             <a href="tel:+16028824013" className="mt-2 px-4 py-3 bg-brand text-brand-foreground text-xs uppercase tracking-widest font-semibold rounded-sm text-center">Call (602) 882-4013</a>

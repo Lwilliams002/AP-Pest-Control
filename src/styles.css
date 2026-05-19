@@ -80,45 +80,45 @@
 }
 
 /* ============================================================
-   MIAMI THEME — Art Deco South Beach
-   Pastels: pink, teal, mint, deep navy
+   MIAMI / SOUTH FLORIDA THEME — Neon Vaporwave
+   Hot pink, cyan, electric yellow on near-black
    ============================================================ */
 .theme-miami {
   --radius: 0.5rem;
 
-  --background: oklch(0.98 0.015 350);         /* off-white pink */
-  --foreground: oklch(0.20 0.06 250);          /* deep navy 0c2340 */
-  --ink: oklch(0.18 0.06 250);
+  --background: oklch(0.10 0.02 290);          /* near-black with violet tint */
+  --foreground: oklch(0.97 0.02 200);          /* near-white, cool */
+  --ink: oklch(0.06 0.01 280);                  /* pure deep */
 
-  --brand: oklch(0.20 0.06 250);               /* deep navy */
-  --brand-foreground: oklch(0.98 0.015 350);
-  --brand-soft: oklch(0.85 0.10 350);          /* blush f8c8d8 */
+  --brand: oklch(0.68 0.27 350);                /* hot neon pink */
+  --brand-foreground: oklch(0.10 0.02 290);
+  --brand-soft: oklch(0.90 0.16 95);            /* electric yellow */
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.20 0.06 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.20 0.06 250);
+  --card: oklch(0.15 0.025 285);                /* elevated dark */
+  --card-foreground: oklch(0.97 0.02 200);
+  --popover: oklch(0.15 0.025 285);
+  --popover-foreground: oklch(0.97 0.02 200);
 
-  --primary: oklch(0.20 0.06 250);             /* deep navy */
-  --primary-foreground: oklch(0.98 0.015 350);
-  --secondary: oklch(0.85 0.10 350);           /* blush */
-  --secondary-foreground: oklch(0.20 0.06 250);
-  --muted: oklch(0.94 0.02 200);
-  --muted-foreground: oklch(0.40 0.04 230);
-  --accent: oklch(0.82 0.12 220);              /* teal 7dd3fc */
-  --accent-foreground: oklch(0.20 0.06 250);
-  --destructive: oklch(0.65 0.20 25);
+  --primary: oklch(0.68 0.27 350);              /* hot pink */
+  --primary-foreground: oklch(0.10 0.02 290);
+  --secondary: oklch(0.80 0.15 195);            /* neon cyan */
+  --secondary-foreground: oklch(0.10 0.02 290);
+  --muted: oklch(0.20 0.03 285);
+  --muted-foreground: oklch(0.75 0.03 210);
+  --accent: oklch(0.80 0.15 195);               /* cyan accent */
+  --accent-foreground: oklch(0.10 0.02 290);
+  --destructive: oklch(0.65 0.22 25);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.20 0.06 250 / 0.18);
-  --input: oklch(0.20 0.06 250 / 0.18);
-  --ring: oklch(0.82 0.12 220);
+  --border: oklch(0.80 0.15 195 / 0.25);        /* cyan border glow */
+  --input: oklch(0.80 0.15 195 / 0.30);
+  --ring: oklch(0.90 0.16 95);                  /* yellow ring */
 
-  --font-display-family: "Poiret One", "Playfair Display", serif;
+  --font-display-family: "Bebas Neue", "Poiret One", sans-serif;
   --font-body-family: "Work Sans", "Inter", system-ui, sans-serif;
 
-  --gradient-miami: linear-gradient(135deg, oklch(0.85 0.10 350), oklch(0.82 0.12 220) 50%, oklch(0.78 0.10 160));
-  --gradient-miami-sunset: linear-gradient(180deg, oklch(0.88 0.10 30), oklch(0.85 0.10 350) 60%, oklch(0.82 0.12 220));
-  --shadow-miami: 0 20px 60px -20px oklch(0.20 0.06 250 / 0.25);
+  --gradient-miami: linear-gradient(135deg, oklch(0.68 0.27 350), oklch(0.80 0.15 195) 60%, oklch(0.90 0.16 95));
+  --gradient-miami-sunset: linear-gradient(180deg, oklch(0.90 0.16 95), oklch(0.68 0.27 350) 55%, oklch(0.45 0.20 320));
+  --shadow-miami: 0 0 60px -10px oklch(0.68 0.27 350 / 0.55), 0 0 30px -8px oklch(0.80 0.15 195 / 0.4);
 }
 
 /* ============================================================
@@ -218,9 +218,12 @@
   }
   .palm-bg {
     background-image:
-      radial-gradient(circle at 20% 100%, oklch(0.82 0.12 220 / 0.18) 0, transparent 40%),
-      radial-gradient(circle at 80% 0%, oklch(0.85 0.10 350 / 0.18) 0, transparent 40%);
+      radial-gradient(circle at 15% 110%, oklch(0.80 0.15 195 / 0.35) 0, transparent 45%),
+      radial-gradient(circle at 85% -10%, oklch(0.68 0.27 350 / 0.35) 0, transparent 45%),
+      radial-gradient(circle at 50% 50%, oklch(0.90 0.16 95 / 0.06) 0, transparent 70%);
   }
+  .theme-miami .neon-pink { color: oklch(0.68 0.27 350); text-shadow: 0 0 18px oklch(0.68 0.27 350 / 0.6); }
+  .theme-miami .neon-cyan { color: oklch(0.80 0.15 195); text-shadow: 0 0 18px oklch(0.80 0.15 195 / 0.6); }
 
   /* Arizona utilities */
   .bg-gradient-arizona { background: var(--gradient-arizona); }

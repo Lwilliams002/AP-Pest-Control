@@ -10,9 +10,9 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "AP Pest Control — Family-Owned Pest Control in Miami, FL & Arizona" },
-      { name: "description", content: "Independent, family-owned pest control serving Miami, FL and the Arizona Valley since 2012. Sustainable, modern programs and a satisfaction guarantee." },
-      { property: "og:title", content: "AP Pest Control — Miami, FL & Arizona Valley" },
+      { title: "AP Pest Control — Family-Owned Pest Control in South Florida & Arizona" },
+      { name: "description", content: "Independent, family-owned pest control serving South Florida and the Arizona Valley since 2012. Sustainable, modern programs and a satisfaction guarantee." },
+      { property: "og:title", content: "AP Pest Control — South Florida & Arizona Valley" },
       { property: "og:description", content: "Sustainable pest control across two coasts. Free estimates." },
     ],
   }),
@@ -34,7 +34,7 @@ function Home() {
               </h1>
               <div className="mt-6 h-px w-32 heritage-rule" />
               <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-lg leading-relaxed">
-                A trusted, independent pest control company protecting homes and businesses in Miami, Florida and the Arizona Valley. Sustainable methods, honest pricing, real people.
+                A trusted, independent pest control company protecting homes and businesses across South Florida and the Arizona Valley. Sustainable methods, honest pricing, real people.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link to="/contact" className="px-7 py-3.5 bg-brand text-brand-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:opacity-90 transition">
@@ -61,7 +61,7 @@ function Home() {
               <div className="mt-4 mx-auto h-px w-32 heritage-rule" />
             </div>
             <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-              <RegionCard to="/miami" title="Miami, Florida" subtitle="South Beach pastels & Atlantic humidity" img={miamiImg} />
+              <RegionCard to="/miami" title="South Florida" subtitle="Miami to West Palm · neon coast, real humidity" img={miamiImg} />
               <RegionCard to="/arizona" title="The Arizona Valley" subtitle="Sonoran sunsets & desert wildlife" img={azImg} />
             </div>
           </div>

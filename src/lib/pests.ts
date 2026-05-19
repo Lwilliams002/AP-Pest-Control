@@ -68,7 +68,11 @@ const PEST_CRICKET: Pest = { t: "Cricket Control", d: "Perimeter treatment for m
 export const miamiPests: Pest[] = [PEST_ANT, PEST_BEDBUG, PEST_BEE, PEST_COCKROACH, PEST_COMMERCIAL, PEST_EARWIG, PEST_FLEA, PEST_GENERAL, PEST_HORNET, PEST_IGUANA, PEST_MOSQUITO, PEST_NOSEEUM, PEST_RODENT, PEST_SILVERFISH, PEST_SPIDER, PEST_TERMITE, PEST_WASP, PEST_WHITEFLY, PEST_WILDLIFE];
 export const arizonaPests: Pest[] = [PEST_ANT, PEST_BEDBUG, PEST_BEE, PEST_COCKROACH, PEST_COMMERCIAL, PEST_CRICKET, PEST_EARWIG, PEST_FLEA, PEST_GENERAL, PEST_HORNET, PEST_KISSINGBUG, PEST_PACKRAT, PEST_PIGEON, PEST_RATTLESNAKE, PEST_RODENT, PEST_SCORPION, PEST_SILVERFISH, PEST_SPIDER, PEST_TERMITE, PEST_WASP];
 
-export const miamiCities = ["Miami", "Miami Beach", "Brickell", "Coral Gables", "Coconut Grove", "Wynwood", "Aventura", "Doral"];
+export const miamiCities = [
+  "Miami", "Miami Beach", "Brickell", "Coral Gables", "Coconut Grove", "Wynwood", "Aventura", "Doral",
+  "Fort Lauderdale", "Hollywood", "Pembroke Pines", "Davie", "Boca Raton", "Delray Beach",
+  "West Palm Beach", "Jupiter", "Key Biscayne", "Pinecrest", "Homestead", "Kendall",
+];
 export const azCities = ["Scottsdale", "Phoenix", "Gilbert", "Chandler", "Mesa", "Queen Creek", "Tempe", "Ahwatukee"];
 
 export const testimonials = [
