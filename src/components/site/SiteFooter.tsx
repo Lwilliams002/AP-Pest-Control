@@ -5,7 +5,7 @@ import arizonaLogo from "@/assets/ap-pest-arizona-logo.svg";
 
 export function SiteFooter() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isMiami = pathname.startsWith("/miami");
+  const isMiami = pathname.startsWith("/southflorida");
   const isArizona = pathname.startsWith("/arizona");
   const phone = isMiami ? "+13057135011" : "+16028824013";
   const phoneDisplay = isMiami ? "(305) 713-5011" : "(602) 882-4013";
@@ -35,7 +35,7 @@ export function SiteFooter() {
         <div>
           <p className="font-display font-bold text-brand mb-3">Service Areas</p>
           <ul className="space-y-2 text-muted-foreground">
-            <li><Link to="/miami" className="hover:text-brand">South Florida</Link></li>
+            <li><Link to="/southflorida" className="hover:text-brand">South Florida</Link></li>
             <li><Link to="/arizona" className="hover:text-brand">Arizona Valley</Link></li>
             <li><Link to="/contact" className="hover:text-brand">Free estimate</Link></li>
           </ul>

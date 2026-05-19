@@ -9,20 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SouthfloridaRouteImport } from './routes/southflorida'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as MiamiRouteImport } from './routes/miami'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ArizonaRouteImport } from './routes/arizona'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SouthfloridaRoute = SouthfloridaRouteImport.update({
+  id: '/southflorida',
+  path: '/southflorida',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MiamiRoute = MiamiRouteImport.update({
-  id: '/miami',
-  path: '/miami',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -45,54 +45,60 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/arizona': typeof ArizonaRoute
   '/contact': typeof ContactRoute
-  '/miami': typeof MiamiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/southflorida': typeof SouthfloridaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/arizona': typeof ArizonaRoute
   '/contact': typeof ContactRoute
-  '/miami': typeof MiamiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/southflorida': typeof SouthfloridaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/arizona': typeof ArizonaRoute
   '/contact': typeof ContactRoute
-  '/miami': typeof MiamiRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/southflorida': typeof SouthfloridaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/arizona' | '/contact' | '/miami' | '/sitemap.xml'
+  fullPaths: '/' | '/arizona' | '/contact' | '/sitemap.xml' | '/southflorida'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/arizona' | '/contact' | '/miami' | '/sitemap.xml'
-  id: '__root__' | '/' | '/arizona' | '/contact' | '/miami' | '/sitemap.xml'
+  to: '/' | '/arizona' | '/contact' | '/sitemap.xml' | '/southflorida'
+  id:
+    | '__root__'
+    | '/'
+    | '/arizona'
+    | '/contact'
+    | '/sitemap.xml'
+    | '/southflorida'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ArizonaRoute: typeof ArizonaRoute
   ContactRoute: typeof ContactRoute
-  MiamiRoute: typeof MiamiRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SouthfloridaRoute: typeof SouthfloridaRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/southflorida': {
+      id: '/southflorida'
+      path: '/southflorida'
+      fullPath: '/southflorida'
+      preLoaderRoute: typeof SouthfloridaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/miami': {
-      id: '/miami'
-      path: '/miami'
-      fullPath: '/miami'
-      preLoaderRoute: typeof MiamiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -123,9 +129,19 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ArizonaRoute: ArizonaRoute,
   ContactRoute: ContactRoute,
-  MiamiRoute: MiamiRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SouthfloridaRoute: SouthfloridaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

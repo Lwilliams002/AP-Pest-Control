@@ -8,7 +8,7 @@ import arizonaLogo from "@/assets/ap-pest-arizona-logo.svg";
 export function SiteNav() {
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isMiami = pathname.startsWith("/miami");
+  const isMiami = pathname.startsWith("/southflorida");
   const isArizona = pathname.startsWith("/arizona");
   const phone = isMiami ? "+13057135011" : "+16028824013";
   const phoneDisplay = isMiami ? "(305) 713-5011" : "(602) 882-4013";
@@ -47,7 +47,7 @@ export function SiteNav() {
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">Home</Link>
-          <Link to="/miami" activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">South Florida</Link>
+          <Link to="/southflorida" activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">South Florida</Link>
           <Link to="/arizona" activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">Arizona</Link>
           <Link to="/contact" activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">Contact</Link>
         </nav>
@@ -66,7 +66,7 @@ export function SiteNav() {
         <div className="md:hidden border-t border-border bg-background">
           <nav className="flex flex-col px-6 py-4 gap-3 text-sm font-medium">
             <Link to="/" onClick={() => setOpen(false)} className="py-2">Home</Link>
-            <Link to="/miami" onClick={() => setOpen(false)} className="py-2">South Florida</Link>
+            <Link to="/southflorida" onClick={() => setOpen(false)} className="py-2">South Florida</Link>
             <Link to="/arizona" onClick={() => setOpen(false)} className="py-2">Arizona</Link>
             <Link to="/contact" onClick={() => setOpen(false)} className="py-2">Contact</Link>
             <a href={`tel:${phone}`} className="mt-2 px-4 py-3 bg-brand text-brand-foreground text-xs uppercase tracking-widest font-semibold rounded-sm text-center">Call {phoneDisplay}</a>
