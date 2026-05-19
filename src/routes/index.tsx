@@ -156,15 +156,21 @@ function Home() {
               <h2 className="font-display text-4xl md:text-5xl font-bold">Four steps. <span className="italic text-brand">Real results.</span></h2>
               <div className="mt-4 mx-auto h-px w-32 heritage-rule" />
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 relative">
+            <div className="relative grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+              {/* continuous dashed connector behind dots, md+ only */}
+              <div
+                aria-hidden
+                className="hidden md:block absolute top-7 left-[12.5%] right-[12.5%] h-px"
+                style={{ background: "repeating-linear-gradient(90deg, var(--brand-soft) 0 8px, transparent 8px 16px)" }}
+              />
               {[
                 { n: "01", t: "Inspect", d: "We walk your property, identify the pest, and locate entry points before treatment." },
                 { n: "02", t: "Treat", d: "Targeted, family-safe application. No cookie-cutter sprays — only what your situation needs." },
                 { n: "03", t: "Monitor", d: "Scheduled re-visits track activity so we catch returns before they become infestations." },
                 { n: "04", t: "Guarantee", d: "If pests come back between visits, so do we — at no extra cost. Satisfaction guaranteed." },
               ].map((s) => (
-                <div key={s.n} className="timeline-dot text-center md:text-left">
-                  <div className="mx-auto md:mx-0 w-14 h-14 rounded-full bg-brand text-brand-foreground flex items-center justify-center font-display text-lg font-bold shadow-heritage">
+                <div key={s.n} className="relative text-center">
+                  <div className="relative z-10 mx-auto w-14 h-14 rounded-full bg-brand text-brand-foreground flex items-center justify-center font-display text-lg font-bold shadow-heritage ring-8 ring-background">
                     {s.n}
                   </div>
                   <h3 className="mt-5 font-display text-2xl font-bold text-brand">{s.t}</h3>
