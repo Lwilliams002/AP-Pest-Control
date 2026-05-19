@@ -63,10 +63,11 @@ function MiamiPage() {
 
         <section className="py-16 md:py-20 border-t border-border">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="mb-12 relative overflow-hidden border-2 border-accent/60 rounded-sm bg-gradient-to-br from-accent/15 via-card to-secondary/10 p-6 sm:p-10">
+            <div className="mb-14 relative overflow-hidden border-2 border-accent/60 rounded-sm bg-gradient-to-br from-accent/15 via-card to-secondary/10 p-6 sm:p-10">
               <div className="absolute -top-10 -right-10 w-48 h-48 bg-accent/20 blur-3xl rounded-full pointer-events-none" />
-              <div className="relative grid sm:grid-cols-[auto,1fr] gap-6 sm:gap-8 items-center">
-                <img src={miamiMosquito.img} alt="Mosquito" className="w-28 h-28 sm:w-40 sm:h-40 object-contain animate-float shrink-0 mx-auto sm:mx-0" />
+              <div className="absolute -bottom-16 -left-10 w-56 h-56 bg-secondary/20 blur-3xl rounded-full pointer-events-none" />
+              <div className="relative grid lg:grid-cols-[auto,1fr] gap-6 lg:gap-10 items-center">
+                <img src={miamiMosquito.img} alt="Mosquito" className="w-28 h-28 sm:w-40 sm:h-40 object-contain animate-float shrink-0 mx-auto lg:mx-0 [filter:brightness(0)]" />
                 <div>
                   <span className="inline-flex items-center gap-1.5 px-2 py-1 border border-accent bg-accent/15 text-[10px] uppercase tracking-[0.25em] font-bold text-accent rounded-sm mb-3">
                     🔥 Summer hotspot · South Florida
@@ -74,15 +75,41 @@ function MiamiPage() {
                   <h3 className="font-display text-3xl sm:text-5xl font-bold uppercase tracking-wide leading-tight">
                     <span className="text-gradient-miami">Mosquito</span> season is here.
                   </h3>
-                  <p className="mt-3 text-sm sm:text-base text-foreground/85 leading-relaxed max-w-xl">
-                    Standing water from afternoon storms turns South Florida yards into a nursery overnight. Our fogging + breeding-site program knocks down adults today and shuts the cycle down for the season — built for humidity, palms, and bromeliads.
+                  <p className="mt-3 text-sm sm:text-base text-foreground/85 leading-relaxed max-w-2xl">
+                    Afternoon storms, irrigated lawns, and bromeliads turn South Florida yards into a 24-hour mosquito nursery. Aedes mosquitoes only need a bottle cap of standing water to breed — and they're the ones spreading Zika, dengue, and West Nile across the coast every summer.
                   </p>
-                  <div className="flex flex-wrap gap-3 mt-5">
-                    <Link to="/contact" className="inline-flex items-center px-5 py-2.5 bg-accent text-accent-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:opacity-90 transition">
-                      Get mosquito treatment
-                    </Link>
-                  </div>
                 </div>
+              </div>
+
+              <div className="relative mt-8 grid sm:grid-cols-3 gap-4">
+                <div className="border border-border/60 bg-card/80 backdrop-blur p-4 rounded-sm">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-bold mb-2">Step 1 · Inspect</p>
+                  <p className="text-sm text-foreground/85 leading-relaxed">We walk the whole yard — gutters, bromeliads, AC pans, plant saucers, bird baths — and map every breeding site before we treat anything.</p>
+                </div>
+                <div className="border border-border/60 bg-card/80 backdrop-blur p-4 rounded-sm">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-bold mb-2">Step 2 · Knock down</p>
+                  <p className="text-sm text-foreground/85 leading-relaxed">Targeted fogging of foliage, hedges, and shaded harborage drops the adult population fast — usually noticeable by the next evening.</p>
+                </div>
+                <div className="border border-border/60 bg-card/80 backdrop-blur p-4 rounded-sm">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-bold mb-2">Step 3 · Break the cycle</p>
+                  <p className="text-sm text-foreground/85 leading-relaxed">Larvicide in standing water + monthly retreats during the wet season stop the next generation before it hatches.</p>
+                </div>
+              </div>
+
+              <div className="relative mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-semibold">
+                <span className="flex items-center gap-1.5"><span className="text-accent">◆</span> Pet & kid conscious</span>
+                <span className="flex items-center gap-1.5"><span className="text-accent">◆</span> Event prep (24–48 hr)</span>
+                <span className="flex items-center gap-1.5"><span className="text-accent">◆</span> Monthly wet-season plans</span>
+                <span className="flex items-center gap-1.5"><span className="text-accent">◆</span> No-see-um add-on available</span>
+              </div>
+
+              <div className="relative flex flex-wrap gap-3 mt-7">
+                <Link to="/contact" className="inline-flex items-center px-5 py-2.5 bg-accent text-accent-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:opacity-90 transition">
+                  Get mosquito treatment
+                </Link>
+                <Link to="/contact" className="inline-flex items-center px-5 py-2.5 border border-accent/60 text-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:bg-accent/10 transition">
+                  Free yard inspection
+                </Link>
               </div>
             </div>
             <div className="flex items-end justify-between flex-wrap gap-3 mb-8">
