@@ -261,40 +261,55 @@
   animation: shimmer 4s linear infinite;
 }
 
-/* Pest crawl across section dividers */
+/* Pest crawl across section dividers — translate on the wrapper, scuttle on the img */
 @keyframes crawl-right {
-  0% { transform: translateX(-10vw) rotate(0deg); }
-  25% { transform: translateX(25vw) rotate(-4deg); }
-  50% { transform: translateX(55vw) rotate(3deg); }
-  75% { transform: translateX(80vw) rotate(-2deg); }
-  100% { transform: translateX(110vw) rotate(0deg); }
+  0%   { transform: translateX(-8vw); }
+  100% { transform: translateX(108vw); }
 }
 @keyframes crawl-left {
-  0% { transform: translateX(110vw) rotate(180deg); }
-  100% { transform: translateX(-10vw) rotate(180deg); }
+  0%   { transform: translateX(108vw) scaleX(-1); }
+  100% { transform: translateX(-8vw)  scaleX(-1); }
 }
-@keyframes wiggle {
-  0%, 100% { transform: rotate(-3deg); }
-  50% { transform: rotate(3deg); }
+@keyframes scuttle {
+  0%   { transform: translateY(0)   rotate(-2deg); }
+  20%  { transform: translateY(-2px) rotate(2deg); }
+  40%  { transform: translateY(0)   rotate(-3deg); }
+  60%  { transform: translateY(-1px) rotate(1deg); }
+  80%  { transform: translateY(-3px) rotate(-2deg); }
+  100% { transform: translateY(0)   rotate(-2deg); }
+}
+@keyframes path-bob {
+  0%, 100% { margin-top: -2px; }
+  50%      { margin-top: 2px; }
 }
 .pest-crawler {
   position: absolute;
   top: 50%;
-  margin-top: -18px;
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-  opacity: 0.85;
-  filter: brightness(0);
-  animation: crawl-right 22s linear infinite;
+  left: 0;
+  margin-top: -28px;
+  width: 56px;
+  height: 56px;
+  animation: crawl-right 28s linear infinite, path-bob 3.2s ease-in-out infinite;
   pointer-events: none;
+  will-change: transform;
 }
-.pest-crawler.reverse { animation: crawl-left 26s linear infinite; }
-.pest-crawler.slow { animation-duration: 32s; }
+.pest-crawler.reverse { animation: crawl-left 34s linear infinite, path-bob 2.8s ease-in-out infinite; }
+.pest-crawler.slow    { animation-duration: 42s, 3.6s; }
+.pest-crawler img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 6px 4px rgba(0,0,0,0.25)) contrast(1.05) saturate(1.1);
+  animation: scuttle 0.35s ease-in-out infinite;
+  transform-origin: center 70%;
+}
 .pest-crawler-wrap {
   position: relative;
-  height: 36px;
+  height: 56px;
   overflow: hidden;
+  background:
+    radial-gradient(ellipse at center, oklch(0.95 0 0) 0, transparent 70%);
 }
 
 /* Timeline connector */
