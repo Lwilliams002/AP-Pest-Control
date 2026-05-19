@@ -81,14 +81,10 @@ function MiamiPage() {
                     <Link to="/contact" className="inline-flex items-center px-5 py-2.5 bg-accent text-accent-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:opacity-90 transition">
                       Get mosquito treatment
                     </Link>
-                    <a href="#all-pests" className="inline-flex items-center px-5 py-2.5 border border-border bg-card font-semibold uppercase tracking-widest text-xs rounded-sm hover:border-accent/60 transition">
-                      See all programs
-                    </a>
                   </div>
                 </div>
               </div>
             </div>
-            <div id="all-pests" />
             <div className="flex items-end justify-between flex-wrap gap-3 mb-8">
               <div>
                 <p className="text-xs uppercase tracking-[0.4em] text-accent mb-2 font-semibold">Tap a pest</p>
