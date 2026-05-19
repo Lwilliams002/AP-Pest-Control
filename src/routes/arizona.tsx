@@ -15,6 +15,23 @@ export const Route = createFileRoute("/arizona")({
       { property: "og:title", content: "Arizona Pest Control — AP Pest" },
       { property: "og:description", content: "Sonoran Desert pest control rooted in 12+ years of Valley experience." },
       { property: "og:image", content: azImg },
+      { property: "og:url", content: "https://miami-glow-up.lovable.app/arizona" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://miami-glow-up.lovable.app/arizona" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Pest Control",
+          provider: { "@type": "LocalBusiness", name: "AP Pest Control", telephone: "+1-602-882-4013" },
+          areaServed: { "@type": "AdministrativeArea", name: "Arizona Valley" },
+          url: "https://miami-glow-up.lovable.app/arizona",
+        }),
+      },
     ],
   }),
 });

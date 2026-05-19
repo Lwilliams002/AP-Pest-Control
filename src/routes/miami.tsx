@@ -15,6 +15,23 @@ export const Route = createFileRoute("/miami")({
       { property: "og:title", content: "South Florida Pest Control — AP Pest" },
       { property: "og:description", content: "Neon-bright service across South Florida — Miami to Palm Beach. Built for humidity, hurricanes, and everything that bites." },
       { property: "og:image", content: miamiImg },
+      { property: "og:url", content: "https://miami-glow-up.lovable.app/miami" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://miami-glow-up.lovable.app/miami" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Pest Control",
+          provider: { "@type": "LocalBusiness", name: "AP Pest Control", telephone: "+1-305-713-5011" },
+          areaServed: { "@type": "AdministrativeArea", name: "South Florida" },
+          url: "https://miami-glow-up.lovable.app/miami",
+        }),
+      },
     ],
   }),
 });

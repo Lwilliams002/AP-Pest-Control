@@ -10,10 +10,35 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "AP Pest Control — Family-Owned Pest Control in South Florida & Arizona" },
+      { title: "AP Pest Control — South Florida & Arizona" },
       { name: "description", content: "Independent, family-owned pest control serving South Florida and the Arizona Valley since 2012. Sustainable, modern programs and a satisfaction guarantee." },
       { property: "og:title", content: "AP Pest Control — South Florida & Arizona Valley" },
       { property: "og:description", content: "Sustainable pest control across two coasts. Free estimates." },
+      { property: "og:url", content: "https://miami-glow-up.lovable.app/" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://miami-glow-up.lovable.app/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "AP Pest Control",
+          description: "Independent, family-owned pest control serving South Florida and the Arizona Valley since 2012.",
+          url: "https://miami-glow-up.lovable.app/",
+          logo: "https://miami-glow-up.lovable.app/ap-pest-logo.png",
+          areaServed: [
+            { "@type": "AdministrativeArea", name: "South Florida" },
+            { "@type": "AdministrativeArea", name: "Arizona Valley" },
+          ],
+          contactPoint: [
+            { "@type": "ContactPoint", telephone: "+1-305-713-5011", areaServed: "US-FL", contactType: "customer service" },
+            { "@type": "ContactPoint", telephone: "+1-602-882-4013", areaServed: "US-AZ", contactType: "customer service" },
+          ],
+        }),
+      },
     ],
   }),
 });
@@ -47,7 +72,7 @@ function Home() {
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-heritage opacity-10 blur-3xl" />
-              <img src={heritage} alt="A traditional family home protected by AP Pest" width={1920} height={1024} className="relative w-full aspect-[4/3] object-cover rounded-sm shadow-heritage border border-brand-soft/40" />
+              <img src={heritage} alt="A traditional family home protected by AP Pest" width={1920} height={1024} fetchPriority="high" decoding="async" className="relative w-full aspect-[4/3] object-cover rounded-sm shadow-heritage border border-brand-soft/40" />
             </div>
           </div>
         </section>
