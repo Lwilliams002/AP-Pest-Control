@@ -6,7 +6,7 @@ import { ContactForm } from "@/components/site/ContactForm";
 import { miamiPests, miamiCities, miamiMosquito } from "@/lib/pests";
 import miamiImg from "@/assets/miami-deco.jpg";
 
-export const Route = createFileRoute("/miami")({
+export const Route = createFileRoute("/southflorida")({
   component: MiamiPage,
   head: () => ({
     meta: [
@@ -15,10 +15,10 @@ export const Route = createFileRoute("/miami")({
       { property: "og:title", content: "South Florida Pest Control — AP Pest" },
       { property: "og:description", content: "Neon-bright service across South Florida — Miami to Palm Beach. Built for humidity, hurricanes, and everything that bites." },
       { property: "og:image", content: miamiImg },
-      { property: "og:url", content: "https://miami-glow-up.lovable.app/miami" },
+      { property: "og:url", content: "https://miami-glow-up.lovable.app/southflorida" },
     ],
     links: [
-      { rel: "canonical", href: "https://miami-glow-up.lovable.app/miami" },
+      { rel: "canonical", href: "https://miami-glow-up.lovable.app/southflorida" },
     ],
     scripts: [
       {
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/miami")({
           serviceType: "Pest Control",
           provider: { "@type": "LocalBusiness", name: "AP Pest Control", telephone: "+1-305-713-5011" },
           areaServed: { "@type": "AdministrativeArea", name: "South Florida" },
-          url: "https://miami-glow-up.lovable.app/miami",
+          url: "https://miami-glow-up.lovable.app/southflorida",
         }),
       },
     ],

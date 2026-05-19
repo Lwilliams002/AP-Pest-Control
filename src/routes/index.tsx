@@ -86,7 +86,7 @@ function Home() {
               <div className="mt-4 mx-auto h-px w-32 heritage-rule" />
             </div>
             <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-              <RegionCard to="/miami" title="South Florida" subtitle="Miami to West Palm · neon coast, real humidity" img={miamiImg} />
+              <RegionCard to="/southflorida" title="South Florida" subtitle="Miami to West Palm · neon coast, real humidity" img={miamiImg} />
               <RegionCard to="/arizona" title="The Arizona Valley" subtitle="Sonoran sunsets & desert wildlife" img={azImg} />
             </div>
           </div>
@@ -160,7 +160,7 @@ function Home() {
   );
 }
 
-function RegionCard({ to, title, subtitle, img }: { to: "/miami" | "/arizona"; title: string; subtitle: string; img: string }) {
+function RegionCard({ to, title, subtitle, img }: { to: "/southflorida" | "/arizona"; title: string; subtitle: string; img: string }) {
   return (
     <Link to={to} className="group relative block overflow-hidden rounded-sm border border-border shadow-md aspect-[4/5] sm:aspect-[5/4]">
       <img src={img} alt={title} loading="lazy" width={1920} height={1024} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700" />
