@@ -128,40 +128,40 @@
 .theme-arizona {
   --radius: 0.125rem;
 
-  /* Sandstone Light: warm cream background, deep walnut ink, sienna accents */
-  --background: oklch(0.97 0.013 80);          /* #faf6ef warm cream */
-  --foreground: oklch(0.25 0.04 50);           /* #3d2817 deep walnut */
-  --ink: oklch(0.22 0.04 50);
+  /* Orange/desert: warm off-white bg, deep brown ink, bold orange brand */
+  --background: oklch(0.98 0.012 75);          /* warm off-white */
+  --foreground: oklch(0.22 0.04 45);           /* deep brown ink */
+  --ink: oklch(0.18 0.04 45);
 
-  --brand: oklch(0.55 0.13 45);                /* #a0522d sienna */
-  --brand-foreground: oklch(0.98 0.013 80);
-  --brand-soft: oklch(0.82 0.06 75);           /* #e6d5b8 sandstone */
+  --brand: oklch(0.66 0.18 50);                /* bold burnt orange */
+  --brand-foreground: oklch(0.99 0.008 80);
+  --brand-soft: oklch(0.82 0.14 75);           /* logo gold #fdbe57 */
 
-  --card: oklch(0.99 0.008 80);                /* near-white card */
-  --card-foreground: oklch(0.25 0.04 50);
-  --popover: oklch(0.99 0.008 80);
-  --popover-foreground: oklch(0.25 0.04 50);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.04 45);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.04 45);
 
-  --primary: oklch(0.55 0.13 45);              /* sienna */
-  --primary-foreground: oklch(0.98 0.013 80);
-  --secondary: oklch(0.82 0.06 75);            /* sandstone */
-  --secondary-foreground: oklch(0.25 0.04 50);
-  --muted: oklch(0.93 0.018 80);
-  --muted-foreground: oklch(0.42 0.04 55);
-  --accent: oklch(0.55 0.13 45);               /* sienna accent */
-  --accent-foreground: oklch(0.98 0.013 80);
+  --primary: oklch(0.66 0.18 50);              /* burnt orange */
+  --primary-foreground: oklch(0.99 0.008 80);
+  --secondary: oklch(0.82 0.14 75);            /* gold */
+  --secondary-foreground: oklch(0.22 0.04 45);
+  --muted: oklch(0.95 0.018 75);
+  --muted-foreground: oklch(0.42 0.04 50);
+  --accent: oklch(0.62 0.20 35);               /* deep orange accent */
+  --accent-foreground: oklch(0.99 0.008 80);
   --destructive: oklch(0.50 0.20 28);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.25 0.04 50 / 0.16);
-  --input: oklch(0.25 0.04 50 / 0.20);
-  --ring: oklch(0.55 0.13 45);
+  --border: oklch(0.22 0.04 45 / 0.16);
+  --input: oklch(0.22 0.04 45 / 0.20);
+  --ring: oklch(0.66 0.18 50);
 
   --font-display-family: "DM Serif Display", "Playfair Display", Georgia, serif;
   --font-body-family: "Work Sans", "Inter", system-ui, sans-serif;
 
-  --gradient-arizona: linear-gradient(135deg, oklch(0.55 0.13 45), oklch(0.40 0.10 40));
-  --gradient-arizona-sunset: linear-gradient(180deg, oklch(0.82 0.06 75), oklch(0.65 0.12 50) 55%, oklch(0.45 0.14 35));
-  --shadow-arizona: 0 18px 50px -20px oklch(0.25 0.04 50 / 0.18);
+  --gradient-arizona: linear-gradient(135deg, oklch(0.82 0.14 75), oklch(0.66 0.18 50) 55%, oklch(0.55 0.20 32));
+  --gradient-arizona-sunset: linear-gradient(180deg, oklch(0.85 0.14 80), oklch(0.68 0.19 50) 55%, oklch(0.50 0.20 30));
+  --shadow-arizona: 0 18px 50px -20px oklch(0.62 0.20 35 / 0.30);
 }
 
 @layer base {
@@ -237,8 +237,8 @@
   }
   .desert-bg {
     background-image:
-      radial-gradient(ellipse at 50% 100%, oklch(0.55 0.13 45 / 0.08) 0, transparent 60%),
-      repeating-linear-gradient(90deg, transparent 0 80px, oklch(0.25 0.04 50 / 0.04) 80px 81px);
+      radial-gradient(ellipse at 50% 100%, oklch(0.66 0.18 50 / 0.10) 0, transparent 60%),
+      repeating-linear-gradient(90deg, transparent 0 80px, oklch(0.62 0.20 35 / 0.05) 80px 81px);
   }
 }
 
