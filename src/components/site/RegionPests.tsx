@@ -16,6 +16,12 @@ export function RegionPests({
   const isMobile = useIsMobile();
   const selected = pests[active];
 
+  const iconFilter = (p: Pest) => {
+    // Keep the commercial building icon in full color so its windows remain visible.
+    if (p.t.toLowerCase().includes("commercial")) return "";
+    return region === "arizona" ? "[filter:brightness(0)_invert(1)]" : "[filter:brightness(0)]";
+  };
+
   return (
     <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
       <div className="lg:col-span-7">
@@ -41,7 +47,7 @@ export function RegionPests({
                   src={p.img}
                   alt={p.t}
                   loading="lazy"
-                  className={`w-full h-full max-h-[60%] object-contain transition ${region === "arizona" ? "[filter:brightness(0)_invert(1)]" : "[filter:brightness(0)]"} ${isActive ? "scale-110" : "group-hover:scale-105 opacity-90"}`}
+                  className={`w-full h-full max-h-[60%] object-contain transition ${iconFilter(p)} ${isActive ? "scale-110" : "group-hover:scale-105 opacity-90"}`}
                 />
                 <span className={`mt-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-bold ${isActive ? "text-brand" : "text-muted-foreground"}`}>
                   {p.t.replace(" Pest Control", "").replace(" Control", "").replace(" Defense", "").replace(" Treatment", "").replace(" Removal", "")}
@@ -55,7 +61,7 @@ export function RegionPests({
       <div className="hidden lg:block lg:col-span-5">
         <article className="border border-brand/40 bg-card p-6 sm:p-8 h-full flex flex-col gap-5 rounded-sm shadow-md">
           <div className="flex items-center gap-4">
-            <img src={selected.img} alt={selected.t} className={`w-20 h-20 sm:w-24 sm:h-24 object-contain animate-float shrink-0 ${region === "arizona" ? "[filter:brightness(0)_invert(1)]" : "[filter:brightness(0)]"}`} />
+            <img src={selected.img} alt={selected.t} className={`w-20 h-20 sm:w-24 sm:h-24 object-contain animate-float shrink-0 ${iconFilter(selected)}`} />
             <div>
               <p className="text-[10px] uppercase tracking-[0.3em] text-brand mb-1">Pest Program</p>
               <h3 className="text-xl sm:text-2xl font-display font-bold leading-tight text-foreground">{selected.t}</h3>
@@ -102,7 +108,7 @@ export function RegionPests({
           <DialogTitle className="sr-only">{selected.t}</DialogTitle>
           <article className="flex flex-col gap-5">
             <div className="flex items-center gap-4">
-              <img src={selected.img} alt={selected.t} className={`w-20 h-20 object-contain shrink-0 ${region === "arizona" ? "[filter:brightness(0)_invert(1)]" : "[filter:brightness(0)]"}`} />
+              <img src={selected.img} alt={selected.t} className={`w-20 h-20 object-contain shrink-0 ${iconFilter(selected)}`} />
               <div>
                 <p className="text-[10px] uppercase tracking-[0.3em] text-brand mb-1">Pest Program</p>
                 <h3 className="text-xl font-display font-bold leading-tight text-foreground">{selected.t}</h3>
