@@ -284,9 +284,7 @@
 }
 .pest-crawler {
   position: absolute;
-  top: 50%;
   left: 0;
-  margin-top: -28px;
   width: 56px;
   height: 56px;
   animation: crawl-right 28s linear infinite, path-bob 3.2s ease-in-out infinite;
@@ -300,16 +298,17 @@
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 6px 4px rgba(0,0,0,0.25)) contrast(1.05) saturate(1.1);
+  filter: brightness(0) drop-shadow(0 4px 3px rgba(0,0,0,0.35));
+  opacity: 0.85;
   animation: scuttle 0.35s ease-in-out infinite;
   transform-origin: center 70%;
 }
-.pest-crawler-wrap {
-  position: relative;
-  height: 56px;
+.pest-swarm {
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse at center, oklch(0.95 0 0) 0, transparent 70%);
+  pointer-events: none;
+  z-index: 20;
 }
 
 /* Timeline connector */
