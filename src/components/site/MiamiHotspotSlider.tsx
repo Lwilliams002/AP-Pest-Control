@@ -21,7 +21,7 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
       <div className="absolute -top-10 -right-10 w-48 h-48 bg-accent/20 blur-3xl rounded-full pointer-events-none" />
       <div className="absolute -bottom-16 -left-10 w-56 h-56 bg-secondary/20 blur-3xl rounded-full pointer-events-none" />
 
-      <div className="relative flex flex-col md:flex-row md:items-stretch gap-1 p-1">
+      <div className="relative flex flex-col md:flex-row md:items-stretch gap-1 p-1 md:min-h-[680px]">
         {slides.map((s, i) => {
           const isActive = i === active;
           return (
