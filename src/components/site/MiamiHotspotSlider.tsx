@@ -21,7 +21,7 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
       <div className="absolute -top-10 -right-10 w-48 h-48 bg-accent/20 blur-3xl rounded-full pointer-events-none" />
       <div className="absolute -bottom-16 -left-10 w-56 h-56 bg-secondary/20 blur-3xl rounded-full pointer-events-none" />
 
-      <div className="relative flex flex-col md:flex-row md:items-stretch gap-1 p-1 md:h-[780px] lg:h-[760px]">
+      <div className="relative flex flex-col md:flex-row md:items-stretch gap-1 p-1 md:h-[880px] lg:h-[860px]">
         {slides.map((s, i) => {
           const isActive = i === active;
           return (
@@ -53,7 +53,7 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
                     <img
                       src={s.pest.img}
                       alt=""
-                      className="w-14 h-14 md:w-16 md:h-16 object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 [filter:brightness(0)]"
+                      className="w-14 h-14 md:w-16 md:h-16 object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
                     />
                     <div className="md:[writing-mode:vertical-rl] md:rotate-180 text-center">
                       <p className="text-[9px] uppercase tracking-[0.3em] text-accent font-bold mb-1">
@@ -76,13 +76,13 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.35, delay: 0.2 }}
-                    className="relative md:absolute md:inset-0 p-6 sm:p-8 lg:p-10"
+                    className="relative md:absolute md:inset-0 p-5 sm:p-6 lg:p-8 overflow-hidden"
                   >
-                    <div className="grid lg:grid-cols-[auto,1fr] gap-6 lg:gap-10 items-center">
+                    <div className="grid lg:grid-cols-[auto,1fr] gap-5 lg:gap-8 items-center">
                       <img
                         src={s.pest.img}
                         alt={`${s.pest.t} illustration`}
-                        className="w-28 h-28 sm:w-40 sm:h-40 object-contain animate-float shrink-0 mx-auto lg:mx-0 [filter:brightness(0)]"
+                        className="w-24 h-24 sm:w-32 sm:h-32 object-contain animate-float shrink-0 mx-auto lg:mx-0"
                       />
                       <div>
                         <span className="inline-flex items-center gap-1.5 px-2 py-1 border border-accent bg-accent/15 text-[10px] uppercase tracking-[0.25em] font-bold text-accent rounded-sm mb-3">
@@ -98,11 +98,11 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
                       </div>
                     </div>
 
-                    <div className="mt-8 grid sm:grid-cols-3 gap-4">
+                    <div className="mt-6 grid sm:grid-cols-3 gap-3">
                       {s.steps.map((st, idx) => (
                         <div
                           key={st.label}
-                          className="border border-border/60 bg-card/80 backdrop-blur p-4 rounded-sm"
+                          className="min-w-0 border border-border/60 bg-card/80 backdrop-blur p-4 rounded-sm"
                         >
                           <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-bold mb-2">
                             Step {idx + 1} · {st.label}
