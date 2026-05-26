@@ -16,63 +16,74 @@ type Slide = {
 export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
   const [active, setActive] = useState(0);
   const current = slides[active];
-  const inactive = slides.map((s, i) => ({ s, i })).filter(({ i }) => i !== active);
 
   return (
-    <div className="mb-14 relative overflow-hidden border-2 border-accent/60 rounded-sm bg-gradient-to-br from-accent/15 via-card to-secondary/10 p-6 sm:p-10">
-        <div className="absolute -top-10 -right-10 w-48 h-48 bg-accent/20 blur-3xl rounded-full pointer-events-none" />
-        <div className="absolute -bottom-16 -left-10 w-56 h-56 bg-secondary/20 blur-3xl rounded-full pointer-events-none" />
+    <div className="mb-14 relative overflow-hidden border-2 border-accent/60 rounded-sm bg-gradient-to-br from-accent/15 via-card to-secondary/10">
+      <div className="absolute -top-10 -right-10 w-48 h-48 bg-accent/20 blur-3xl rounded-full pointer-events-none" />
+      <div className="absolute -bottom-16 -left-10 w-56 h-56 bg-secondary/20 blur-3xl rounded-full pointer-events-none" />
 
-        <div className="relative grid lg:grid-cols-[180px,1fr] gap-6 lg:gap-8 items-start">
-          {/* Thumbnails for the OTHER two pests — inside the same box */}
-          <div className="flex lg:flex-col gap-3 order-2 lg:order-1">
-            {inactive.map(({ s, i }) => (
-              <button
-                key={s.pest.t}
-                type="button"
-                onClick={() => setActive(i)}
-                className="group relative flex-1 lg:flex-none overflow-hidden rounded-sm border border-border/60 bg-card/70 hover:border-accent hover:bg-accent/10 transition-all duration-300 text-left"
-                aria-label={`Show ${s.pest.t}`}
-              >
-                <div className="flex items-center gap-3 p-3 lg:flex-col lg:items-start lg:p-4">
-                  <img
-                    src={s.pest.img}
-                    alt=""
-                    className="w-12 h-12 lg:w-16 lg:h-16 object-contain shrink-0 [filter:brightness(0)] transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="min-w-0">
-                    <p className="text-[9px] uppercase tracking-[0.25em] text-accent font-bold mb-0.5">
-                      View
-                    </p>
-                    <p className="text-xs sm:text-sm font-display font-bold uppercase tracking-wide text-foreground/90 leading-tight">
-                      {s.pest.t.replace(/ (Pest )?Control| Treatment/g, "")}
-                    </p>
-                  </div>
-                </div>
-              </button>
-            ))}
-          </div>
+      {/* Tab strip — all three pests, active is highlighted */}
+      <div role="tablist" className="relative grid grid-cols-3 border-b-2 border-accent/40 bg-card/40 backdrop-blur">
+        {slides.map((s, i) => {
+          const isActive = i === active;
+          return (
+            <button
+              key={s.pest.t}
+              role="tab"
+              aria-selected={isActive}
+              type="button"
+              onClick={() => setActive(i)}
+              className={`relative group flex items-center justify-center gap-3 px-3 py-4 sm:px-5 sm:py-5 text-left transition-colors duration-300 ${
+                isActive ? "bg-accent/10" : "hover:bg-accent/5"
+              } ${i !== 0 ? "border-l border-accent/30" : ""}`}
+            >
+              <img
+                src={s.pest.img}
+                alt=""
+                className={`w-10 h-10 sm:w-12 sm:h-12 object-contain shrink-0 [filter:brightness(0)] transition-all duration-300 ${
+                  isActive ? "scale-110" : "opacity-60 group-hover:opacity-100"
+                }`}
+              />
+              <div className="min-w-0">
+                <p className={`text-[9px] uppercase tracking-[0.25em] font-bold mb-0.5 ${isActive ? "text-accent" : "text-muted-foreground"}`}>
+                  {isActive ? "Now Viewing" : "View"}
+                </p>
+                <p className={`text-xs sm:text-sm font-display font-bold uppercase tracking-wide leading-tight ${
+                  isActive ? "text-foreground" : "text-foreground/70"
+                }`}>
+                  {s.pest.t.replace(/ (Pest )?Control| Treatment/g, "")}
+                </p>
+              </div>
+              {isActive && (
+                <motion.span
+                  layoutId="miami-hotspot-tab-underline"
+                  className="absolute left-0 right-0 -bottom-[2px] h-[3px] bg-accent"
+                  transition={{ type: "spring", stiffness: 320, damping: 30 }}
+                />
+              )}
+            </button>
+          );
+        })}
+      </div>
 
-          {/* Active pest content */}
-          <div className="order-1 lg:order-2 min-h-[520px]">
+      {/* Active pest panel */}
+      <div className="relative p-6 sm:p-10 min-h-[540px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={current.pest.t}
-            initial={{ opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -24 }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
           >
             <div className="grid lg:grid-cols-[auto,1fr] gap-6 lg:gap-10 items-center">
               <motion.img
-                key={current.pest.img}
                 src={current.pest.img}
                 alt={`${current.pest.t} illustration`}
                 initial={{ scale: 0.85, rotate: -6, opacity: 0 }}
                 animate={{ scale: 1, rotate: 0, opacity: 1 }}
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                className="w-28 h-28 sm:w-40 sm:h-40 object-contain animate-float shrink-0 mx-auto lg:mx-0 [filter:brightness(0)]"
+                className="w-32 h-32 sm:w-44 sm:h-44 object-contain animate-float shrink-0 mx-auto lg:mx-0 [filter:brightness(0)]"
               />
               <div>
                 <span className="inline-flex items-center gap-1.5 px-2 py-1 border border-accent bg-accent/15 text-[10px] uppercase tracking-[0.25em] font-bold text-accent rounded-sm mb-3">
@@ -116,8 +127,7 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
             </div>
           </motion.div>
         </AnimatePresence>
-          </div>
-        </div>
+      </div>
     </div>
   );
 }
