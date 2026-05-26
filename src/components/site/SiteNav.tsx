@@ -30,8 +30,10 @@ export function SiteNav() {
         <Link to="/" className="flex items-center gap-3">
           {isMiami ? (
             <img src={miamiLogo} alt="AP Pest" className="h-12 w-auto" />
-          ) : (
+          ) : isArizona ? (
             <img src={arizonaLogo} alt="AP Pest" className="h-11 w-auto" />
+          ) : (
+            <img src={arizonaLogo} alt="AP Pest" className="h-11 w-auto [filter:brightness(0)]" />
           )}
         </Link>
 
