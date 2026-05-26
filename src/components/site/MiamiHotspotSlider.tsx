@@ -53,7 +53,7 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
                     <img
                       src={s.pest.img}
                       alt=""
-                      className="w-14 h-14 md:w-16 md:h-16 object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                      className="w-14 h-14 md:w-16 md:h-16 object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 [filter:brightness(0)]"
                     />
                     <div className="md:[writing-mode:vertical-rl] md:rotate-180 text-center">
                       <p className="text-[9px] uppercase tracking-[0.3em] text-accent font-bold mb-1">
@@ -82,7 +82,7 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
                       <img
                         src={s.pest.img}
                         alt={`${s.pest.t} illustration`}
-                        className="w-24 h-24 sm:w-32 sm:h-32 object-contain animate-float shrink-0 mx-auto lg:mx-0"
+                        className="w-24 h-24 sm:w-32 sm:h-32 object-contain animate-float shrink-0 mx-auto lg:mx-0 [filter:brightness(0)]"
                       />
                       <div>
                         <span className="inline-flex items-center gap-1.5 px-2 py-1 border border-accent bg-accent/15 text-[10px] uppercase tracking-[0.25em] font-bold text-accent rounded-sm mb-3">
