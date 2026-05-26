@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AP Pest Control</title>
+    <script type="text/javascript">
+      // SPA fallback for GitHub Pages.
+      // When GitHub Pages cannot find a file it serves this 404.html.
+      // We store the full URL in sessionStorage so index.html can restore
+      // the correct route after the React app boots.
+      //
+      // pathSegmentsToKeep:
+      //   0 -- custom domain or user/org page  (e.g. yourdomain.com)
+      //   1 -- project page                    (e.g. username.github.io/repo-name)
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+      var basePath = l.pathname
+        .split("/")
+        .slice(0, 1 + pathSegmentsToKeep)
+        .join("/");
+      sessionStorage.setItem("spa-redirect", l.href);
+      l.replace(l.protocol + "//" + l.host + basePath + "/");
+    </script>
+  </head>
+  <body></body>
+</html>

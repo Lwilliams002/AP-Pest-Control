@@ -6,13 +6,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export function RegionPests({
-  pests,
-  region,
-}: {
-  pests: Pest[];
-  region: "miami" | "arizona";
-}) {
+export function RegionPests({ pests, region }: { pests: Pest[]; region: "miami" | "arizona" }) {
   const [active, setActive] = useState(0);
   const [open, setOpen] = useState(false);
   const isMobile = useIsMobile();
@@ -74,7 +68,9 @@ export function RegionPests({
         <p className="text-sm text-foreground/85 leading-relaxed">{p.about}</p>
       </div>
       <div>
-        <p className="text-[10px] uppercase tracking-[0.3em] text-brand mb-2">Signs you have them</p>
+        <p className="text-[10px] uppercase tracking-[0.3em] text-brand mb-2">
+          Signs you have them
+        </p>
         <ul className="space-y-1.5">
           {p.signs.map((s) => (
             <li key={s} className="text-sm text-foreground/85 flex gap-2 leading-relaxed">
@@ -112,12 +108,18 @@ export function RegionPests({
                 aria-label={p.t}
               >
                 {p.unique && (
-                  <span className="absolute top-1 right-1 text-sm leading-none" title={REGION_FLAG[p.unique].label}>
+                  <span
+                    className="absolute top-1 right-1 text-sm leading-none"
+                    title={REGION_FLAG[p.unique].label}
+                  >
                     {REGION_FLAG[p.unique].emoji}
                   </span>
                 )}
                 {p.seasonal && (
-                  <span className="absolute top-1 left-1 text-[8px] uppercase tracking-wider font-bold text-accent-foreground bg-accent px-1.5 py-0.5 rounded-sm leading-none" title={p.seasonal}>
+                  <span
+                    className="absolute top-1 left-1 text-[8px] uppercase tracking-wider font-bold text-accent-foreground bg-accent px-1.5 py-0.5 rounded-sm leading-none"
+                    title={p.seasonal}
+                  >
                     🔥
                   </span>
                 )}
@@ -125,8 +127,15 @@ export function RegionPests({
                   p,
                   `w-full h-full max-h-[60%] object-contain transition ${isActive ? "scale-110" : "group-hover:scale-105 opacity-90"}`,
                 )}
-                <span className={`mt-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-bold ${isActive ? "text-brand" : "text-muted-foreground"}`}>
-                  {p.t.replace(" Pest Control", "").replace(" Control", "").replace(" Defense", "").replace(" Treatment", "").replace(" Removal", "")}
+                <span
+                  className={`mt-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-bold ${isActive ? "text-brand" : "text-muted-foreground"}`}
+                >
+                  {p.t
+                    .replace(" Pest Control", "")
+                    .replace(" Control", "")
+                    .replace(" Defense", "")
+                    .replace(" Treatment", "")
+                    .replace(" Removal", "")}
                 </span>
               </button>
             );
@@ -137,14 +146,21 @@ export function RegionPests({
       <div className="hidden lg:block lg:col-span-5">
         <article className="border border-brand/40 bg-card p-6 sm:p-8 h-full flex flex-col gap-5 rounded-sm shadow-md">
           <div className="flex items-center gap-4">
-            {renderIcon(selected, "w-20 h-20 sm:w-24 sm:h-24 object-contain animate-float shrink-0")}
+            {renderIcon(
+              selected,
+              "w-20 h-20 sm:w-24 sm:h-24 object-contain animate-float shrink-0",
+            )}
             <div>
               <p className="text-[10px] uppercase tracking-[0.3em] text-brand mb-1">Pest Program</p>
-              <h3 className="text-xl sm:text-2xl font-display font-bold leading-tight text-foreground">{selected.t}</h3>
+              <h3 className="text-xl sm:text-2xl font-display font-bold leading-tight text-foreground">
+                {selected.t}
+              </h3>
               <div className="flex flex-wrap gap-1.5 mt-2">
                 {selected.unique && (
                   <span className="inline-flex items-center gap-1.5 px-2 py-1 border border-brand bg-brand/5 text-[10px] uppercase tracking-[0.2em] font-bold text-brand">
-                    <span className="text-base leading-none">{REGION_FLAG[selected.unique].emoji}</span>
+                    <span className="text-base leading-none">
+                      {REGION_FLAG[selected.unique].emoji}
+                    </span>
                     {REGION_FLAG[selected.unique].label}
                   </span>
                 )}
@@ -163,7 +179,9 @@ export function RegionPests({
           </div>
 
           <div>
-            <p className="text-[10px] uppercase tracking-[0.3em] text-brand mb-2">Signs you have them</p>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-brand mb-2">
+              Signs you have them
+            </p>
             <ul className="space-y-1.5">
               {selected.signs.map((s) => (
                 <li key={s} className="text-sm text-foreground/85 flex gap-2 leading-relaxed">
@@ -213,7 +231,10 @@ export function RegionPests({
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {pests.map((p) => (
-                <div key={p.t} className="flex-[0_0_100%] min-w-0 px-5 pb-6 pt-2 overflow-y-auto max-h-[75vh]">
+                <div
+                  key={p.t}
+                  className="flex-[0_0_100%] min-w-0 px-5 pb-6 pt-2 overflow-y-auto max-h-[75vh]"
+                >
                   {renderDetail(p)}
                 </div>
               ))}

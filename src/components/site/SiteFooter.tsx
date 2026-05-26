@@ -23,22 +23,43 @@ export function SiteFooter() {
             )}
           </Link>
           <p className="mt-4 max-w-sm text-muted-foreground">
-            Independent, family-owned pest control. Sustainable, modern programs across South Florida and the Arizona Valley since 2012.
+            Independent, family-owned pest control. Sustainable, modern programs across South
+            Florida and the Arizona Valley since 2012.
           </p>
         </div>
         <div>
           <p className="font-display font-bold text-brand mb-3">Service Areas</p>
           <ul className="space-y-2 text-muted-foreground">
-            <li><Link to="/southflorida" className="hover:text-brand">South Florida</Link></li>
-            <li><Link to="/arizona" className="hover:text-brand">Arizona Valley</Link></li>
-            <li><Link to="/contact" className="hover:text-brand">Free estimate</Link></li>
+            <li>
+              <Link to="/southflorida" className="hover:text-brand">
+                South Florida
+              </Link>
+            </li>
+            <li>
+              <Link to="/arizona" className="hover:text-brand">
+                Arizona Valley
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-brand">
+                Free estimate
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
           <p className="font-display font-bold text-brand mb-3">Contact</p>
           <ul className="space-y-2 text-muted-foreground">
-            <li><a href={`tel:${phone}`} className="hover:text-brand">{phoneDisplay}</a></li>
-            <li><a href={`mailto:${email}`} className="hover:text-brand break-all">{email}</a></li>
+            <li>
+              <a href={`tel:${phone}`} className="hover:text-brand">
+                {phoneDisplay}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${email}`} className="hover:text-brand break-all">
+                {email}
+              </a>
+            </li>
           </ul>
         </div>
       </div>

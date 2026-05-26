@@ -6,7 +6,12 @@ import { Textarea } from "@/components/ui/textarea";
 
 export function ContactForm({ defaultRegion = "miami" as "miami" | "arizona" }) {
   const [form, setForm] = useState({
-    name: "", email: "", phone: "", region: defaultRegion, pest: "", message: "",
+    name: "",
+    email: "",
+    phone: "",
+    region: defaultRegion,
+    pest: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -24,20 +29,49 @@ export function ContactForm({ defaultRegion = "miami" as "miami" | "arizona" }) 
       toast.error(result.error.issues[0]?.message ?? "Please check the form");
       return;
     }
-    const subject = encodeURIComponent(`New estimate request — ${form.region === "miami" ? "Miami" : "Arizona"}`);
-    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nRegion: ${form.region}\nPest: ${form.pest}\n\n${form.message}`);
+    const subject = encodeURIComponent(
+      `New estimate request — ${form.region === "miami" ? "Miami" : "Arizona"}`,
+    );
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nRegion: ${form.region}\nPest: ${form.pest}\n\n${form.message}`,
+    );
     const to = form.region === "miami" ? "Appestmiami2026@gmail.com" : "hello@ap-pest-control.com";
     window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
     toast.success("Opening your email — we'll reply fast.");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-card border border-border p-6 md:p-8 rounded-sm shadow-md space-y-4">
+    <form
+      onSubmit={handleSubmit}
+      className="bg-card border border-border p-6 md:p-8 rounded-sm shadow-md space-y-4"
+    >
       <p className="text-xs uppercase tracking-[0.3em] text-brand">Request a free quote</p>
       <div className="grid sm:grid-cols-2 gap-4">
-        <Field label="Name"><Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} maxLength={100} required /></Field>
-        <Field label="Email"><Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} maxLength={255} required /></Field>
-        <Field label="Phone"><Input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} maxLength={30} /></Field>
+        <Field label="Name">
+          <Input
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            maxLength={100}
+            required
+          />
+        </Field>
+        <Field label="Email">
+          <Input
+            type="email"
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            maxLength={255}
+            required
+          />
+        </Field>
+        <Field label="Phone">
+          <Input
+            type="tel"
+            value={form.phone}
+            onChange={(e) => setForm({ ...form, phone: e.target.value })}
+            maxLength={30}
+          />
+        </Field>
         <Field label="Region">
           <select
             value={form.region}
@@ -50,12 +84,26 @@ export function ContactForm({ defaultRegion = "miami" as "miami" | "arizona" }) 
         </Field>
       </div>
       <Field label="Pest (optional)">
-        <Input value={form.pest} onChange={(e) => setForm({ ...form, pest: e.target.value })} placeholder="Roaches, scorpions, termites…" maxLength={100} />
+        <Input
+          value={form.pest}
+          onChange={(e) => setForm({ ...form, pest: e.target.value })}
+          placeholder="Roaches, scorpions, termites…"
+          maxLength={100}
+        />
       </Field>
       <Field label="What's going on?">
-        <Textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} maxLength={1000} rows={4} required />
+        <Textarea
+          value={form.message}
+          onChange={(e) => setForm({ ...form, message: e.target.value })}
+          maxLength={1000}
+          rows={4}
+          required
+        />
       </Field>
-      <button type="submit" className="w-full px-8 py-4 bg-brand text-brand-foreground font-bold uppercase tracking-widest text-sm rounded-sm hover:opacity-90 transition">
+      <button
+        type="submit"
+        className="w-full px-8 py-4 bg-brand text-brand-foreground font-bold uppercase tracking-widest text-sm rounded-sm hover:opacity-90 transition"
+      >
         Send Request
       </button>
     </form>
@@ -65,7 +113,9 @@ export function ContactForm({ defaultRegion = "miami" as "miami" | "arizona" }) 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <span className="text-xs uppercase tracking-widest text-muted-foreground mb-1 block">{label}</span>
+      <span className="text-xs uppercase tracking-widest text-muted-foreground mb-1 block">
+        {label}
+      </span>
       {children}
     </label>
   );

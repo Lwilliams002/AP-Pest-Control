@@ -36,14 +36,42 @@ export function SiteNav() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">Home</Link>
-          <Link to="/southflorida" activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">South Florida</Link>
-          <Link to="/arizona" activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">Arizona</Link>
-          <Link to="/contact" activeProps={{ className: "text-brand" }} className="text-foreground/80 hover:text-brand transition">Contact</Link>
+          <Link
+            to="/"
+            activeOptions={{ exact: true }}
+            activeProps={{ className: "text-brand" }}
+            className="text-foreground/80 hover:text-brand transition"
+          >
+            Home
+          </Link>
+          <Link
+            to="/southflorida"
+            activeProps={{ className: "text-brand" }}
+            className="text-foreground/80 hover:text-brand transition"
+          >
+            South Florida
+          </Link>
+          <Link
+            to="/arizona"
+            activeProps={{ className: "text-brand" }}
+            className="text-foreground/80 hover:text-brand transition"
+          >
+            Arizona
+          </Link>
+          <Link
+            to="/contact"
+            activeProps={{ className: "text-brand" }}
+            className="text-foreground/80 hover:text-brand transition"
+          >
+            Contact
+          </Link>
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href={`tel:${phone}`} className="hidden sm:inline-block px-4 py-2 bg-brand text-brand-foreground text-xs uppercase tracking-widest font-semibold rounded-sm hover:opacity-90 transition">
+          <a
+            href={`tel:${phone}`}
+            className="hidden sm:inline-block px-4 py-2 bg-brand text-brand-foreground text-xs uppercase tracking-widest font-semibold rounded-sm hover:opacity-90 transition"
+          >
             Free Quote
           </a>
         </div>
@@ -51,10 +79,35 @@ export function SiteNav() {
 
       <nav className="md:hidden border-t border-border bg-background/85 backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex items-center justify-around px-2 py-2 text-xs font-semibold uppercase tracking-wider">
-          <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-brand" }} className="px-2 py-1.5 text-foreground/80">Home</Link>
-          <Link to="/southflorida" activeProps={{ className: "text-brand" }} className="px-2 py-1.5 text-foreground/80">S. Florida</Link>
-          <Link to="/arizona" activeProps={{ className: "text-brand" }} className="px-2 py-1.5 text-foreground/80">Arizona</Link>
-          <Link to="/contact" activeProps={{ className: "text-brand" }} className="px-2 py-1.5 text-foreground/80">Contact</Link>
+          <Link
+            to="/"
+            activeOptions={{ exact: true }}
+            activeProps={{ className: "text-brand" }}
+            className="px-2 py-1.5 text-foreground/80"
+          >
+            Home
+          </Link>
+          <Link
+            to="/southflorida"
+            activeProps={{ className: "text-brand" }}
+            className="px-2 py-1.5 text-foreground/80"
+          >
+            S. Florida
+          </Link>
+          <Link
+            to="/arizona"
+            activeProps={{ className: "text-brand" }}
+            className="px-2 py-1.5 text-foreground/80"
+          >
+            Arizona
+          </Link>
+          <Link
+            to="/contact"
+            activeProps={{ className: "text-brand" }}
+            className="px-2 py-1.5 text-foreground/80"
+          >
+            Contact
+          </Link>
         </div>
       </nav>
     </header>

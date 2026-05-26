@@ -95,8 +95,7 @@ export function MiamiHotspotSlider({
                           {s.kicker}
                         </span>
                         <h3 className="font-display text-3xl sm:text-5xl font-bold uppercase tracking-wide leading-tight">
-                          <span className={gradientClass}>{s.headlineLead}</span>{" "}
-                          {s.headlineTail}
+                          <span className={gradientClass}>{s.headlineLead}</span> {s.headlineTail}
                         </h3>
                         <p className="mt-3 text-sm sm:text-base text-foreground/85 leading-relaxed max-w-2xl">
                           {s.body}

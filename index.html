@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/ap-pest-logo.png" />
+    <title>AP Pest Control</title>
+    <!-- SPA redirect: restore path stored by 404.html -->
+    <script type="text/javascript">
+      (function () {
+        var redirect = sessionStorage.getItem("spa-redirect");
+        if (redirect) {
+          sessionStorage.removeItem("spa-redirect");
+          var url = new URL(redirect);
+          // Replace the current history entry so the back button works correctly.
+          window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
