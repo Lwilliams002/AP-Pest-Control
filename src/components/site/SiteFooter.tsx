@@ -1,6 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import logo from "@/assets/ap-pest-logo.png";
-import miamiLogo from "@/assets/ap-pest-miami-logo.png";
+import miamiLogo from "@/assets/ap-pest-miami-logo-clean.png";
 import arizonaLogo from "@/assets/ap-pest-arizona-logo.svg";
 
 export function SiteFooter() {
@@ -16,16 +15,11 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <Link to="/" className="flex items-center gap-3">
             {isMiami ? (
-              <img src={miamiLogo} alt="AP Pest" className="h-14 w-auto rounded-sm" />
+              <img src={miamiLogo} alt="AP Pest" className="h-24 w-auto" />
             ) : isArizona ? (
               <img src={arizonaLogo} alt="AP Pest" className="h-14 w-auto" />
             ) : (
-              <>
-                <span className="inline-flex items-center justify-center h-11 w-11 rounded-sm bg-brand">
-                  <img src={logo} alt="AP Pest" className="h-8 w-auto" />
-                </span>
-                <span className="font-display font-bold text-xl text-brand">AP Pest</span>
-              </>
+              <img src={arizonaLogo} alt="AP Pest" className="h-14 w-auto [filter:brightness(0)]" />
             )}
           </Link>
           <p className="mt-4 max-w-sm text-muted-foreground">
