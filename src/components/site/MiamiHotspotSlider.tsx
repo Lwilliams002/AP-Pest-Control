@@ -21,7 +21,7 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
       <div className="absolute -top-10 -right-10 w-48 h-48 bg-accent/20 blur-3xl rounded-full pointer-events-none" />
       <div className="absolute -bottom-16 -left-10 w-56 h-56 bg-secondary/20 blur-3xl rounded-full pointer-events-none" />
 
-      <div className="relative flex flex-col md:flex-row md:items-stretch gap-1 p-1 md:min-h-[680px]">
+      <div className="relative flex flex-col md:flex-row md:items-stretch gap-1 p-1 md:h-[700px] lg:h-[680px]">
         {slides.map((s, i) => {
           const isActive = i === active;
           return (
@@ -30,7 +30,7 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
               onClick={() => !isActive && setActive(i)}
               animate={{ flex: isActive ? 8 : 1 }}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className={`relative overflow-hidden rounded-sm border transition-colors duration-300 min-h-[88px] md:min-h-0 ${
+              className={`relative overflow-hidden rounded-sm border transition-colors duration-300 min-h-[88px] md:min-h-0 md:h-full ${
                 isActive
                   ? "border-accent/60 bg-card/80 cursor-default"
                   : "border-border/50 bg-card/40 hover:bg-accent/10 cursor-pointer"
@@ -74,7 +74,7 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.35, delay: 0.2 }}
-                    className="relative p-6 sm:p-8 lg:p-10"
+                    className="relative md:absolute md:inset-0 p-6 sm:p-8 lg:p-10"
                   >
                     <div className="grid lg:grid-cols-[auto,1fr] gap-6 lg:gap-10 items-center">
                       <img
