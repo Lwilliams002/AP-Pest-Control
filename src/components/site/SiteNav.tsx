@@ -1,8 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X, Phone } from "lucide-react";
 import { useState } from "react";
-import logo from "@/assets/ap-pest-logo.png";
-import miamiLogo from "@/assets/ap-pest-miami-logo.png";
+import miamiLogo from "@/assets/ap-pest-miami-logo-clean.png";
 import arizonaLogo from "@/assets/ap-pest-arizona-logo.svg";
 
 export function SiteNav() {
@@ -30,18 +29,9 @@ export function SiteNav() {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 h-16">
         <Link to="/" className="flex items-center gap-3">
           {isMiami ? (
-            <img src={miamiLogo} alt="AP Pest" className="h-11 w-auto rounded-sm" />
-          ) : isArizona ? (
-            <img src={arizonaLogo} alt="AP Pest" className="h-11 w-auto" />
+            <img src={miamiLogo} alt="AP Pest" className="h-12 w-auto" />
           ) : (
-            <>
-              <span className="inline-flex items-center justify-center h-10 w-10 rounded-sm bg-brand">
-                <img src={logo} alt="AP Pest" className="h-7 w-auto" />
-              </span>
-              <span className="font-display font-bold text-lg sm:text-xl text-brand">
-                AP Pest
-              </span>
-            </>
+            <img src={arizonaLogo} alt="AP Pest" className="h-11 w-auto" />
           )}
         </Link>
 
