@@ -3,7 +3,11 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { RegionPests } from "@/components/site/RegionPests";
 import { ContactForm } from "@/components/site/ContactForm";
-import { miamiPests, miamiCities, miamiMosquito } from "@/lib/pests";
+import { miamiPests, miamiCities } from "@/lib/pests";
+import { MiamiHotspotSlider, type HotspotSlide } from "@/components/site/MiamiHotspotSlider";
+import imgMosquito from "@/assets/pests/mosquito.png";
+import imgCockroach from "@/assets/pests/cockroach.png";
+import imgAnt from "@/assets/pests/ant.png";
 import miamiImg from "@/assets/miami-deco.jpg";
 
 export const Route = createFileRoute("/southflorida")({
@@ -80,55 +84,7 @@ function MiamiPage() {
 
         <section className="py-16 md:py-20 border-t border-border">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="mb-14 relative overflow-hidden border-2 border-accent/60 rounded-sm bg-gradient-to-br from-accent/15 via-card to-secondary/10 p-6 sm:p-10">
-              <div className="absolute -top-10 -right-10 w-48 h-48 bg-accent/20 blur-3xl rounded-full pointer-events-none" />
-              <div className="absolute -bottom-16 -left-10 w-56 h-56 bg-secondary/20 blur-3xl rounded-full pointer-events-none" />
-              <div className="relative grid lg:grid-cols-[auto,1fr] gap-6 lg:gap-10 items-center">
-                <img src={miamiMosquito.img} alt="Mosquito illustration" className="w-28 h-28 sm:w-40 sm:h-40 object-contain animate-float shrink-0 mx-auto lg:mx-0 [filter:brightness(0)]" />
-                <div>
-                  <span className="inline-flex items-center gap-1.5 px-2 py-1 border border-accent bg-accent/15 text-[10px] uppercase tracking-[0.25em] font-bold text-accent rounded-sm mb-3">
-                    🔥 Summer hotspot · South Florida
-                  </span>
-                  <h3 className="font-display text-3xl sm:text-5xl font-bold uppercase tracking-wide leading-tight">
-                    <span className="text-gradient-miami">Mosquito</span> season is here.
-                  </h3>
-                  <p className="mt-3 text-sm sm:text-base text-foreground/85 leading-relaxed max-w-2xl">
-                    Afternoon storms, irrigated lawns, and bromeliads turn South Florida yards into a 24-hour mosquito nursery. Aedes mosquitoes only need a bottle cap of standing water to breed — and they're the ones spreading Zika, dengue, and West Nile across the coast every summer.
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative mt-8 grid sm:grid-cols-3 gap-4">
-                <div className="border border-border/60 bg-card/80 backdrop-blur p-4 rounded-sm">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-bold mb-2">Step 1 · Inspect</p>
-                  <p className="text-sm text-foreground/85 leading-relaxed">We walk the whole yard — gutters, bromeliads, AC pans, plant saucers, bird baths — and map every breeding site before we treat anything.</p>
-                </div>
-                <div className="border border-border/60 bg-card/80 backdrop-blur p-4 rounded-sm">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-bold mb-2">Step 2 · Knock down</p>
-                  <p className="text-sm text-foreground/85 leading-relaxed">Targeted fogging of foliage, hedges, and shaded harborage drops the adult population fast — usually noticeable by the next evening.</p>
-                </div>
-                <div className="border border-border/60 bg-card/80 backdrop-blur p-4 rounded-sm">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-bold mb-2">Step 3 · Break the cycle</p>
-                  <p className="text-sm text-foreground/85 leading-relaxed">Larvicide in standing water + monthly retreats during the wet season stop the next generation before it hatches.</p>
-                </div>
-              </div>
-
-              <div className="relative mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-semibold">
-                <span className="flex items-center gap-1.5"><span className="text-accent">◆</span> Pet & kid conscious</span>
-                <span className="flex items-center gap-1.5"><span className="text-accent">◆</span> Event prep (24–48 hr)</span>
-                <span className="flex items-center gap-1.5"><span className="text-accent">◆</span> Monthly wet-season plans</span>
-                <span className="flex items-center gap-1.5"><span className="text-accent">◆</span> No-see-um add-on available</span>
-              </div>
-
-              <div className="relative flex flex-wrap gap-3 mt-7">
-                <a href="#miami-contact" className="inline-flex items-center px-5 py-2.5 bg-accent text-accent-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:opacity-90 transition">
-                  Get mosquito treatment
-                </a>
-                <a href="#miami-contact" className="inline-flex items-center px-5 py-2.5 border border-accent/60 text-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:bg-accent/10 transition">
-                  Free yard inspection
-                </a>
-              </div>
-            </div>
+            <MiamiHotspotSlider slides={hotspotSlides} />
             <div className="flex items-end justify-between flex-wrap gap-3 mb-8">
               <div>
                 <p className="text-xs uppercase tracking-[0.4em] text-accent mb-2 font-semibold">Tap a pest</p>
@@ -157,3 +113,48 @@ function MiamiPage() {
     </div>
   );
 }
+
+const hotspotSlides: HotspotSlide[] = [
+  {
+    pest: { t: "Mosquito Control", d: "", img: imgMosquito, about: "", signs: [], risk: "" },
+    kicker: "🔥 Summer hotspot · South Florida",
+    headlineLead: "Mosquito",
+    headlineTail: "season is here.",
+    body: "Afternoon storms, irrigated lawns, and bromeliads turn South Florida yards into a 24-hour mosquito nursery. Aedes mosquitoes only need a bottle cap of standing water to breed — and they're the ones spreading Zika, dengue, and West Nile across the coast every summer.",
+    steps: [
+      { label: "Inspect", body: "We walk the whole yard — gutters, bromeliads, AC pans, plant saucers, bird baths — and map every breeding site before we treat anything." },
+      { label: "Knock down", body: "Targeted fogging of foliage, hedges, and shaded harborage drops the adult population fast — usually noticeable by the next evening." },
+      { label: "Break the cycle", body: "Larvicide in standing water + monthly retreats during the wet season stop the next generation before it hatches." },
+    ],
+    badges: ["Pet & kid conscious", "Event prep (24–48 hr)", "Monthly wet-season plans", "No-see-um add-on available"],
+    cta: "Get mosquito treatment",
+  },
+  {
+    pest: { t: "German Roach Control", d: "", img: imgCockroach, about: "", signs: [], risk: "" },
+    kicker: "🪳 Year-round threat · South Florida",
+    headlineLead: "German roaches",
+    headlineTail: "spread fast.",
+    body: "Small, tan, and impossibly prolific — German roaches hide in warm, humid voids around dishwashers, fridges, and cabinet hinges. One missed egg case becomes hundreds of roaches in weeks, which is why over-the-counter sprays only scatter the problem.",
+    steps: [
+      { label: "Inspect", body: "Flashlight inspection of every hinge, motor void, and appliance kick-plate to map the harborage before treatment." },
+      { label: "Gel & dust", body: "Precision gel baiting plus crack-and-crevice dust hits the colony where they hide — no kitchen-wide spray needed." },
+      { label: "Follow-up", body: "Two scheduled re-treats break the next two hatch cycles so a single egg case can't restart the infestation." },
+    ],
+    badges: ["Discreet for kitchens", "Restaurant-ready protocols", "30-day knock-down guarantee", "Multifamily programs"],
+    cta: "Get roach treatment",
+  },
+  {
+    pest: { t: "Ant Control", d: "", img: imgAnt, about: "", signs: [], risk: "" },
+    kicker: "🐜 Coastal favorite · South Florida",
+    headlineLead: "Ants",
+    headlineTail: "find every crack.",
+    body: "Ghost ants, white-footed ants, and big-headed ants trail through stucco cracks, soffits, and irrigation lines into kitchens and bathrooms. Spraying the trail just splits the colony — proper baiting wipes the whole nest out.",
+    steps: [
+      { label: "Identify", body: "We ID the species first — ghost vs. white-footed vs. big-headed — because each one needs a different bait matrix to actually work." },
+      { label: "Bait the colony", body: "Slow-acting baits ride back to the queens and satellite nests so the whole colony collapses, not just the workers you see." },
+      { label: "Seal the trail", body: "Perimeter treatment plus targeted exclusion around plumbing and electrical penetrations keeps new colonies from moving in." },
+    ],
+    badges: ["Pet & kid conscious", "Kitchen-safe baits", "Ghost & white-footed specialists", "Quarterly perimeter plans"],
+    cta: "Get ant treatment",
+  },
+];
