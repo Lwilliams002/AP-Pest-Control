@@ -126,7 +126,7 @@ const hotspotSlides: HotspotSlide[] = [
       { label: "Knock down", body: "Targeted fogging of foliage, hedges, and shaded harborage drops the adult population fast — usually noticeable by the next evening." },
       { label: "Break the cycle", body: "Larvicide in standing water + monthly retreats during the wet season stop the next generation before it hatches." },
     ],
-    badges: ["Pet & kid conscious", "Event prep (24–48 hr)", "Monthly wet-season plans", "No-see-um add-on available"],
+    badges: ["Pet & kid conscious", "Event prep (24–48 hr)", "Monthly wet-season plans", "Rodent protection available"],
     cta: "Get mosquito treatment",
   },
   {
