@@ -56,7 +56,9 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
                       className="w-14 h-14 md:w-16 md:h-16 object-contain opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 [filter:brightness(0)]"
                     />
                     <div className="md:[writing-mode:vertical-rl] md:rotate-180 text-center">
-                      <p className="text-[9px] uppercase tracking-[0.3em] text-accent font-bold mb-1">View</p>
+                      <p className="text-[9px] uppercase tracking-[0.3em] text-accent font-bold mb-1">
+                        View
+                      </p>
                       <p className="font-display text-sm md:text-base font-bold uppercase tracking-wider text-foreground/85 leading-tight">
                         {s.pest.t.replace(/ (Pest )?Control| Treatment/g, "")}
                       </p>
@@ -87,7 +89,8 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
                           {s.kicker}
                         </span>
                         <h3 className="font-display text-3xl sm:text-5xl font-bold uppercase tracking-wide leading-tight">
-                          <span className="text-gradient-miami">{s.headlineLead}</span> {s.headlineTail}
+                          <span className="text-gradient-miami">{s.headlineLead}</span>{" "}
+                          {s.headlineTail}
                         </h3>
                         <p className="mt-3 text-sm sm:text-base text-foreground/85 leading-relaxed max-w-2xl">
                           {s.body}
@@ -97,7 +100,10 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
 
                     <div className="mt-8 grid sm:grid-cols-3 gap-4">
                       {s.steps.map((st, idx) => (
-                        <div key={st.label} className="border border-border/60 bg-card/80 backdrop-blur p-4 rounded-sm">
+                        <div
+                          key={st.label}
+                          className="border border-border/60 bg-card/80 backdrop-blur p-4 rounded-sm"
+                        >
                           <p className="text-[10px] uppercase tracking-[0.3em] text-accent font-bold mb-2">
                             Step {idx + 1} · {st.label}
                           </p>
@@ -115,10 +121,16 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
                     </div>
 
                     <div className="flex flex-wrap gap-3 mt-7">
-                      <a href="#miami-contact" className="inline-flex items-center px-5 py-2.5 bg-accent text-accent-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:opacity-90 transition">
+                      <a
+                        href="#miami-contact"
+                        className="inline-flex items-center px-5 py-2.5 bg-accent text-accent-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:opacity-90 transition"
+                      >
                         {s.cta}
                       </a>
-                      <a href="#miami-contact" className="inline-flex items-center px-5 py-2.5 border border-accent/60 text-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:bg-accent/10 transition">
+                      <a
+                        href="#miami-contact"
+                        className="inline-flex items-center px-5 py-2.5 border border-accent/60 text-foreground font-semibold uppercase tracking-widest text-xs rounded-sm hover:bg-accent/10 transition"
+                      >
                         Free yard inspection
                       </a>
                     </div>
