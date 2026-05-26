@@ -67,7 +67,7 @@ const PEST_PACKRAT: Pest = { t: "Pack Rat Control", d: "Nest removal and exclusi
 const PEST_CRICKET: Pest = { t: "Cricket Control", d: "Perimeter treatment for monsoon-season invasions.", img: imgCricket, about: "Field crickets swarm Valley homes during monsoon — drawn to outdoor lights, they pile up at doorways and slip into garages and laundry rooms by the dozen.", signs: ["Loud chirping at night", "Crickets piled at exterior lights", "Activity in garages after storms"], risk: "Damage paper, fabric, and plants; constant noise and gross-out factor.", unique: "arizona" };
 
 export const miamiMosquito: Pest = PEST_MOSQUITO;
-export const miamiPests: Pest[] = [PEST_ANT, PEST_BEDBUG, PEST_COCKROACH, PEST_COMMERCIAL, PEST_EARWIG, PEST_FLEA, PEST_GENERAL, PEST_HORNET, PEST_RODENT, PEST_SILVERFISH, PEST_SPIDER, PEST_TERMITE, PEST_WASP, PEST_WHITEFLY];
+export const miamiPests: Pest[] = [PEST_ANT, PEST_BEDBUG, PEST_COCKROACH, PEST_COMMERCIAL, PEST_EARWIG, PEST_FLEA, PEST_GENERAL, PEST_HORNET, PEST_RODENT, PEST_SILVERFISH, PEST_SPIDER, PEST_TERMITE, PEST_WASP];
 export const arizonaTermite: Pest = PEST_TERMITE;
 export const arizonaPests: Pest[] = [PEST_ANT, PEST_BEDBUG, PEST_COCKROACH, PEST_COMMERCIAL, PEST_CRICKET, PEST_EARWIG, PEST_FLEA, PEST_GENERAL, PEST_HORNET, PEST_KISSINGBUG, PEST_PACKRAT, PEST_PIGEON, PEST_RATTLESNAKE, PEST_RODENT, PEST_SCORPION, PEST_SILVERFISH, PEST_SPIDER, PEST_WASP];
 
