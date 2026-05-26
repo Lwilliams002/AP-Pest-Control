@@ -1,13 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { PestCrawlerSwarm } from "@/components/site/PestCrawlerSwarm";
 import { testimonials } from "@/lib/pests";
 import heroTech from "@/assets/hero-tech.jpg";
 import miamiImg from "@/assets/miami-deco.jpg";
 import azImg from "@/assets/arizona-desert.jpg";
-import antImg from "@/assets/pests/ant.png";
-import roachImg from "@/assets/pests/cockroach.png";
-import spiderImg from "@/assets/pests/spider.png";
 import mosquitoImg from "@/assets/pests/mosquito.png";
 import scorpionImg from "@/assets/pests/scorpion.png";
 import termiteImg from "@/assets/pests/termite.png";
@@ -190,54 +188,8 @@ function Home() {
 
         {/* Split-screen: Florida vs Arizona */}
         <section className="relative border-t border-border overflow-hidden">
-          {/* Swarm of pests crawling randomly across the whole section */}
-          <div className="pest-swarm" aria-hidden>
-            <span className="pest-crawler" style={{ top: "8%", animationDelay: "0s, -0.1s" }}>
-              <img src={antImg} alt="" />
-            </span>
-            <span
-              className="pest-crawler slow"
-              style={{ top: "22%", animationDelay: "-9s, -0.7s" }}
-            >
-              <img src={roachImg} alt="" />
-            </span>
-            <span
-              className="pest-crawler reverse"
-              style={{ top: "38%", animationDelay: "-15s, -1.4s" }}
-            >
-              <img src={spiderImg} alt="" />
-            </span>
-            <span
-              className="pest-crawler"
-              style={{ top: "55%", animationDelay: "-22s, -0.9s", width: 44, height: 44 }}
-            >
-              <img src={termiteImg} alt="" />
-            </span>
-            <span
-              className="pest-crawler slow reverse"
-              style={{ top: "70%", animationDelay: "-4s, -1.8s" }}
-            >
-              <img src={scorpionImg} alt="" />
-            </span>
-            <span
-              className="pest-crawler"
-              style={{ top: "86%", animationDelay: "-18s, -0.5s", width: 40, height: 40 }}
-            >
-              <img src={antImg} alt="" />
-            </span>
-            <span
-              className="pest-crawler reverse"
-              style={{ top: "14%", animationDelay: "-30s, -1.2s", width: 48, height: 48 }}
-            >
-              <img src={roachImg} alt="" />
-            </span>
-            <span
-              className="pest-crawler slow"
-              style={{ top: "62%", animationDelay: "-11s, -0.4s", width: 50, height: 50 }}
-            >
-              <img src={spiderImg} alt="" />
-            </span>
-          </div>
+          {/* Real pest icons crawling across the section */}
+          <PestCrawlerSwarm />
           <div className="grid md:grid-cols-2">
             <div className="relative overflow-hidden bg-gradient-to-br from-[oklch(0.38_0.09_215)] to-[oklch(0.58_0.10_200)] text-white p-10 md:p-16 min-h-[420px]">
               <p className="text-xs uppercase tracking-[0.4em] text-white/70 mb-3 font-semibold">
