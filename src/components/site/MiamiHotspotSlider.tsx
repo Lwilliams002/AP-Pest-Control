@@ -128,6 +128,7 @@ export function MiamiHotspotSlider({ slides }: { slides: Slide[] }) {
           </motion.div>
         </AnimatePresence>
       </div>
+    </div>
   );
 }
 
