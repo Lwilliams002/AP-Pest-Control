@@ -1,11 +1,9 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Phone } from "lucide-react";
-import { useState } from "react";
+import { Phone } from "lucide-react";
 import miamiLogo from "@/assets/ap-pest-miami-logo-clean.png";
 import arizonaLogo from "@/assets/ap-pest-arizona-logo.svg";
 
 export function SiteNav() {
-  const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isMiami = pathname.startsWith("/southflorida");
   const isArizona = pathname.startsWith("/arizona");
@@ -48,23 +46,17 @@ export function SiteNav() {
           <a href={`tel:${phone}`} className="hidden sm:inline-block px-4 py-2 bg-brand text-brand-foreground text-xs uppercase tracking-widest font-semibold rounded-sm hover:opacity-90 transition">
             Free Quote
           </a>
-          <button onClick={() => setOpen(!open)} className="md:hidden p-2 text-foreground" aria-label="Menu">
-            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
       </div>
 
-      {open && (
-        <div className="md:hidden border-t border-border bg-background">
-          <nav className="flex flex-col px-6 py-4 gap-3 text-sm font-medium">
-            <Link to="/" onClick={() => setOpen(false)} className="py-2">Home</Link>
-            <Link to="/southflorida" onClick={() => setOpen(false)} className="py-2">South Florida</Link>
-            <Link to="/arizona" onClick={() => setOpen(false)} className="py-2">Arizona</Link>
-            <Link to="/contact" onClick={() => setOpen(false)} className="py-2">Contact</Link>
-            <a href={`tel:${phone}`} className="mt-2 px-4 py-3 bg-brand text-brand-foreground text-xs uppercase tracking-widest font-semibold rounded-sm text-center">Call {phoneDisplay}</a>
-          </nav>
+      <nav className="md:hidden border-t border-border bg-background/85 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto flex items-center justify-around px-2 py-2 text-xs font-semibold uppercase tracking-wider">
+          <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-brand" }} className="px-2 py-1.5 text-foreground/80">Home</Link>
+          <Link to="/southflorida" activeProps={{ className: "text-brand" }} className="px-2 py-1.5 text-foreground/80">S. Florida</Link>
+          <Link to="/arizona" activeProps={{ className: "text-brand" }} className="px-2 py-1.5 text-foreground/80">Arizona</Link>
+          <Link to="/contact" activeProps={{ className: "text-brand" }} className="px-2 py-1.5 text-foreground/80">Contact</Link>
         </div>
-      )}
+      </nav>
     </header>
   );
 }
