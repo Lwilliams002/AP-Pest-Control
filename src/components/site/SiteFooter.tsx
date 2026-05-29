@@ -23,8 +23,8 @@ export function SiteFooter() {
             )}
           </Link>
           <p className="mt-4 max-w-sm text-muted-foreground">
-            Independent, family-owned pest control. Sustainable, modern programs across South
-            Florida and the Arizona Valley since 2012.
+            Independent, family-owned pest control with 35+ years of experience. Sustainable, modern
+            programs across South Florida and the Arizona Valley.
           </p>
         </div>
         <div>

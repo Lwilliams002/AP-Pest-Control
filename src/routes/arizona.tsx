@@ -23,7 +23,7 @@ export const Route = createFileRoute("/arizona")({
       { property: "og:title", content: "Arizona Pest Control — AP Pest" },
       {
         property: "og:description",
-        content: "Sonoran Desert pest control rooted in 12+ years of Valley experience.",
+        content: "Sonoran Desert pest control rooted in 35+ years of experience in the Valley.",
       },
       { property: "og:image", content: azImg },
       { property: "og:url", content: "https://miami-glow-up.lovable.app/arizona" },
@@ -84,12 +84,13 @@ function ArizonaPage() {
                 Where it started
               </p>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-                12+ years across <span className="text-gradient-arizona italic">the Valley.</span>
+                35+ years of experience across{" "}
+                <span className="text-gradient-arizona italic">the Valley.</span>
               </h2>
               <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                More than a decade protecting Arizona homes from scorpions, roof rats, kissing bugs,
-                rattlesnakes and everything else the desert serves up after sundown. Same family.
-                Same standard.
+                35+ years of experience protecting Arizona homes from scorpions, roof rats, kissing
+                bugs, rattlesnakes and everything else the desert serves up after sundown. Same
+                family. Same standard.
               </p>
               <Link
                 to="/contact"

@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Independent, family-owned pest control serving South Florida and the Arizona Valley since 2012. Sustainable, modern programs and a satisfaction guarantee.",
+          "Independent, family-owned pest control with 35+ years of experience serving South Florida and the Arizona Valley. Sustainable, modern programs and a satisfaction guarantee.",
       },
       { property: "og:title", content: "AP Pest Control — South Florida & Arizona Valley" },
       {
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/")({
           "@type": "LocalBusiness",
           name: "AP Pest Control",
           description:
-            "Independent, family-owned pest control serving South Florida and the Arizona Valley since 2012.",
+            "Independent, family-owned pest control with 35+ years of experience serving South Florida and the Arizona Valley.",
           url: "https://miami-glow-up.lovable.app/",
           logo: "https://miami-glow-up.lovable.app/ap-pest-logo.png",
           areaServed: [
@@ -85,7 +85,7 @@ function Home() {
           <div className="absolute inset-x-0 bottom-0">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-12 md:pb-20">
               <p className="text-xs uppercase tracking-[0.5em] text-brand-soft mb-5 font-semibold">
-                Established 2012 · Family Owned
+                Established 1986 · Family Owned
               </p>
               <h1 className="font-display text-5xl sm:text-7xl md:text-8xl font-bold leading-[1.02] text-foreground max-w-4xl">
                 Pest control,
@@ -139,7 +139,7 @@ function Home() {
                   d: "Environmentally responsible products around kids and pets.",
                 },
                 {
-                  t: "12+ Years Experience",
+                  t: "35+ Years of Experience",
                   d: "Trusted by over a thousand homes and businesses.",
                 },
                 { t: "Fast Response", d: "Free quotes and quick scheduling across both regions." },

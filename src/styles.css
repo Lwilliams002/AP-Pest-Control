@@ -133,55 +133,55 @@
 
 /* ============================================================
    ARIZONA THEME — Sonoran Desert
-   Terracotta, sage, sandstone, forest
+   Logo yellow/gold, sandstone, deep brown
    ============================================================ */
 .theme-arizona {
   --radius: 0.125rem;
 
-  /* Orange/desert: warm off-white bg, deep brown ink, bold orange brand */
+  /* Arizona logo yellow: #fdbe57 */
   --background: oklch(0.98 0.012 75); /* warm off-white */
   --foreground: oklch(0.22 0.04 45); /* deep brown ink */
   --ink: oklch(0.18 0.04 45);
 
-  --brand: oklch(0.66 0.18 50); /* bold burnt orange */
-  --brand-foreground: oklch(0.99 0.008 80);
-  --brand-soft: oklch(0.82 0.14 75); /* logo gold #fdbe57 */
+  --brand: #fdbe57;
+  --brand-foreground: oklch(0.18 0.04 45);
+  --brand-soft: #ffe2a0;
 
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.22 0.04 45);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.04 45);
 
-  --primary: oklch(0.66 0.18 50); /* burnt orange */
-  --primary-foreground: oklch(0.99 0.008 80);
-  --secondary: oklch(0.82 0.14 75); /* gold */
+  --primary: #fdbe57;
+  --primary-foreground: oklch(0.18 0.04 45);
+  --secondary: #ffe2a0;
   --secondary-foreground: oklch(0.22 0.04 45);
   --muted: oklch(0.95 0.018 75);
   --muted-foreground: oklch(0.42 0.04 50);
-  --accent: oklch(0.62 0.2 35); /* deep orange accent */
-  --accent-foreground: oklch(0.99 0.008 80);
+  --accent: #fdbe57;
+  --accent-foreground: oklch(0.18 0.04 45);
   --destructive: oklch(0.5 0.2 28);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.22 0.04 45 / 0.16);
   --input: oklch(0.22 0.04 45 / 0.2);
-  --ring: oklch(0.66 0.18 50);
+  --ring: #fdbe57;
 
   --font-display-family: "DM Serif Display", "Playfair Display", Georgia, serif;
   --font-body-family: "Work Sans", "Inter", system-ui, sans-serif;
 
   --gradient-arizona: linear-gradient(
     135deg,
-    oklch(0.82 0.14 75),
-    oklch(0.66 0.18 50) 55%,
-    oklch(0.55 0.2 32)
+    #fff0c2,
+    #fdbe57 55%,
+    #d99424
   );
   --gradient-arizona-sunset: linear-gradient(
     180deg,
-    oklch(0.85 0.14 80),
-    oklch(0.68 0.19 50) 55%,
-    oklch(0.5 0.2 30)
+    #fff4ce,
+    #fdbe57 55%,
+    #c9891d
   );
-  --shadow-arizona: 0 18px 50px -20px oklch(0.62 0.2 35 / 0.3);
+  --shadow-arizona: 0 18px 50px -20px rgb(253 190 87 / 0.38);
 }
 
 @layer base {
@@ -303,8 +303,8 @@
   }
   .desert-bg {
     background-image:
-      radial-gradient(ellipse at 50% 100%, oklch(0.66 0.18 50 / 0.1) 0, transparent 60%),
-      repeating-linear-gradient(90deg, transparent 0 80px, oklch(0.62 0.2 35 / 0.05) 80px 81px);
+      radial-gradient(ellipse at 50% 100%, rgb(253 190 87 / 0.16) 0, transparent 60%),
+      repeating-linear-gradient(90deg, transparent 0 80px, rgb(253 190 87 / 0.08) 80px 81px);
   }
 }
 
@@ -319,6 +319,61 @@
 }
 .animate-float {
   animation: float-slow 6s ease-in-out infinite;
+}
+
+.realistic-pest-icon {
+  filter: saturate(1.12) contrast(1.08) drop-shadow(0 8px 7px rgba(0, 0, 0, 0.2));
+  transform-origin: center center;
+}
+
+.theme-miami .realistic-pest-icon {
+  filter: saturate(1.16) contrast(1.08) drop-shadow(0 8px 8px oklch(0.22 0.04 230 / 0.22));
+}
+
+.theme-arizona .realistic-pest-icon {
+  filter: saturate(1.1) contrast(1.08) drop-shadow(0 8px 7px oklch(0.22 0.04 45 / 0.22));
+}
+
+/* Some source pest assets are neon line art. Tone those only into natural pest colors. */
+.realistic-pest-icon.pest-art-bed-bug-treatment {
+  filter: brightness(0) saturate(100%) invert(22%) sepia(45%) saturate(1100%) hue-rotate(334deg)
+    brightness(82%) contrast(92%) drop-shadow(0 8px 7px rgba(70, 32, 19, 0.22));
+}
+
+.realistic-pest-icon.pest-art-earwig-control,
+.realistic-pest-icon.pest-art-flea-treatment,
+.realistic-pest-icon.pest-art-general-pest-control {
+  filter: brightness(0) saturate(100%) invert(23%) sepia(28%) saturate(830%) hue-rotate(347deg)
+    brightness(80%) contrast(90%) drop-shadow(0 8px 7px rgba(62, 42, 28, 0.22));
+}
+
+.realistic-pest-icon.pest-art-hornet-control,
+.realistic-pest-icon.pest-art-wasp-pest-control,
+.realistic-pest-icon.pest-art-bee-removal {
+  filter: brightness(0) saturate(100%) invert(47%) sepia(55%) saturate(620%) hue-rotate(7deg)
+    brightness(86%) contrast(92%) drop-shadow(0 8px 7px rgba(91, 58, 16, 0.24));
+}
+
+.realistic-pest-icon.pest-art-rodent-control,
+.realistic-pest-icon.pest-art-nuisance-wildlife,
+.realistic-pest-icon.pest-art-pigeon-and-bird-control {
+  filter: brightness(0) saturate(100%) invert(37%) sepia(8%) saturate(580%) hue-rotate(348deg)
+    brightness(86%) contrast(88%) drop-shadow(0 8px 7px rgba(52, 47, 42, 0.22));
+}
+
+.realistic-pest-icon.pest-art-silverfish-pest-control,
+.realistic-pest-icon.pest-art-no-see-um-control,
+.realistic-pest-icon.pest-art-whitefly-treatment,
+.realistic-pest-icon.pest-art-mosquito-control {
+  filter: brightness(0) saturate(100%) invert(56%) sepia(7%) saturate(330%) hue-rotate(174deg)
+    brightness(88%) contrast(88%) drop-shadow(0 8px 7px rgba(71, 80, 84, 0.2));
+}
+
+.realistic-pest-icon.pest-art-ant-pest-control,
+.realistic-pest-icon.pest-art-cricket-control,
+.realistic-pest-icon.pest-art-kissing-bug-control {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(34%) saturate(1080%) hue-rotate(344deg)
+    brightness(84%) contrast(92%) drop-shadow(0 8px 7px rgba(70, 37, 19, 0.22));
 }
 
 @keyframes shimmer {

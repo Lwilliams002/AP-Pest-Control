@@ -12,17 +12,22 @@ export function RegionPests({ pests, region }: { pests: Pest[]; region: "miami" 
   const isMobile = useIsMobile();
   const selected = pests[active];
 
-  const isCommercial = (p: Pest) => p.t.toLowerCase().includes("commercial");
-
-  const iconFilter = (p: Pest) => {
-    // Keep the commercial building icon in full color so its windows remain visible.
-    if (isCommercial(p)) return "";
-    // Both regions: black silhouette.
-    return "[filter:brightness(0)]";
-  };
+  const pestToneClass = (p: Pest) =>
+    `pest-art-${p.t
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "")}`;
 
   const renderIcon = (p: Pest, className: string) => {
-    return <img src={p.img} alt={p.t} loading="lazy" className={`${className} ${iconFilter(p)}`} />;
+    return (
+      <img
+        src={p.img}
+        alt={p.t}
+        loading="lazy"
+        className={`${className} realistic-pest-icon ${pestToneClass(p)}`}
+      />
+    );
   };
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, startIndex: active });
@@ -30,7 +35,7 @@ export function RegionPests({ pests, region }: { pests: Pest[]; region: "miami" 
   useEffect(() => {
     if (!emblaApi) return;
     if (open) emblaApi.scrollTo(active, true);
-  }, [open, emblaApi]);
+  }, [active, open, emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -92,7 +97,7 @@ export function RegionPests({ pests, region }: { pests: Pest[]; region: "miami" 
   );
 
   return (
-    <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
+    <div className="grid lg:grid-cols-12 gap-6 lg:gap-8" data-region={region}>
       <div className="lg:col-span-7">
         <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-3">
           {pests.map((p, i) => {

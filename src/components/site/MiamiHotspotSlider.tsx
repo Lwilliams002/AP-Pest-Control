@@ -22,6 +22,13 @@ export function MiamiHotspotSlider({
 }) {
   const [active, setActive] = useState(0);
 
+  const pestToneClass = (pest: Pest) =>
+    `pest-art-${pest.t
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "")}`;
+
   return (
     <div className="mb-14 relative overflow-hidden border-2 border-accent/60 rounded-sm bg-gradient-to-br from-accent/15 via-card to-secondary/10">
       <div className="absolute -top-10 -right-10 w-48 h-48 bg-accent/20 blur-3xl rounded-full pointer-events-none" />
@@ -59,7 +66,7 @@ export function MiamiHotspotSlider({
                     <img
                       src={s.pest.img}
                       alt=""
-                      className="w-14 h-14 md:w-16 md:h-16 object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 [filter:brightness(0)]"
+                      className={`w-14 h-14 md:w-16 md:h-16 object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 realistic-pest-icon ${pestToneClass(s.pest)}`}
                     />
                     <div className="md:[writing-mode:vertical-rl] md:rotate-180 text-center">
                       <p className="text-[9px] uppercase tracking-[0.3em] text-accent font-bold mb-1">
@@ -88,7 +95,7 @@ export function MiamiHotspotSlider({
                       <img
                         src={s.pest.img}
                         alt={`${s.pest.t} illustration`}
-                        className="w-24 h-24 sm:w-32 sm:h-32 object-contain animate-float shrink-0 mx-auto lg:mx-0 [filter:brightness(0)]"
+                        className={`w-24 h-24 sm:w-32 sm:h-32 object-contain animate-float shrink-0 mx-auto lg:mx-0 realistic-pest-icon ${pestToneClass(s.pest)}`}
                       />
                       <div>
                         <span className="inline-flex items-center gap-1.5 px-2 py-1 border border-accent bg-accent/15 text-[10px] uppercase tracking-[0.25em] font-bold text-accent rounded-sm mb-3">
