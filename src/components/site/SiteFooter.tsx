@@ -19,7 +19,7 @@ export function SiteFooter() {
             ) : isArizona ? (
               <img src={arizonaLogo} alt="AP Pest" className="h-14 w-auto" />
             ) : (
-              <img src={arizonaLogo} alt="AP Pest" className="h-14 w-auto [filter:brightness(0)]" />
+              <img src={arizonaLogo} alt="AP Pest" className="h-14 w-auto" />
             )}
           </Link>
           <p className="mt-4 max-w-sm text-muted-foreground">

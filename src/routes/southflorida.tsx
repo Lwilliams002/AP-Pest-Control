@@ -18,7 +18,7 @@ export const Route = createFileRoute("/southflorida")({
       {
         name: "description",
         content:
-          "Pest control across South Florida — Miami, Fort Lauderdale, Boca Raton, West Palm Beach. Mosquitoes, roaches, iguanas, termites, no-see-ums and more.",
+          "Pest control across South Florida — Miami, Fort Lauderdale, Boca Raton, West Palm Beach. Mosquitoes, roaches, rodents, termites, centipedes, millipedes and more.",
       },
       { property: "og:title", content: "South Florida Pest Control — AP Pest" },
       {
@@ -90,8 +90,8 @@ function MiamiPage() {
               <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
                 From South Beach high-rises and Brickell condos to Fort Lauderdale canals, Boca
                 estates, and Palm Beach pools — our program is engineered around humidity, ocean
-                air, and the pests that thrive in both. Mosquitoes, roaches, termites, iguanas,
-                no-see-ums — handled.
+                air, and the pests that thrive in both. Mosquitoes, roaches, termites, rodents,
+                centipedes, millipedes and no-see-ums — handled.
               </p>
               <Link
                 to="/contact"
@@ -155,7 +155,7 @@ function MiamiPage() {
                 plan that actually works for the coast.
               </p>
             </div>
-            <ContactForm defaultRegion="miami" />
+            <ContactForm defaultRegion="miami" lockRegion />
           </div>
         </section>
       </main>

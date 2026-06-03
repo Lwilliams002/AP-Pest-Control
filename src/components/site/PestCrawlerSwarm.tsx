@@ -5,7 +5,6 @@ import spiderImg from "@/assets/pests/spider.png";
 import mosquitoImg from "@/assets/pests/mosquito.png";
 import scorpionImg from "@/assets/pests/scorpion.png";
 import termiteImg from "@/assets/pests/termite.png";
-import bedbugImg from "@/assets/pests/bedbug.png";
 import waspImg from "@/assets/pests/wasp.png";
 
 type PestCrawlerConfig = {
@@ -95,9 +94,9 @@ const pestCrawlers = [
     wiggle: 16,
   },
   {
-    id: "bedbug-1",
-    className: "pest-bedbug",
-    image: bedbugImg,
+    id: "roach-3",
+    className: "pest-roach",
+    image: roachImg,
     top: 14,
     startX: 66,
     angle: 190,
@@ -191,9 +190,9 @@ const pestCrawlers = [
     wiggle: 20,
   },
   {
-    id: "bedbug-2",
-    className: "pest-bedbug",
-    image: bedbugImg,
+    id: "termite-3",
+    className: "pest-termite slow",
+    image: termiteImg,
     top: 66,
     startX: 72,
     angle: 194,

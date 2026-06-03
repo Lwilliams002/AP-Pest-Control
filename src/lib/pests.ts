@@ -10,19 +10,16 @@ import imgEarwig from "@/assets/pests/earwig.png";
 import imgFlea from "@/assets/pests/flea.png";
 import imgGeneral from "@/assets/pests/general.png";
 import imgHornet from "@/assets/pests/hornet.png";
-import imgSilverfish from "@/assets/pests/silverfish.png";
+import imgSilverfish from "@/assets/pests/sliverfish.png";
 import imgWasp from "@/assets/pests/wasp.png";
-import imgBedbug from "@/assets/pests/bedbug.png";
 import imgBee from "@/assets/pests/bee.png";
-import imgIguana from "@/assets/pests/iguana.png";
 import imgNoseeum from "@/assets/pests/noseeum.png";
 import imgWhitefly from "@/assets/pests/whitefly.png";
 import imgWildlife from "@/assets/pests/wildlife.png";
-import imgPigeon from "@/assets/pests/pigeon.png";
 import imgKissingbug from "@/assets/pests/kissingbug.png";
-import imgRattlesnake from "@/assets/pests/rattlesnake.png";
-import imgPackrat from "@/assets/pests/packrat.png";
 import imgCricket from "@/assets/pests/cricket.png";
+import imgCentipede from "@/assets/pests/centipede.png";
+import imgMillipede from "@/assets/pests/millepede.png";
 
 export type Pest = {
   t: string;
@@ -211,7 +208,7 @@ const PEST_MOSQUITO: Pest = {
   seasonal: "Summer hotspot",
 };
 const PEST_TERMITE: Pest = {
-  t: "Termite Defense",
+  t: "Termite Control",
   d: "Subterranean & drywood programs tuned to local construction.",
   img: imgTermite,
   about:
@@ -222,19 +219,6 @@ const PEST_TERMITE: Pest = {
     "Hollow-sounding or blistered wood",
   ],
   risk: "Cause billions in structural damage every year across the U.S.",
-};
-const PEST_BEDBUG: Pest = {
-  t: "Bed Bug Treatment",
-  d: "Heat & chemical treatments for homes, hotels, and short-term rentals.",
-  img: imgBedbug,
-  about:
-    "Tiny reddish-brown insects that feed on blood at night and hide in mattress seams, headboards, and baseboards. Hitchhike home from travel and rentals.",
-  signs: [
-    "Itchy bites in lines or clusters",
-    "Tiny blood spots on sheets",
-    "Sweet, musty odor in the bedroom",
-  ],
-  risk: "Spread fast across units; hospitality killers — one room can shut a floor.",
 };
 const PEST_BEE: Pest = {
   t: "Bee Removal",
@@ -248,20 +232,6 @@ const PEST_BEE: Pest = {
     "Honeycomb visible in attic or shed",
   ],
   risk: "Africanized swarm attacks can be fatal; abandoned hives draw rodents and roaches.",
-};
-const PEST_IGUANA: Pest = {
-  t: "Iguana Removal",
-  d: "Humane trapping and exclusion — South Florida specialty service.",
-  img: imgIguana,
-  about:
-    "Invasive green iguanas grow up to 5 ft, devour landscaping, dig burrows that undermine seawalls, and leave heavy droppings on patios and pool decks.",
-  signs: [
-    "Burrows along seawalls or canals",
-    "Stripped hibiscus and bougainvillea",
-    "Droppings on docks and decks",
-  ],
-  risk: "Structural damage to seawalls and foundations; salmonella in droppings.",
-  unique: "miami",
 };
 const PEST_NOSEEUM: Pest = {
   t: "No-See-Um Control",
@@ -305,20 +275,6 @@ const PEST_WILDLIFE: Pest = {
   risk: "Rabies risk, parasite spread, fire hazard from chewed wiring.",
   unique: "miami",
 };
-const PEST_PIGEON: Pest = {
-  t: "Pigeon & Bird Control",
-  d: "Netting, spikes, and solar-panel exclusion across the Valley.",
-  img: imgPigeon,
-  about:
-    "Pigeons roost under solar panels, on parapets, and in signage. Their droppings are corrosive and their nests are flammable mats of dry debris.",
-  signs: [
-    "Droppings on driveways and walkways",
-    "Cooing under solar arrays",
-    "Nesting debris in gutters",
-  ],
-  risk: "Histoplasmosis, roof damage, voided solar warranties, fire risk.",
-  unique: "arizona",
-};
 const PEST_KISSINGBUG: Pest = {
   t: "Kissing Bug Control",
   d: "Targeted exterior treatment and exclusion for conenose bugs.",
@@ -328,37 +284,9 @@ const PEST_KISSINGBUG: Pest = {
   signs: [
     "Painless bite welts on face/arms",
     "Bugs near porch lights at night",
-    "Activity near pack rat nests",
+    "Activity near kennels, patios, and desert landscaping",
   ],
   risk: "Can transmit Trypanosoma cruzi (Chagas disease) — a serious chronic illness.",
-  unique: "arizona",
-};
-const PEST_RATTLESNAKE: Pest = {
-  t: "Rattlesnake Removal",
-  d: "Safe relocation and yard hardening to keep snakes out.",
-  img: imgRattlesnake,
-  about:
-    "Western diamondbacks and Mojaves move through Valley yards, especially in spring and after monsoon storms. Hide under AC units, in garages, and pool equipment.",
-  signs: [
-    "Shed skins along block walls",
-    "Sightings near pool equipment",
-    "Dogs alerting to a corner of the yard",
-  ],
-  risk: "Bites are medical emergencies — antivenom runs $50k+; pets often don't survive.",
-  unique: "arizona",
-};
-const PEST_PACKRAT: Pest = {
-  t: "Pack Rat Control",
-  d: "Nest removal and exclusion focused on landscaping and engine bays.",
-  img: imgPackrat,
-  about:
-    "Desert woodrats build huge stick nests in cactus, BBQs, and engine compartments. Notorious for chewing wiring on cars left outdoors.",
-  signs: [
-    "Stick mounds against block walls",
-    "Shiny objects collected in nests",
-    "Chewed engine wiring or hoses",
-  ],
-  risk: "Thousands in vehicle damage; nests harbor kissing bugs and scorpions.",
   unique: "arizona",
 };
 const PEST_CRICKET: Pest = {
@@ -376,14 +304,45 @@ const PEST_CRICKET: Pest = {
   unique: "arizona",
 };
 
+const PEST_CENTIPEDE: Pest = {
+  t: "Centipede Control",
+  d: "Moisture reduction and perimeter treatments for fast-moving centipedes.",
+  img: imgCentipede,
+  about:
+    "Centipedes move fast through damp mulch, bathrooms, garages, and block-wall gaps while hunting other insects. South Florida moisture lets them stay active year-round.",
+  signs: [
+    "Long, fast-moving insects in bathrooms or garages",
+    "Activity after heavy rain or irrigation",
+    "Sightings around mulch, drains, and slab cracks",
+  ],
+  risk: "Their bites can be painful, and frequent sightings usually point to moisture or other pest activity.",
+  unique: "miami",
+};
+
+const PEST_MILLIPEDE: Pest = {
+  t: "Millipede Control",
+  d: "Exterior moisture and harborage treatment for seasonal millipede invasions.",
+  img: imgMillipede,
+  about:
+    "Millipedes feed on damp organic material and pile up along sliders, patios, garages, and baseboards after rain. They do not bite, but they invade in large numbers.",
+  signs: [
+    "Curled-up millipedes near doors and sliders",
+    "Large numbers after storms",
+    "Activity around mulch beds, planters, and wet leaf litter",
+  ],
+  risk: "Mostly a nuisance, but repeated invasions mean moisture and decaying organic matter are supporting pest pressure.",
+  unique: "miami",
+};
+
 export const miamiMosquito: Pest = PEST_MOSQUITO;
 export const miamiPests: Pest[] = [
-  PEST_BEDBUG,
   PEST_COMMERCIAL,
+  PEST_CENTIPEDE,
   PEST_EARWIG,
   PEST_FLEA,
   PEST_GENERAL,
   PEST_HORNET,
+  PEST_MILLIPEDE,
   PEST_RODENT,
   PEST_SILVERFISH,
   PEST_SPIDER,
@@ -393,7 +352,6 @@ export const miamiPests: Pest[] = [
 export const arizonaTermite: Pest = PEST_TERMITE;
 export const arizonaPests: Pest[] = [
   PEST_ANT,
-  PEST_BEDBUG,
   PEST_COCKROACH,
   PEST_COMMERCIAL,
   PEST_CRICKET,
@@ -402,29 +360,32 @@ export const arizonaPests: Pest[] = [
   PEST_GENERAL,
   PEST_HORNET,
   PEST_KISSINGBUG,
-  PEST_PACKRAT,
-  PEST_PIGEON,
-  PEST_RATTLESNAKE,
   PEST_RODENT,
-  PEST_SCORPION,
   PEST_SILVERFISH,
-  PEST_SPIDER,
   PEST_WASP,
 ];
 
 export const miamiCities = [
   "Miami",
+  "Hialeah",
   "Miami Beach",
+  "Miami Gardens",
+  "Miami Lakes",
   "Brickell",
   "Coral Gables",
   "Coconut Grove",
+  "Fontainebleau",
+  "Tamiami",
+  "West End",
   "Wynwood",
   "Aventura",
   "Doral",
   "Fort Lauderdale",
   "Hollywood",
+  "Miramar",
   "Pembroke Pines",
   "Davie",
+  "Southwest Ranches",
   "Boca Raton",
   "Delray Beach",
   "West Palm Beach",
@@ -437,6 +398,12 @@ export const miamiCities = [
 export const azCities = [
   "Scottsdale",
   "Phoenix",
+  "Tucson",
+  "Marana",
+  "Oro Valley",
+  "Peoria",
+  "Buckeye",
+  "Glendale",
   "Gilbert",
   "Chandler",
   "Mesa",

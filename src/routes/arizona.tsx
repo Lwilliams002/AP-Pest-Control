@@ -7,7 +7,7 @@ import { arizonaPests, azCities } from "@/lib/pests";
 import { MiamiHotspotSlider, type HotspotSlide } from "@/components/site/MiamiHotspotSlider";
 import imgTermite from "@/assets/pests/termite.png";
 import imgScorpion from "@/assets/pests/scorpion.png";
-import imgPackrat from "@/assets/pests/packrat.png";
+import imgSpider from "@/assets/pests/spider.png";
 import azImg from "@/assets/arizona-desert.jpg";
 
 export const Route = createFileRoute("/arizona")({
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/arizona")({
       {
         name: "description",
         content:
-          "Pest control in the Arizona Valley — Scottsdale, Phoenix, Gilbert, Chandler. Scorpions, rodents, kissing bugs, rattlesnakes, ants and more.",
+          "Pest control in the Arizona Valley — Scottsdale, Phoenix, Tucson, Marana, Oro Valley, Peoria, Buckeye, Glendale and more. Scorpions, spiders, termites, roaches and rodents.",
       },
       { property: "og:title", content: "Arizona Pest Control — AP Pest" },
       {
@@ -88,9 +88,9 @@ function ArizonaPage() {
                 <span className="text-gradient-arizona italic">the Valley.</span>
               </h2>
               <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                35+ years of experience protecting Arizona homes from scorpions, roof rats, kissing
-                bugs, rattlesnakes and everything else the desert serves up after sundown. Same
-                family. Same standard.
+                35+ years of experience protecting Arizona homes from scorpions, spiders, termites,
+                roaches, rodents and everything else the desert serves up after sundown. Same family.
+                Same standard.
               </p>
               <Link
                 to="/contact"
@@ -150,11 +150,12 @@ function ArizonaPage() {
                 Tell us about <span className="text-gradient-arizona italic">the pest.</span>
               </h2>
               <p className="mt-5 text-muted-foreground max-w-md">
-                Free estimates across Scottsdale, Phoenix, and the surrounding Valley. We'll show up
-                fast with a plan that works for the desert.
+                Free estimates across Scottsdale, Phoenix, Tucson, Marana, Oro Valley, Peoria,
+                Buckeye, Glendale and the surrounding Valley. We'll show up fast with a plan that
+                works for the desert.
               </p>
             </div>
-            <ContactForm defaultRegion="arizona" />
+            <ContactForm defaultRegion="arizona" lockRegion />
           </div>
         </section>
       </main>
@@ -164,34 +165,6 @@ function ArizonaPage() {
 }
 
 const arizonaHotspots: HotspotSlide[] = [
-  {
-    pest: { t: "Termite Control", d: "", img: imgTermite, about: "", signs: [], risk: "" },
-    kicker: "⚠️ Silent threat · Arizona Valley",
-    headlineLead: "Termites",
-    headlineTail: "never sleep.",
-    body: "Arizona has one of the highest termite densities in the country. Subterranean colonies tunnel up through slab cracks year-round — most homeowners only find out after damage is visible, and standard insurance doesn't cover a dollar of it.",
-    steps: [
-      {
-        label: "Inspect",
-        body: "Full perimeter and slab inspection — mud tubes, discarded wings, hollow wood, expansion joints, and plumbing penetrations.",
-      },
-      {
-        label: "Treat",
-        body: "Trenched liquid barrier (Termidor) around the foundation creates a continuous treated zone the colony can't tunnel through.",
-      },
-      {
-        label: "Monitor",
-        body: "Annual re-inspections catch new activity early — we check mud tubes, slab joints, and known hotspots before damage spreads.",
-      },
-    ],
-    badges: [
-      "Pre-construction & escrow",
-      "WDIIR reports for sale",
-      "Drywood spot treatment",
-      "Annual re-inspections",
-    ],
-    cta: "Get termite treatment",
-  },
   {
     pest: { t: "Scorpion Control", d: "", img: imgScorpion, about: "", signs: [], risk: "" },
     kicker: "🦂 Desert specialty · Arizona Valley",
@@ -221,38 +194,59 @@ const arizonaHotspots: HotspotSlide[] = [
     cta: "Get scorpion treatment",
   },
   {
-    pest: {
-      t: "Pack Rat & Rodent Control",
-      d: "",
-      img: imgPackrat,
-      about: "",
-      signs: [],
-      risk: "",
-    },
-    kicker: "🐀 Year-round threat · Arizona Valley",
-    headlineLead: "Pack rats",
-    headlineTail: "nest in your engine.",
-    body: "Desert pack rats and roof rats love Valley garages, attics, and engine bays — they shred insulation, chew wiring harnesses, and stash cholla, citrus, and trash into middens that can total a car's wiring overnight. Snap traps alone never solve it; you have to break the harborage and shut the entry points.",
+    pest: { t: "General Spider Control", d: "", img: imgSpider, about: "", signs: [], risk: "" },
+    kicker: "🕷️ Common invader · Arizona Valley",
+    headlineLead: "Spiders",
+    headlineTail: "move into shade.",
+    body: "Arizona spiders follow insects into garages, patios, block walls, storage areas, and eaves. Our general spider program removes webs and egg sacs, treats harborage zones, and reduces the insect pressure that keeps them coming back.",
     steps: [
       {
-        label: "Find the midden",
-        body: "We locate active middens around pool equipment, AC pads, palm skirts, and engine bays — then identify the trails and burrows feeding them.",
+        label: "De-web",
+        body: "We knock down webs and egg sacs around eaves, patio furniture, garages, and block-wall corners before treating.",
       },
       {
-        label: "Trap & remove",
-        body: "Snap-trap stations and tamper-resistant bait boxes knock down the active population fast, without exposing pets or kids.",
+        label: "Treat harborage",
+        body: "Targeted dusts and residual perimeter treatments reach cracks, storage zones, and shaded areas where spiders hide.",
       },
       {
-        label: "Exclude & deter",
-        body: "Steel mesh on weep holes, garage thresholds, attic vents, and roof penetrations — plus yard sanitation tips — keeps the next colony from moving in.",
+        label: "Reduce prey",
+        body: "General pest control cuts down the insects spiders hunt, so the pressure drops instead of returning days later.",
       },
     ],
     badges: [
-      "Engine-bay protection",
-      "Attic & garage exclusion",
-      "Tamper-resistant stations",
-      "Quarterly rodent plans",
+      "Web & egg-sac removal",
+      "Garage & patio focus",
+      "Block-wall treatment",
+      "Quarterly general plans",
     ],
-    cta: "Get rodent treatment",
+    cta: "Get spider treatment",
+  },
+  {
+    pest: { t: "General Termite Control", d: "", img: imgTermite, about: "", signs: [], risk: "" },
+    kicker: "⚠️ Silent threat · Arizona Valley",
+    headlineLead: "Termites",
+    headlineTail: "never sleep.",
+    body: "Arizona has one of the highest termite densities in the country. Subterranean colonies tunnel up through slab cracks year-round — most homeowners only find out after damage is visible, and standard insurance doesn't cover a dollar of it.",
+    steps: [
+      {
+        label: "Inspect",
+        body: "Full perimeter and slab inspection — mud tubes, discarded wings, hollow wood, expansion joints, and plumbing penetrations.",
+      },
+      {
+        label: "Treat",
+        body: "A continuous treated zone around the structure blocks termites from tunneling into the home and helps eliminate active pressure.",
+      },
+      {
+        label: "Monitor",
+        body: "Annual re-inspections catch new activity early — we check mud tubes, slab joints, and known hotspots before damage spreads.",
+      },
+    ],
+    badges: [
+      "Pre-construction & escrow",
+      "WDIIR reports for sale",
+      "Drywood spot treatment",
+      "Annual re-inspections",
+    ],
+    cta: "Get termite treatment",
   },
 ];

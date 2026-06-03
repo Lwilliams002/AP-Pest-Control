@@ -8,8 +8,8 @@ import miamiImg from "@/assets/miami-deco.jpg";
 import azImg from "@/assets/arizona-desert.jpg";
 import mosquitoImg from "@/assets/pests/mosquito.png";
 import scorpionImg from "@/assets/pests/scorpion.png";
-import termiteImg from "@/assets/pests/termite.png";
-import palmettoImg from "@/assets/pests/iguana.png";
+import rodentImg from "@/assets/pests/rodent.png";
+import cockroachImg from "@/assets/pests/cockroach.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -19,9 +19,9 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Independent, family-owned pest control with 35+ years of experience serving South Florida and the Arizona Valley. Sustainable, modern programs and a satisfaction guarantee.",
+          "Independent, family-owned pest control with 35+ years of experience serving South Florida and the Phoenix Valley. Sustainable, modern programs and a satisfaction guarantee.",
       },
-      { property: "og:title", content: "AP Pest Control — South Florida & Arizona Valley" },
+      { property: "og:title", content: "AP Pest Control — South Florida & Phoenix Valley" },
       {
         property: "og:description",
         content: "Sustainable pest control across two coasts. Free estimates.",
@@ -37,12 +37,12 @@ export const Route = createFileRoute("/")({
           "@type": "LocalBusiness",
           name: "AP Pest Control",
           description:
-            "Independent, family-owned pest control with 35+ years of experience serving South Florida and the Arizona Valley.",
+            "Independent, family-owned pest control with 35+ years of experience serving South Florida and the Phoenix Valley.",
           url: "https://miami-glow-up.lovable.app/",
           logo: "https://miami-glow-up.lovable.app/ap-pest-logo.png",
           areaServed: [
             { "@type": "AdministrativeArea", name: "South Florida" },
-            { "@type": "AdministrativeArea", name: "Arizona Valley" },
+            { "@type": "AdministrativeArea", name: "Phoenix Valley" },
           ],
           contactPoint: [
             {
@@ -95,7 +95,7 @@ function Home() {
               <div className="mt-6 h-px w-32 heritage-rule" />
               <p className="mt-6 text-base sm:text-lg text-foreground/85 max-w-xl leading-relaxed">
                 Independent, family-run protection for homes and businesses across South Florida and
-                the Arizona Valley. Sustainable methods, honest pricing, real people.
+                the Phoenix Valley. Sustainable methods, honest pricing, real people.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -178,7 +178,7 @@ function Home() {
               />
               <RegionCard
                 to="/arizona"
-                title="The Arizona Valley"
+                title="The Phoenix Valley"
                 subtitle="Sonoran sunsets & desert wildlife"
                 img={azImg}
               />
@@ -199,13 +199,13 @@ function Home() {
                 Humid coast. <span className="italic">Hungry pests.</span>
               </h3>
               <p className="mt-4 text-white/85 max-w-md">
-                Year-round mosquitoes, palmetto bugs the size of your thumb, and iguanas in the
-                hedges. We treat the climate, not just the bug.
+                Year-round mosquitoes, palmetto bugs the size of your thumb, and rodents moving
+                through rooflines, kitchens, and garages. We treat the climate, not just the bug.
               </p>
               <ul className="mt-6 space-y-2 text-sm text-white/90">
                 <li>· Mosquito misting & yard fogging</li>
                 <li>· German roach & palmetto bug control</li>
-                <li>· Iguana & wildlife removal</li>
+                <li>· Rodent exclusion & trapping</li>
               </ul>
               <Link
                 to="/southflorida"
@@ -221,7 +221,7 @@ function Home() {
                 style={{ filter: "brightness(0) invert(1)" }}
               />
               <img
-                src={palmettoImg}
+                src={rodentImg}
                 alt=""
                 aria-hidden
                 className="absolute top-8 right-10 w-20 opacity-25"
@@ -230,19 +230,19 @@ function Home() {
             </div>
             <div className="relative overflow-hidden bg-gradient-to-br from-[oklch(0.66_0.18_50)] to-[oklch(0.55_0.20_32)] text-white p-10 md:p-16 min-h-[420px]">
               <p className="text-xs uppercase tracking-[0.4em] text-white/70 mb-3 font-semibold">
-                Arizona Valley
+                Phoenix Valley
               </p>
               <h3 className="font-display text-4xl md:text-5xl font-bold leading-tight">
                 Sonoran heat. <span className="italic">Desert invaders.</span>
               </h3>
               <p className="mt-4 text-white/90 max-w-md">
-                Scorpions under every rock, subterranean termites silently chewing studs, and pack
-                rats in the engine bay. Built for the desert.
+                Scorpions under every rock, subterranean termites silently chewing studs, and roaches
+                pushing into cool garages and kitchens. Built for the desert.
               </p>
               <ul className="mt-6 space-y-2 text-sm text-white/95">
                 <li>· Scorpion barrier treatments</li>
                 <li>· Subterranean termite control</li>
-                <li>· Pack rat & rodent exclusion</li>
+                <li>· Roach and general pest control</li>
               </ul>
               <Link
                 to="/arizona"
@@ -258,7 +258,7 @@ function Home() {
                 style={{ filter: "brightness(0) invert(1)", animationDelay: "-2s" }}
               />
               <img
-                src={termiteImg}
+                src={cockroachImg}
                 alt=""
                 aria-hidden
                 className="absolute top-8 right-10 w-20 opacity-25"

@@ -1,0 +1,161 @@
+<div
+  style="
+    margin: 0;
+    padding: 24px 10px;
+    background-color: #f4f1ea;
+    color: #1f2933;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+  "
+>
+  <div
+    style="
+      max-width: 640px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border: 1px solid #ded8cb;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(31, 41, 51, 0.12);
+    "
+  >
+    <div
+      style="
+        background: linear-gradient(135deg, #1f3d2b 0%, #458500 52%, #fdbe57 100%);
+        padding: 22px 24px;
+        color: #ffffff;
+      "
+    >
+      <p
+        style="
+          margin: 0 0 8px;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+        "
+      >
+        AP Pest Control Lead Alert
+      </p>
+      <h1 style="margin: 0; font-size: 26px; line-height: 1.15; font-weight: 800">
+        New Estimate Request
+      </h1>
+      <p style="margin: 10px 0 0; font-size: 15px; opacity: 0.95">
+        {{region_label}} inquiry submitted from {{source_page}}
+      </p>
+    </div>
+
+    <div style="padding: 24px">
+      <div
+        style="
+          margin-bottom: 20px;
+          padding: 16px;
+          background-color: #fff8eb;
+          border: 1px solid #f3d391;
+          border-radius: 10px;
+        "
+      >
+        <p style="margin: 0 0 6px; color: #7a4b00; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em">
+          Lead Summary
+        </p>
+        <p style="margin: 0; font-size: 18px; font-weight: 800; color: #1f2933">
+          {{from_name}} needs help with {{pest}}
+        </p>
+      </div>
+
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 22px">
+        <tr>
+          <td style="padding: 10px 0; width: 145px; color: #64748b; font-weight: 700">Name</td>
+          <td style="padding: 10px 0; color: #111827; font-weight: 700">{{from_name}}</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; color: #64748b; font-weight: 700; border-top: 1px solid #eef0f2">Email</td>
+          <td style="padding: 10px 0; border-top: 1px solid #eef0f2">
+            <a href="mailto:{{from_email}}" style="color: #1f6feb; text-decoration: none">{{from_email}}</a>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; color: #64748b; font-weight: 700; border-top: 1px solid #eef0f2">Phone</td>
+          <td style="padding: 10px 0; border-top: 1px solid #eef0f2">
+            <a href="tel:{{phone}}" style="color: #1f6feb; text-decoration: none">{{phone}}</a>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; color: #64748b; font-weight: 700; border-top: 1px solid #eef0f2">Location</td>
+          <td style="padding: 10px 0; color: #111827; border-top: 1px solid #eef0f2">{{region_label}}</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; color: #64748b; font-weight: 700; border-top: 1px solid #eef0f2">Pest</td>
+          <td style="padding: 10px 0; color: #111827; border-top: 1px solid #eef0f2">{{pest}}</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px 0; color: #64748b; font-weight: 700; border-top: 1px solid #eef0f2">Submitted</td>
+          <td style="padding: 10px 0; color: #111827; border-top: 1px solid #eef0f2">{{submitted_at}}</td>
+        </tr>
+      </table>
+
+      <div style="margin-bottom: 24px">
+        <p style="margin: 0 0 8px; color: #64748b; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em">
+          Customer Message
+        </p>
+        <div
+          style="
+            padding: 16px;
+            background-color: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            color: #111827;
+            white-space: pre-line;
+          "
+        >{{message}}</div>
+      </div>
+
+      <table style="width: 100%; border-collapse: collapse">
+        <tr>
+          <td style="padding-right: 8px; width: 50%">
+            <a
+              href="mailto:{{from_email}}?subject=Re:%20{{subject}}"
+              style="
+                display: block;
+                padding: 13px 12px;
+                background-color: #458500;
+                color: #ffffff;
+                text-align: center;
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: 800;
+              "
+            >
+              Reply by Email
+            </a>
+          </td>
+          <td style="padding-left: 8px; width: 50%">
+            <a
+              href="tel:{{phone}}"
+              style="
+                display: block;
+                padding: 13px 12px;
+                background-color: #fdbe57;
+                color: #1f2933;
+                text-align: center;
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: 800;
+              "
+            >
+              Call Customer
+            </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div style="padding: 16px 24px; background-color: #111827; color: #d1d5db">
+      <p style="margin: 0; font-size: 12px">
+        This lead was routed to {{to_email}} for {{region_label}}. Reply-to is set to {{reply_to}}.
+      </p>
+    </div>
+  </div>
+</div>
+

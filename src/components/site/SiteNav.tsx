@@ -31,7 +31,7 @@ export function SiteNav() {
           ) : isArizona ? (
             <img src={arizonaLogo} alt="AP Pest" className="h-11 w-auto" />
           ) : (
-            <img src={arizonaLogo} alt="AP Pest" className="h-11 w-auto [filter:brightness(0)]" />
+            <img src={arizonaLogo} alt="AP Pest" className="h-11 w-auto" />
           )}
         </Link>
 
