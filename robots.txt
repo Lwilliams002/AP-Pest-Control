@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://miami-glow-up.lovable.app/sitemap.xml
+Sitemap: https://ap-pest-control.com/sitemap.xml
