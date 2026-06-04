@@ -26,9 +26,9 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Sustainable pest control across two coasts. Free estimates.",
       },
-      { property: "og:url", content: "https://miami-glow-up.lovable.app/" },
+      { property: "og:url", content: "https://ap-pest-control.com/" },
     ],
-    links: [{ rel: "canonical", href: "https://miami-glow-up.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://ap-pest-control.com/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -38,8 +38,8 @@ export const Route = createFileRoute("/")({
           name: "AP Pest Control",
           description:
             "Independent, family-owned pest control with 35+ years of experience serving South Florida and the Phoenix Valley.",
-          url: "https://miami-glow-up.lovable.app/",
-          logo: "https://miami-glow-up.lovable.app/ap-pest-logo.png",
+          url: "https://ap-pest-control.com/",
+          logo: "https://ap-pest-control.com/ap-pest-logo.png",
           areaServed: [
             { "@type": "AdministrativeArea", name: "South Florida" },
             { "@type": "AdministrativeArea", name: "Phoenix Valley" },

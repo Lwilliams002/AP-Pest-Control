@@ -15,9 +15,9 @@ export const Route = createFileRoute("/contact")({
       },
       { property: "og:title", content: "Contact AP Pest Control" },
       { property: "og:description", content: "Free estimates across Miami and Arizona." },
-      { property: "og:url", content: "https://miami-glow-up.lovable.app/contact" },
+      { property: "og:url", content: "https://ap-pest-control.com/contact" },
     ],
-    links: [{ rel: "canonical", href: "https://miami-glow-up.lovable.app/contact" }],
+    links: [{ rel: "canonical", href: "https://ap-pest-control.com/contact" }],
   }),
 });
 

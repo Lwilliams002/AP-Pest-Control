@@ -27,9 +27,9 @@ export const Route = createFileRoute("/southflorida")({
           "Neon-bright service across South Florida — Miami to Palm Beach. Built for humidity, hurricanes, and everything that bites.",
       },
       { property: "og:image", content: miamiImg },
-      { property: "og:url", content: "https://miami-glow-up.lovable.app/southflorida" },
+      { property: "og:url", content: "https://ap-pest-control.com/southflorida" },
     ],
-    links: [{ rel: "canonical", href: "https://miami-glow-up.lovable.app/southflorida" }],
+    links: [{ rel: "canonical", href: "https://ap-pest-control.com/southflorida" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/southflorida")({
             telephone: "+1-305-713-5011",
           },
           areaServed: { "@type": "AdministrativeArea", name: "South Florida" },
-          url: "https://miami-glow-up.lovable.app/southflorida",
+          url: "https://ap-pest-control.com/southflorida",
         }),
       },
     ],
