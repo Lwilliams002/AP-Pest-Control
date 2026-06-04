@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/ap-pest-logo.png" />
+    <!-- SPA redirect: restore path stored by 404.html -->
+    <script type="text/javascript">
+      (function () {
+        var redirect = sessionStorage.getItem("spa-redirect");
+        if (redirect) {
+          sessionStorage.removeItem("spa-redirect");
+          var url = new URL(redirect);
+          // Replace the current history entry so the back button works correctly.
+          window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-Bq4TDzdn.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Beieo2Rh.css">
+    <title>South Florida Pest Control — AP Pest Control</title>
+    <meta name="description" content="Pest control across South Florida — Miami, Fort Lauderdale, Boca Raton, West Palm Beach. Mosquitoes, roaches, rodents, termites, centipedes, millipedes and more." />
+    <link rel="canonical" href="https://ap-pest-control.com/southflorida" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AP Pest Control" />
+    <meta property="og:title" content="South Florida Pest Control — AP Pest" />
+    <meta property="og:description" content="Neon-bright service across South Florida — Miami to Palm Beach. Built for humidity, hurricanes, and everything that bites." />
+    <meta property="og:url" content="https://ap-pest-control.com/southflorida" />
+    <meta property="og:image" content="https://ap-pest-control.com/social/south-share.png" />
+    <meta property="og:image:secure_url" content="https://ap-pest-control.com/social/south-share.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1536" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="AP Pest Control South Florida service preview" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="South Florida Pest Control — AP Pest" />
+    <meta name="twitter:description" content="Neon-bright service across South Florida — Miami to Palm Beach. Built for humidity, hurricanes, and everything that bites." />
+    <meta name="twitter:image" content="https://ap-pest-control.com/social/south-share.png" />
+    <meta name="twitter:image:alt" content="AP Pest Control South Florida service preview" />
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
