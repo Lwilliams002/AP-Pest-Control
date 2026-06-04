@@ -346,7 +346,6 @@
 }
 
 
-.realistic-pest-icon.pest-art-rodent-control,
 .realistic-pest-icon.pest-art-nuisance-wildlife,
 .realistic-pest-icon.pest-art-pigeon-and-bird-control {
   filter: brightness(0) saturate(100%) invert(37%) sepia(8%) saturate(580%) hue-rotate(348deg)
@@ -371,6 +370,7 @@
 .realistic-pest-icon.pest-art-cricket-control,
 .realistic-pest-icon.pest-art-kissing-bug-control,
 .realistic-pest-icon.pest-art-centipede-control,
+.realistic-pest-icon.pest-art-rodent-control,
 .realistic-pest-icon.pest-art-silverfish-pest-control {
   filter: saturate(1.12) contrast(1.08) drop-shadow(0 8px 7px rgba(0, 0, 0, 0.2));
 }

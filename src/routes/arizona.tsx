@@ -25,8 +25,24 @@ export const Route = createFileRoute("/arizona")({
         property: "og:description",
         content: "Sonoran Desert pest control rooted in 35+ years of experience in the Valley.",
       },
-      { property: "og:image", content: azImg },
+      { property: "og:image", content: "https://ap-pest-control.com/social/arizona-share.png" },
+      {
+        property: "og:image:secure_url",
+        content: "https://ap-pest-control.com/social/arizona-share.png",
+      },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1536" },
+      { property: "og:image:height", content: "1024" },
+      { property: "og:image:alt", content: "AP Pest Control Arizona service preview" },
       { property: "og:url", content: "https://ap-pest-control.com/arizona" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Arizona Pest Control — AP Pest" },
+      {
+        name: "twitter:description",
+        content: "Sonoran Desert pest control rooted in 35+ years of experience in the Valley.",
+      },
+      { name: "twitter:image", content: "https://ap-pest-control.com/social/arizona-share.png" },
+      { name: "twitter:image:alt", content: "AP Pest Control Arizona service preview" },
     ],
     links: [{ rel: "canonical", href: "https://ap-pest-control.com/arizona" }],
     scripts: [
@@ -89,8 +105,8 @@ function ArizonaPage() {
               </h2>
               <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
                 35+ years of experience protecting Arizona homes from scorpions, spiders, termites,
-                roaches, rodents and everything else the desert serves up after sundown. Same family.
-                Same standard.
+                roaches, rodents and everything else the desert serves up after sundown. Same
+                family. Same standard.
               </p>
               <Link
                 to="/contact"

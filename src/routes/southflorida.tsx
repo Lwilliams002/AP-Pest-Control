@@ -26,8 +26,25 @@ export const Route = createFileRoute("/southflorida")({
         content:
           "Neon-bright service across South Florida — Miami to Palm Beach. Built for humidity, hurricanes, and everything that bites.",
       },
-      { property: "og:image", content: miamiImg },
+      { property: "og:image", content: "https://ap-pest-control.com/social/south-share.png" },
+      {
+        property: "og:image:secure_url",
+        content: "https://ap-pest-control.com/social/south-share.png",
+      },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1536" },
+      { property: "og:image:height", content: "1024" },
+      { property: "og:image:alt", content: "AP Pest Control South Florida service preview" },
       { property: "og:url", content: "https://ap-pest-control.com/southflorida" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "South Florida Pest Control — AP Pest" },
+      {
+        name: "twitter:description",
+        content:
+          "Neon-bright service across South Florida — Miami to Palm Beach. Built for humidity, hurricanes, and everything that bites.",
+      },
+      { name: "twitter:image", content: "https://ap-pest-control.com/social/south-share.png" },
+      { name: "twitter:image:alt", content: "AP Pest Control South Florida service preview" },
     ],
     links: [{ rel: "canonical", href: "https://ap-pest-control.com/southflorida" }],
     scripts: [
